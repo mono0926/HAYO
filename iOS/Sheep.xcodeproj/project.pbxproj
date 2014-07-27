@@ -1,0 +1,634 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3DBC48682F2F47E98CC8C415 /* libPods-Sheep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */; };
+		583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */; };
+		FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06BE13198117A1007367EA /* ObjcHelper.m */; };
+		FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C17851980B64A0070FAD3 /* Crashlytics.framework */; };
+		FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */; };
+		FEC4AB4019819E0C00E84978 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3F19819E0C00E84978 /* Account.swift */; };
+		FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB4219819F5300E84978 /* IOUtil.swift */; };
+		FEC4AB451981AB1B00E84978 /* sheep.caf in Resources */ = {isa = PBXBuildFile; fileRef = FEC4AB441981AA4400E84978 /* sheep.caf */; };
+		FECB66EA1980B2DA00FFD05C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECB66E91980B2DA00FFD05C /* AppDelegate.swift */; };
+		FECB66EC1980B2DA00FFD05C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECB66EB1980B2DA00FFD05C /* ViewController.swift */; };
+		FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FECB66ED1980B2DA00FFD05C /* Main.storyboard */; };
+		FECB66F11980B2DA00FFD05C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECB66F01980B2DA00FFD05C /* Images.xcassets */; };
+		FECB66FD1980B2DA00FFD05C /* SheepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECB66FC1980B2DA00FFD05C /* SheepTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FECB66F71980B2DA00FFD05C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FECB66DC1980B2DA00FFD05C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FECB66E31980B2DA00FFD05C;
+			remoteInfo = Sheep;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sheep.xcconfig"; path = "Pods/Pods-Sheep.xcconfig"; sourceTree = "<group>"; };
+		58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sheep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SheepTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheepTests.xcconfig"; path = "Pods/Pods-SheepTests.xcconfig"; sourceTree = "<group>"; };
+		FE06BE12198117A1007367EA /* ObjcHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcHelper.h; sourceTree = "<group>"; };
+		FE06BE13198117A1007367EA /* ObjcHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcHelper.m; sourceTree = "<group>"; };
+		FE7C17851980B64A0070FAD3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		FE7C17871980B6620070FAD3 /* Sheep-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sheep-Bridging-Header.h"; sourceTree = "<group>"; };
+		FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sheep.entitlements; sourceTree = "<group>"; };
+		FEC4AB3D19819DE000E84978 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		FEC4AB3F19819E0C00E84978 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		FEC4AB4219819F5300E84978 /* IOUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOUtil.swift; sourceTree = "<group>"; };
+		FEC4AB441981AA4400E84978 /* sheep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sheep.caf; sourceTree = "<group>"; };
+		FECB66E41980B2DA00FFD05C /* Sheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FECB66E81980B2DA00FFD05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FECB66E91980B2DA00FFD05C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FECB66EB1980B2DA00FFD05C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FECB66EE1980B2DA00FFD05C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FECB66F01980B2DA00FFD05C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FECB66F61980B2DA00FFD05C /* SheepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FECB66FB1980B2DA00FFD05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FECB66FC1980B2DA00FFD05C /* SheepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FECB66E11980B2DA00FFD05C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */,
+				3DBC48682F2F47E98CC8C415 /* libPods-Sheep.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FECB66F31980B2DA00FFD05C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		82555195273D4FD39C824368 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE7C17851980B64A0070FAD3 /* Crashlytics.framework */,
+				58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */,
+				6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FEC4AB3819819BF500E84978 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FEC4AB3919819BFB00E84978 /* View */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		FEC4AB3919819BFB00E84978 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FECB66EB1980B2DA00FFD05C /* ViewController.swift */,
+				FECB66ED1980B2DA00FFD05C /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		FEC4AB3A19819DB900E84978 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				FEC4AB4119819F4800E84978 /* Util */,
+				FEC4AB3B19819DD100E84978 /* Model */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		FEC4AB3B19819DD100E84978 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */,
+				FEC4AB3F19819E0C00E84978 /* Account.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FEC4AB4119819F4800E84978 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FEC4AB4219819F5300E84978 /* IOUtil.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		FECB66DB1980B2DA00FFD05C = {
+			isa = PBXGroup;
+			children = (
+				FECB66E61980B2DA00FFD05C /* Sheep */,
+				FECB66F91980B2DA00FFD05C /* SheepTests */,
+				FECB66E51980B2DA00FFD05C /* Products */,
+				15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */,
+				82555195273D4FD39C824368 /* Frameworks */,
+				73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		FECB66E51980B2DA00FFD05C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FECB66E41980B2DA00FFD05C /* Sheep.app */,
+				FECB66F61980B2DA00FFD05C /* SheepTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FECB66E61980B2DA00FFD05C /* Sheep */ = {
+			isa = PBXGroup;
+			children = (
+				FE7C17871980B6620070FAD3 /* Sheep-Bridging-Header.h */,
+				FEC4AB3819819BF500E84978 /* UI */,
+				FEC4AB3A19819DB900E84978 /* Library */,
+				FE06BE12198117A1007367EA /* ObjcHelper.h */,
+				FE06BE13198117A1007367EA /* ObjcHelper.m */,
+				FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */,
+				FECB66E91980B2DA00FFD05C /* AppDelegate.swift */,
+				FECB66F01980B2DA00FFD05C /* Images.xcassets */,
+				FEC4AB441981AA4400E84978 /* sheep.caf */,
+				FECB66E71980B2DA00FFD05C /* Supporting Files */,
+			);
+			path = Sheep;
+			sourceTree = "<group>";
+		};
+		FECB66E71980B2DA00FFD05C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FECB66E81980B2DA00FFD05C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FECB66F91980B2DA00FFD05C /* SheepTests */ = {
+			isa = PBXGroup;
+			children = (
+				FECB66FC1980B2DA00FFD05C /* SheepTests.swift */,
+				FECB66FA1980B2DA00FFD05C /* Supporting Files */,
+			);
+			path = SheepTests;
+			sourceTree = "<group>";
+		};
+		FECB66FA1980B2DA00FFD05C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FECB66FB1980B2DA00FFD05C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FECB66E31980B2DA00FFD05C /* Sheep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FECB67001980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "Sheep" */;
+			buildPhases = (
+				CA98AC92D3A24BDBB2B462DC /* Check Pods Manifest.lock */,
+				FECB66E01980B2DA00FFD05C /* Sources */,
+				FECB66E11980B2DA00FFD05C /* Frameworks */,
+				FECB66E21980B2DA00FFD05C /* Resources */,
+				11DB1E670D3E48919C8E64AB /* Copy Pods Resources */,
+				FE7C17841980B62D0070FAD3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sheep;
+			productName = Sheep;
+			productReference = FECB66E41980B2DA00FFD05C /* Sheep.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FECB66F51980B2DA00FFD05C /* SheepTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FECB67031980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "SheepTests" */;
+			buildPhases = (
+				02954D9DD00A455C891506E0 /* Check Pods Manifest.lock */,
+				FECB66F21980B2DA00FFD05C /* Sources */,
+				FECB66F31980B2DA00FFD05C /* Frameworks */,
+				FECB66F41980B2DA00FFD05C /* Resources */,
+				6CA076177BDA44DD94C95115 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FECB66F81980B2DA00FFD05C /* PBXTargetDependency */,
+			);
+			name = SheepTests;
+			productName = SheepTests;
+			productReference = FECB66F61980B2DA00FFD05C /* SheepTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FECB66DC1980B2DA00FFD05C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Sheep;
+				TargetAttributes = {
+					FECB66E31980B2DA00FFD05C = {
+						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = T2A5TG8364;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+					FECB66F51980B2DA00FFD05C = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = FECB66E31980B2DA00FFD05C;
+					};
+				};
+			};
+			buildConfigurationList = FECB66DF1980B2DA00FFD05C /* Build configuration list for PBXProject "Sheep" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FECB66DB1980B2DA00FFD05C;
+			productRefGroup = FECB66E51980B2DA00FFD05C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FECB66E31980B2DA00FFD05C /* Sheep */,
+				FECB66F51980B2DA00FFD05C /* SheepTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FECB66E21980B2DA00FFD05C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */,
+				FEC4AB451981AB1B00E84978 /* sheep.caf in Resources */,
+				FECB66F11980B2DA00FFD05C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FECB66F41980B2DA00FFD05C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02954D9DD00A455C891506E0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		11DB1E670D3E48919C8E64AB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Sheep-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CA076177BDA44DD94C95115 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-SheepTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA98AC92D3A24BDBB2B462DC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE7C17841980B62D0070FAD3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run d95b1c50531d0d17895fc1a2c84053145215f757 06a55988c3cabcf78001bf22eb05a53885e06aa86a368ea54d440601ccfc9239";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FECB66E01980B2DA00FFD05C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEC4AB4019819E0C00E84978 /* Account.swift in Sources */,
+				FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */,
+				FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */,
+				FECB66EC1980B2DA00FFD05C /* ViewController.swift in Sources */,
+				FECB66EA1980B2DA00FFD05C /* AppDelegate.swift in Sources */,
+				FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FECB66F21980B2DA00FFD05C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FECB66FD1980B2DA00FFD05C /* SheepTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FECB66F81980B2DA00FFD05C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FECB66E31980B2DA00FFD05C /* Sheep */;
+			targetProxy = FECB66F71980B2DA00FFD05C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FECB66ED1980B2DA00FFD05C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FECB66EE1980B2DA00FFD05C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FECB66FE1980B2DA00FFD05C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FECB66FF1980B2DA00FFD05C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FECB67011980B2DA00FFD05C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */;
+			buildSettings = {
+				APP_NAME = SheepDev;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				BUNDLE_ID_SUFFIX = .dev;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Sheep/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FECC3ACD-9B01-4F2E-967E-AC0C9AA48D17";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sheep/Sheep-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FECB67021980B2DA00FFD05C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */;
+			buildSettings = {
+				APP_NAME = Sheep;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				BUNDLE_ID_SUFFIX = "";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Sheep/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "53C5148E-9972-4ABB-9587-B859989449A3";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sheep/Sheep-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Release;
+		};
+		FECB67041980B2DA00FFD05C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sheep.app/Sheep";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SheepTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		FECB67051980B2DA00FFD05C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sheep.app/Sheep";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SheepTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FECB66DF1980B2DA00FFD05C /* Build configuration list for PBXProject "Sheep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FECB66FE1980B2DA00FFD05C /* Debug */,
+				FECB66FF1980B2DA00FFD05C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FECB67001980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "Sheep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FECB67011980B2DA00FFD05C /* Debug */,
+				FECB67021980B2DA00FFD05C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FECB67031980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "SheepTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FECB67041980B2DA00FFD05C /* Debug */,
+				FECB67051980B2DA00FFD05C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FEC4AB3D19819DE000E84978 /* Model.xcdatamodel */,
+			);
+			currentVersion = FEC4AB3D19819DE000E84978 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FECB66DC1980B2DA00FFD05C /* Project object */;
+}

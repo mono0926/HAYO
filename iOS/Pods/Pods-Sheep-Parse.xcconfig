@@ -1,0 +1,2 @@
+PODS_SHEEP_PARSE_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/Parse"
+PODS_SHEEP_PARSE_OTHER_LDFLAGS = -framework AudioToolbox -framework CFNetwork -framework CoreGraphics -framework CoreLocation -framework MobileCoreServices -framework Parse -framework QuartzCore -framework Security -framework StoreKit -framework SystemConfiguration

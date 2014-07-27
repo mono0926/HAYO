@@ -1,0 +1,40 @@
+platform :ios, "7.0"
+
+inhibit_all_warnings!
+
+def import
+  pod 'BlocksKit'
+  pod 'MagicalRecord'
+  pod 'AFNetworking'
+  pod 'GoogleAnalytics-iOS-SDK'
+  pod 'SVProgressHUD'
+  pod 'Toast'
+  pod 'DACircularProgress'
+  pod 'Typhoon'
+  pod 'JDStatusBarNotification'
+  pod 'CWStatusBarNotification'
+  pod 'SDWebImage'
+  pod 'FFCircularProgressView'
+  pod 'Masonry'
+  pod 'Parse'
+  # pod 'GPUImage'
+  # pod 'CocoaLumberjack'
+  # pod 'Bolts'
+  # pod 'AMScrollingNavbar'
+  # pod 'ReactiveCocoa'
+  # pod 'Lockbox'
+  # pod 'GVUserDefaults'
+  # pod 'UICKeyChainStore'
+  # pod 'Appirater'
+  # pod 'CrashlyticsFramework' # http://qiita.com/asakahara/items/cfa404267ed60fb21927
+end
+
+target :Sheep, :exclusive => true do
+  import
+end
+
+# Testing framework for Test target.
+target :SheepTests, :exclusive => true do
+  # pod 'Kiwi/XCTest'
+  import
+end
