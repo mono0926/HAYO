@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SER-Ln-0bs">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="0Bj-W8-C5y">
+            <objects>
+                <viewController id="SER-Ln-0bs" customClass="LoginViewController" customModule="Sheep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aYM-Ks-Geu"/>
+                        <viewControllerLayoutGuide type="bottom" id="15Y-WX-Puz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jdk-Os-CCz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q53-lI-iOA">
+                                <rect key="frame" x="211" y="145" width="179" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="99" id="FgE-PF-OCx"/>
+                                    <constraint firstAttribute="width" constant="179" id="i30-z3-k7a"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzt-fr-O5b">
+                                <rect key="frame" x="214" y="413" width="74" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="6oG-3d-kWj"/>
+                                    <constraint firstAttribute="height" constant="45" id="LfE-Ep-2li"/>
+                                </constraints>
+                                <state key="normal" image="facebook24.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookDidTap:" destination="SER-Ln-0bs" eventType="touchUpInside" id="6ap-eD-VIa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPN-ra-71S">
+                                <rect key="frame" x="312" y="413" width="74" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="E2i-jX-bk7"/>
+                                    <constraint firstAttribute="height" constant="45" id="TGP-zI-oZz"/>
+                                </constraints>
+                                <state key="normal" image="twitter_logo.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgX-J0-gIU">
+                                <rect key="frame" x="214" y="468" width="172" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="gi2-N9-Fga"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                <state key="normal" title="Use your Email">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4n-7i-oxL">
+                                <rect key="frame" x="276" y="385" width="49" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.43137258291244507" green="0.73725491762161255" blue="0.79215693473815918" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="LgX-J0-gIU" firstAttribute="top" secondItem="gzt-fr-O5b" secondAttribute="bottom" constant="10" id="5EK-Tb-YAv"/>
+                            <constraint firstAttribute="centerX" secondItem="Q53-lI-iOA" secondAttribute="centerX" id="8vp-nU-qYg"/>
+                            <constraint firstItem="gPN-ra-71S" firstAttribute="top" secondItem="z4n-7i-oxL" secondAttribute="bottom" constant="16" id="FLb-X6-Pco"/>
+                            <constraint firstAttribute="centerX" secondItem="LgX-J0-gIU" secondAttribute="centerX" id="FNF-Uo-bfy"/>
+                            <constraint firstItem="LgX-J0-gIU" firstAttribute="top" secondItem="gPN-ra-71S" secondAttribute="bottom" constant="10" id="GWJ-Sg-jUA"/>
+                            <constraint firstItem="15Y-WX-Puz" firstAttribute="top" secondItem="LgX-J0-gIU" secondAttribute="bottom" constant="108" id="Gih-LT-9YV"/>
+                            <constraint firstAttribute="centerX" secondItem="z4n-7i-oxL" secondAttribute="centerX" id="Jgn-3X-24M"/>
+                            <constraint firstItem="Q53-lI-iOA" firstAttribute="top" secondItem="aYM-Ks-Geu" secondAttribute="bottom" constant="125" id="XGP-L1-cde"/>
+                            <constraint firstItem="LgX-J0-gIU" firstAttribute="leading" secondItem="gzt-fr-O5b" secondAttribute="leading" id="eV7-3J-0o3"/>
+                            <constraint firstItem="LgX-J0-gIU" firstAttribute="trailing" secondItem="gPN-ra-71S" secondAttribute="trailing" id="nkV-vZ-Oge"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailButton" destination="LgX-J0-gIU" id="IYv-JV-DKj"/>
+                        <outlet property="facebookButton" destination="gzt-fr-O5b" id="PuR-Yf-za3"/>
+                        <outlet property="twitterButton" destination="gPN-ra-71S" id="aQS-I5-CRX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="deE-Wp-XrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="672"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="facebook24.png" width="25" height="25"/>
+        <image name="logo.png" width="179" height="99"/>
+        <image name="twitter_logo.png" width="25" height="21"/>
+    </resources>
+</document>

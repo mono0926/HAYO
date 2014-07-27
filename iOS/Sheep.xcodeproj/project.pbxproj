@@ -10,6 +10,14 @@
 		3DBC48682F2F47E98CC8C415 /* libPods-Sheep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */; };
 		583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */; };
 		FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06BE13198117A1007367EA /* ObjcHelper.m */; };
+		FE5E82841985898000898315 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE5E82831985898000898315 /* Login.storyboard */; };
+		FE5E82861985899400898315 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5E82851985899400898315 /* LoginViewController.swift */; };
+		FE5E828E19858E0D00898315 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E828C19858E0D00898315 /* logo.png */; };
+		FE5E828F19858E0D00898315 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E828D19858E0D00898315 /* logo@2x.png */; };
+		FE5E829619858F1400898315 /* facebook24.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E829419858F1400898315 /* facebook24.png */; };
+		FE5E829719858F1400898315 /* facebook24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E829519858F1400898315 /* facebook24@2x.png */; };
+		FE5E829A198590F500898315 /* twitter_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E8298198590F500898315 /* twitter_logo.png */; };
+		FE5E829B198590F500898315 /* twitter_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E8299198590F500898315 /* twitter_logo@2x.png */; };
 		FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C17851980B64A0070FAD3 /* Crashlytics.framework */; };
 		FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */; };
 		FEC4AB4019819E0C00E84978 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3F19819E0C00E84978 /* Account.swift */; };
@@ -39,6 +47,14 @@
 		73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheepTests.xcconfig"; path = "Pods/Pods-SheepTests.xcconfig"; sourceTree = "<group>"; };
 		FE06BE12198117A1007367EA /* ObjcHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcHelper.h; sourceTree = "<group>"; };
 		FE06BE13198117A1007367EA /* ObjcHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcHelper.m; sourceTree = "<group>"; };
+		FE5E82831985898000898315 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		FE5E82851985899400898315 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FE5E828C19858E0D00898315 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		FE5E828D19858E0D00898315 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		FE5E829419858F1400898315 /* facebook24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook24.png; sourceTree = "<group>"; };
+		FE5E829519858F1400898315 /* facebook24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook24@2x.png"; sourceTree = "<group>"; };
+		FE5E8298198590F500898315 /* twitter_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_logo.png; sourceTree = "<group>"; };
+		FE5E8299198590F500898315 /* twitter_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter_logo@2x.png"; sourceTree = "<group>"; };
 		FE7C17851980B64A0070FAD3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FE7C17871980B6620070FAD3 /* Sheep-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sheep-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sheep.entitlements; sourceTree = "<group>"; };
@@ -88,6 +104,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE5E82821985896D00898315 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FE5E82831985898000898315 /* Login.storyboard */,
+				FE5E82851985899400898315 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		FE5E828A19858DFC00898315 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FE5E828B19858E0300898315 /* Login */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FE5E828B19858E0300898315 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FE5E828C19858E0D00898315 /* logo.png */,
+				FE5E828D19858E0D00898315 /* logo@2x.png */,
+				FE5E829419858F1400898315 /* facebook24.png */,
+				FE5E829519858F1400898315 /* facebook24@2x.png */,
+				FE5E8298198590F500898315 /* twitter_logo.png */,
+				FE5E8299198590F500898315 /* twitter_logo@2x.png */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		FEC4AB3819819BF500E84978 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +145,7 @@
 		FEC4AB3919819BFB00E84978 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE5E82821985896D00898315 /* Login */,
 				FECB66EB1980B2DA00FFD05C /* ViewController.swift */,
 				FECB66ED1980B2DA00FFD05C /* Main.storyboard */,
 			);
@@ -155,13 +202,14 @@
 		FECB66E61980B2DA00FFD05C /* Sheep */ = {
 			isa = PBXGroup;
 			children = (
+				FECB66E91980B2DA00FFD05C /* AppDelegate.swift */,
+				FE5E828A19858DFC00898315 /* Resources */,
 				FE7C17871980B6620070FAD3 /* Sheep-Bridging-Header.h */,
 				FEC4AB3819819BF500E84978 /* UI */,
 				FEC4AB3A19819DB900E84978 /* Library */,
 				FE06BE12198117A1007367EA /* ObjcHelper.h */,
 				FE06BE13198117A1007367EA /* ObjcHelper.m */,
 				FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */,
-				FECB66E91980B2DA00FFD05C /* AppDelegate.swift */,
 				FECB66F01980B2DA00FFD05C /* Images.xcassets */,
 				FEC4AB441981AA4400E84978 /* sheep.caf */,
 				FECB66E71980B2DA00FFD05C /* Supporting Files */,
@@ -285,8 +333,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5E829A198590F500898315 /* twitter_logo.png in Resources */,
+				FE5E82841985898000898315 /* Login.storyboard in Resources */,
+				FE5E828F19858E0D00898315 /* logo@2x.png in Resources */,
+				FE5E828E19858E0D00898315 /* logo.png in Resources */,
 				FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */,
+				FE5E829619858F1400898315 /* facebook24.png in Resources */,
 				FEC4AB451981AB1B00E84978 /* sheep.caf in Resources */,
+				FE5E829B198590F500898315 /* twitter_logo@2x.png in Resources */,
+				FE5E829719858F1400898315 /* facebook24@2x.png in Resources */,
 				FECB66F11980B2DA00FFD05C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5E82861985899400898315 /* LoginViewController.swift in Sources */,
 				FEC4AB4019819E0C00E84978 /* Account.swift in Sources */,
 				FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */,
 				FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */,
@@ -503,7 +559,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */;
 			buildSettings = {
-				APP_NAME = SheepDev;
+				APP_NAME = PressureDev;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_ID_SUFFIX = .dev;
@@ -528,7 +584,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */;
 			buildSettings = {
-				APP_NAME = Sheep;
+				APP_NAME = Pressure;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_ID_SUFFIX = "";
