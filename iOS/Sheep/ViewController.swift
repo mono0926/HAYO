@@ -19,21 +19,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if Account.MR_countOfEntities() > 0 {
-            let account = Account.MR_findFirst() as Account
-            nameTextField.text = account.username
-            nameTextField.enabled = false
-            registerButton.enabled = false
-            PFUser.logInWithUsernameInBackground(account.username, password: "password", block: {user, error in
-                
-                self.user = user
-                self.loadUsers()
-                })
-        }
+        
+        let user = PFUser.currentUser()
+        nameTextField.text = user.username
+        self.nameTextField.enabled = false
+        self.registerButton.enabled = false
+        self.loadUsers()
+        PFUser.logInWithUsernameInBackground(user.username, password: nil, block: {user, error in
+            
+            self.user = user
+            self.loadUsers()
+            })
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
     }
     
     func loadUsers() {
@@ -46,31 +47,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func registerButtonDidTap(sender: UIButton) {
-        
-        let user = PFUser()
-        let username = nameTextField.text
-        user.username = username
-        user.password = "password"
-        user.signUpInBackgroundWithBlock { succeeded, error in
-         
-            if error {
-                println(error)
-                return;
-            }
-            let account = Account.MR_createEntity() as Account
-            account.username = username
-            account.save()
-            self.nameTextField.enabled = false
-            self.registerButton.enabled = false
-            
-            let installation = PFInstallation.currentInstallation()
-            installation["user"] = PFUser.currentUser()
-            installation.saveInBackground()
-            self.loadUsers()
-        }
     }
 
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {

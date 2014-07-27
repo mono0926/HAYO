@@ -12,22 +12,35 @@ import AVFoundation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
-    var window: UIWindow?
+    var window: UIWindow!
     var player: AVAudioPlayer?
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         
+        window = UIWindow(frame:UIScreen.mainScreen().bounds)
+        
+        let sb = UIStoryboard(name: "Login", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as UIViewController
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        
         Parse.setApplicationId(ObjcHelper.parseApplicationId(), clientKey: ObjcHelper.parseClientKey())
         
+        PFFacebookUtils.initializeFacebook()
         
         MagicalRecord.setupCoreDataStack()
         
         ObjcHelper.registerRemoteNotification()
         
         Crashlytics.startWithAPIKey("d95b1c50531d0d17895fc1a2c84053145215f757")
-        
-        return true
+        return true;
+    }
+    
+    func navigateToMain() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as UIViewController
+        window.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication!) {
@@ -81,6 +94,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         ObjcHelper.registerRemoteNotificationForIOS8()
 //        UIApplication.sharedApplication().registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
+        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication, withSession: PFFacebookUtils.session())
     }
     
     /*
