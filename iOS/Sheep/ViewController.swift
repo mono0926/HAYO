@@ -26,9 +26,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.registerButton.enabled = false
         self.loadUsers()
         PFUser.logInWithUsernameInBackground(user.username, password: nil, block: {user, error in
-            
             self.user = user
             self.loadUsers()
+            
+            let installation = PFInstallation.currentInstallation()
+            println(installation["user"])
+            installation["user"] = PFUser.currentUser()
+            installation.saveInBackground()
             })
     }
     
