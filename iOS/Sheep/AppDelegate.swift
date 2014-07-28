@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId(ObjcHelper.parseApplicationId(), clientKey: ObjcHelper.parseClientKey())
         
         PFFacebookUtils.initializeFacebook()
+        PFTwitterUtils.initializeWithConsumerKey("YhUif46nJ7plXPW35wasVRLNH", consumerSecret: "lk95mJpSKThQSaujTagAyEZuQre2HbspOLP2e8MwrowYm37J98")
         
         MagicalRecord.setupCoreDataStack()
         

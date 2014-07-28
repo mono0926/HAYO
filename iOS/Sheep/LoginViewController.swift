@@ -35,6 +35,22 @@ class LoginViewController: UIViewController {
         button.layer.cornerRadius = 4
     }
     
+    @IBAction func twitterDidTap(sender: UIButton) {
+        PFTwitterUtils.logInWithBlock {
+            (user: PFUser!, error: NSError!) in
+            if !user {
+                println("Uh oh. The user cancelled the Twitter login.")
+                return
+            }
+            if user.isNew {
+                println("User signed up and logged in with Twitter!")
+            } else {
+                println("User logged in with Twitter!")
+            }
+            (UIApplication.sharedApplication().delegate as AppDelegate).navigateToMain()
+        }
+    }
+    
     @IBAction func facebookDidTap(sender: UIButton) {
         let permissions = ["user_about_me", "user_relationships", "user_birthday", "user_location"]
         PFFacebookUtils.logInWithPermissions(permissions, block: {user, error in
