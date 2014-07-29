@@ -13,6 +13,8 @@
 		FE12D6AE1987BA510019DF03 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE12D6AD1987BA510019DF03 /* ViewUtils.swift */; };
 		FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */; };
 		FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09219874F1B00CEE29B /* SNSClient.swift */; };
+		FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE50AD0A1987D8700054B5F3 /* FriendCell.xib */; };
+		FE50AD0D1987D87C0054B5F3 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */; };
 		FE5E82841985898000898315 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE5E82831985898000898315 /* Login.storyboard */; };
 		FE5E82861985899400898315 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5E82851985899400898315 /* LoginViewController.swift */; };
 		FE5E828E19858E0D00898315 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E828C19858E0D00898315 /* logo.png */; };
@@ -54,6 +56,8 @@
 		FE12D6AD1987BA510019DF03 /* ViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FE38E09219874F1B00CEE29B /* SNSClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSClient.swift; sourceTree = "<group>"; };
+		FE50AD0A1987D8700054B5F3 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
+		FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		FE5E82831985898000898315 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		FE5E82851985899400898315 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FE5E828C19858E0D00898315 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 			children = (
 				FECB66ED1980B2DA00FFD05C /* Main.storyboard */,
 				FECB66EB1980B2DA00FFD05C /* MainViewController.swift */,
+				FE50AD0A1987D8700054B5F3 /* FriendCell.xib */,
+				FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				FE5E828F19858E0D00898315 /* logo@2x.png in Resources */,
 				FE5E828E19858E0D00898315 /* logo.png in Resources */,
 				FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */,
+				FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */,
 				FE5E829619858F1400898315 /* facebook24.png in Resources */,
 				FEC4AB451981AB1B00E84978 /* sheep.caf in Resources */,
 				FE5E829B198590F500898315 /* twitter_logo@2x.png in Resources */,
@@ -487,6 +494,7 @@
 				FEC4AB4019819E0C00E84978 /* Account.swift in Sources */,
 				FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */,
 				FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */,
+				FE50AD0D1987D87C0054B5F3 /* FriendCell.swift in Sources */,
 				FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */,
 				FECB66EC1980B2DA00FFD05C /* MainViewController.swift in Sources */,
 				FECB66EA1980B2DA00FFD05C /* AppDelegate.swift in Sources */,

@@ -64,7 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication!, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]!) {
         
         let notification = CWStatusBarNotification()
-        notification.displayNotificationWithMessage("(　´･‿･｀)", forDuration: 5)
+        let message = NSString(format: "%@ < HAYO!!", Account.instance().nickname)
+        notification.displayNotificationWithMessage(message, forDuration: 5)
         let path = NSBundle.mainBundle().pathForResource("sheep", ofType: "caf")
         let url = NSURL(fileURLWithPath: path)
         player = AVAudioPlayer(contentsOfURL: url, error: nil)

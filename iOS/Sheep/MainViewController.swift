@@ -9,18 +9,20 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
                             
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    var user: PFUser?
+//    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var users: Array<PFUser>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.registerNib(UINib(nibName: "FriendCell", bundle: nil), forCellWithReuseIdentifier: "FriendCell")
     
-        self.tableView.backgroundColor = UIColor.clearColor()
+//        self.tableView.backgroundColor = UIColor.clearColor()
         
         self.configureBackgroundTheme()
         
@@ -41,30 +43,41 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let query = PFUser.query()
         users = query.findObjects() as Array<PFUser>?
         println(users)
-        self.tableView.reloadData()
+        collectionView.reloadData()
     }
-
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    
+    func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
         let count = users?.count
         return count ? count! : 0
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView!) -> Int
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int
     {
         return 1
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as UITableViewCell
+    func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FriendCell", forIndexPath: indexPath) as FriendCell
         let user = users![indexPath.row]
         user.fetchIfNeeded()
         println(user)
-        cell.textLabel.text = user.valueForKey("nickname") as String
+        
+        cell.imageView.sd_setImageWithURL(NSURL(string: user.getImageURL()), completed: {image, error, type, url -> () in
+            })
         return cell
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
+        
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        UIView.animateWithDuration(0.3, animations: {
+            cell.alpha = 0.5
+            UIView.animateWithDuration(0.1, animations: {
+                cell.alpha = 1
+                })
+            })
+        
+        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         println(indexPath)
         let user = users![indexPath.row]
         let userQuery = PFUser.query()
@@ -76,7 +89,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let push = PFPush()
         push.setQuery(pushQuery)
-        let data = ["alert": "(　´･‿･｀)", "sound": "sheep.caf"]
+        let message = NSString(format: "%@ < HAYO!!", Account.instance().nickname)
+        let data = ["alert": message, "sound": "sheep.caf"]
 //        push.setMessage("(　´･‿･｀)")
         push.setData(data)
         push.sendPushInBackground()

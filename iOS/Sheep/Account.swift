@@ -74,4 +74,7 @@ extension PFUser {
         return self.objectForKey("imageURL") as String
     }
     }
+    func getImageURL() -> String {
+        return self.imageURL
+    }
 }

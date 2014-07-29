@@ -17,34 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="roU-co-T7a">
-                                <rect key="frame" x="0.0" y="128" width="600" height="472"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" textLabel="XOm-e3-jpf" style="IBUITableViewCellStyleDefault" id="XgW-sf-FgB">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XgW-sf-FgB" id="4to-nk-HvF">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XOm-e3-jpf">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="JTi-r5-Djo"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="KbC-9s-Geo"/>
-                                </connections>
-                            </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tgc-ZQ-sX7">
                                 <rect key="frame" x="10" y="30" width="88" height="88"/>
                                 <constraints>
@@ -58,24 +30,41 @@
                                 <color key="textColor" white="0.28999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jME-aa-N5q">
+                                <rect key="frame" x="0.0" y="512" width="600" height="88"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="qh9-wQ-KB2"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="13h-lt-QCk">
+                                    <size key="itemSize" width="88" height="88"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="99p-ED-vo8"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="GdR-SO-uoA"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="utT-sx-NGd" firstAttribute="bottom" secondItem="Tgc-ZQ-sX7" secondAttribute="bottom" id="3cP-Tf-laU"/>
                             <constraint firstItem="Tgc-ZQ-sX7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="8ym-YR-m2o"/>
+                            <constraint firstAttribute="trailing" secondItem="jME-aa-N5q" secondAttribute="trailing" id="CCY-4B-2O7"/>
                             <constraint firstItem="utT-sx-NGd" firstAttribute="leading" secondItem="Tgc-ZQ-sX7" secondAttribute="trailing" constant="10" id="Cor-Qm-2X8"/>
-                            <constraint firstAttribute="trailing" secondItem="roU-co-T7a" secondAttribute="trailing" id="OJw-3F-FoE"/>
                             <constraint firstItem="Tgc-ZQ-sX7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="OTT-nF-Guw"/>
-                            <constraint firstItem="roU-co-T7a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PUl-12-1wr"/>
+                            <constraint firstItem="jME-aa-N5q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VKC-hc-Ifl"/>
                             <constraint firstAttribute="trailing" secondItem="utT-sx-NGd" secondAttribute="trailing" constant="10" id="b4c-Ui-Sad"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="roU-co-T7a" secondAttribute="bottom" id="ftv-Ni-sZt"/>
-                            <constraint firstItem="roU-co-T7a" firstAttribute="top" secondItem="Tgc-ZQ-sX7" secondAttribute="bottom" constant="10" id="i01-vb-FaC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jME-aa-N5q" secondAttribute="bottom" id="uVv-nb-cf2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="jME-aa-N5q" id="a7S-2W-jgN"/>
                         <outlet property="nameLabel" destination="utT-sx-NGd" id="YZg-cH-TYu"/>
                         <outlet property="profileImageView" destination="Tgc-ZQ-sX7" id="P5Q-kx-UIl"/>
-                        <outlet property="tableView" destination="roU-co-T7a" id="4Yb-aN-xuI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
