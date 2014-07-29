@@ -12,12 +12,12 @@
 	<array>
 		<string>HelveticaNeue</string>
 		<string>HelveticaNeue-Medium</string>
-		<string>HiraKakuProN-W6</string>
 		<string>HiraKakuProN-W3</string>
+		<string>HiraKakuProN-W6</string>
 		<string>HelveticaNeue-Bold</string>
 	</array>
 	<key>length</key>
-	<integer>3037229</integer>
+	<integer>3581093</integer>
 	<key>version</key>
 	<integer>37</integer>
 </dict>
