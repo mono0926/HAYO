@@ -17,18 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
+        Parse.setApplicationId(ObjcHelper.parseApplicationId(), clientKey: ObjcHelper.parseClientKey())        
+        PFFacebookUtils.initializeFacebook()
+        PFTwitterUtils.initializeWithConsumerKey("YhUif46nJ7plXPW35wasVRLNH", consumerSecret: "lk95mJpSKThQSaujTagAyEZuQre2HbspOLP2e8MwrowYm37J98")
         
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
+//        navigateToMain();
         
         let sb = UIStoryboard(name: "Login", bundle: nil)
         let vc = sb.instantiateInitialViewController() as UIViewController
         window.rootViewController = vc
+
         window.makeKeyAndVisible()
-        
-        Parse.setApplicationId(ObjcHelper.parseApplicationId(), clientKey: ObjcHelper.parseClientKey())
-        
-        PFFacebookUtils.initializeFacebook()
-        PFTwitterUtils.initializeWithConsumerKey("YhUif46nJ7plXPW35wasVRLNH", consumerSecret: "lk95mJpSKThQSaujTagAyEZuQre2HbspOLP2e8MwrowYm37J98")
         
         MagicalRecord.setupCoreDataStack()
         

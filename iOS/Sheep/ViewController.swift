@@ -21,13 +21,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         let user = PFUser.currentUser()
-        nameTextField.text = user.username
         self.nameTextField.enabled = false
         self.registerButton.enabled = false
         self.loadUsers()
         PFUser.logInWithUsernameInBackground(user.username, password: nil, block: {user, error in
             self.user = user
             self.loadUsers()
+            
+            FBRequestConnection.startForMeWithCompletionHandler({ connection, result, error in
+                let facebookUser = TypedFacebookUser(data: result)
+                self.nameTextField.text = facebookUser.name
+                println(facebookUser.email)
+                
+                })
+            
+            /*
+            let request = FBRequest(forGraphPath: "me/?fields=name,picture,email")
+            request.startWithCompletionHandler({ connection, result, error in
+                println(result)
+                let facebookUser = TypedFacebookUser(data: result)
+                println(facebookUser.name)
+                return ()
+                
+                })
+*/
+
+//            FBRequestConnection.startWithGraphPath("me", parameters: ["fields": ["name", "picture", "email"]], HTTPMethod: "GET", completionHandler: { connection, result, error in
+//                
+//                let facebookUser = TypedFacebookUser(data: result)
+//                println(facebookUser.name)
+//                return ()
+//                
+//                })
             
             let installation = PFInstallation.currentInstallation()
             println(installation["user"])

@@ -8,3 +8,5 @@
 #import "MagicalRecord.h"
 #import "CoreData+MagicalRecord.h"
 #import "CWStatusBarNotification.h"
+#import "SVProgressHUD.h"
+#import <SDWebImage/UIImageView+WebCache.h>

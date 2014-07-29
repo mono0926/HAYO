@@ -85,11 +85,75 @@
                         <outlet property="emailButton" destination="LgX-J0-gIU" id="IYv-JV-DKj"/>
                         <outlet property="facebookButton" destination="gzt-fr-O5b" id="PuR-Yf-za3"/>
                         <outlet property="twitterButton" destination="gPN-ra-71S" id="aQS-I5-CRX"/>
+                        <segue destination="jqZ-sW-vsp" kind="showDetail" identifier="Registration" id="Lbn-yt-Ewf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deE-Wp-XrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="672"/>
+            <point key="canvasLocation" x="496" y="710"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vVd-zm-G6a">
+            <objects>
+                <navigationController id="jqZ-sW-vsp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gaj-g7-SAN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ejl-2k-aUy" kind="relationship" relationship="rootViewController" id="tcV-I5-S7X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BX4-of-zGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="710"/>
+        </scene>
+        <!--登録HAYO-->
+        <scene sceneID="blD-Mk-QDp">
+            <objects>
+                <viewController id="ejl-2k-aUy" customClass="RegistrationViewController" customModule="Sheep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XMI-jx-cid"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q9b-C9-QrB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7d1-NB-EUr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ymn-RH-Ykv">
+                                <rect key="frame" x="225" y="74" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="6r3-cq-OO2"/>
+                                    <constraint firstAttribute="height" constant="150" id="Qrz-wC-sJx"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S1t-wM-2Vq">
+                                <rect key="frame" x="178" y="242" width="245" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HRn-MU-ojw"/>
+                                    <constraint firstAttribute="width" constant="245" id="MDF-n3-sdO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ymn-RH-Ykv" secondAttribute="centerX" id="Fac-kQ-kYy"/>
+                            <constraint firstItem="S1t-wM-2Vq" firstAttribute="top" secondItem="ymn-RH-Ykv" secondAttribute="bottom" constant="18" id="HUI-ih-gt0"/>
+                            <constraint firstItem="ymn-RH-Ykv" firstAttribute="top" secondItem="XMI-jx-cid" secondAttribute="bottom" constant="10" id="IdI-a2-lfz"/>
+                            <constraint firstAttribute="centerX" secondItem="S1t-wM-2Vq" secondAttribute="centerX" id="ihs-L1-Wxh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="登録HAYO" id="btz-qZ-PtG"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="S1t-wM-2Vq" id="loi-ST-xO0"/>
+                        <outlet property="profileImageView" destination="ymn-RH-Ykv" id="ulp-We-KoD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Bl-g5-KtD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1897" y="710"/>
         </scene>
     </scenes>
     <resources>

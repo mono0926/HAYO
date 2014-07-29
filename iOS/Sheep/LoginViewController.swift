@@ -13,6 +13,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
+    var facebookUser: TypedFacebookUser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,22 +54,19 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func facebookDidTap(sender: UIButton) {
-        let permissions = ["user_about_me", "user_relationships", "user_birthday", "user_location"]
-        PFFacebookUtils.logInWithPermissions(permissions, block: {user, error in
-            if !user {
-                if !error {
-                    println("Uh oh. The user cancelled the Facebook login.")
-                    return;
-                }
-                println("Uh oh. An error occurred: %@", error)
-                return
-            }
-            if user.isNew {
-                println("user.isNew, user: %@", user)
-            } else {
-                println("User with facebook logged in!, user: %@", user)
-            }
-           (UIApplication.sharedApplication().delegate as AppDelegate).navigateToMain()
-            })
+        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
+        SNSClient.sharedInstance.loginToFacebook() { user in
+            self.facebookUser = user
+            SVProgressHUD.dismiss()
+            self.performSegueWithIdentifier("Registration", sender: self)
+//            (UIApplication.sharedApplication().delegate as AppDelegate).navigateToMain()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if segue.identifier == "Registration" {
+            let vc = segue.destinationViewController.topViewController as RegistrationViewController
+            vc.user = facebookUser
+        }
     }
 }
