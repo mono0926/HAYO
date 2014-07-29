@@ -34,6 +34,40 @@ class Account: NSManagedObject {
         return Account.MR_findFirst() as Account
     }
     
+    
+    class func loginToFacebook(completed: (user: TypedFacebookUser?) -> ()) {
+        // TODO: permissions
+        let permissions = ["user_about_me", "user_relationships", "user_birthday", "user_location"]
+        PFFacebookUtils.logInWithPermissions(permissions, block: {user, error in
+            if !user {
+                if !error {
+                    println("Uh oh. The user cancelled the Facebook login.")
+                    completed(user: nil)
+                    return;
+                }
+                println("Uh oh. An error occurred: %@", error)
+                completed(user: nil)
+                return
+            }
+            if user.isNew {
+                println("user.isNew, user: %@", user)
+            } else {
+                println("User with facebook logged in!, user: %@", user)
+                
+                RestClient.sharedInstance.get(user.imageURL) { image in
+                    Account.createAccountSync(user.username, nickname: user.nickname, image: image!)
+                    completed(user: nil)
+                    return
+                }
+            }
+            
+            FBRequestConnection.startForMeWithCompletionHandler({ connection, result, error in
+                let facebookUser = TypedFacebookUser(data: result)
+                completed(user: facebookUser)
+                })
+            })
+    }
+    
     class func createAsync(nickname: String, imageURL: String, image: UIImage, email: String, completed: (success: Bool) -> ()) {
         dispatchAsync(.High) {
             let installation = PFInstallation.currentInstallation()
@@ -69,39 +103,6 @@ class Account: NSManagedObject {
         let moc = account.managedObjectContext
         moc.deleteObject(account)
         moc.MR_saveOnlySelfAndWait()
-    }
-    
-    class func loginToFacebook(completed: (user: TypedFacebookUser?) -> ()) {
-        // TODO: permissions
-        let permissions = ["user_about_me", "user_relationships", "user_birthday", "user_location"]
-        PFFacebookUtils.logInWithPermissions(permissions, block: {user, error in
-            if !user {
-                if !error {
-                    println("Uh oh. The user cancelled the Facebook login.")
-                    completed(user: nil)
-                    return;
-                }
-                println("Uh oh. An error occurred: %@", error)
-                completed(user: nil)
-                return
-            }
-            if user.isNew {
-                println("user.isNew, user: %@", user)
-            } else {
-                println("User with facebook logged in!, user: %@", user)
-                
-                RestClient.sharedInstance.get(user.imageURL) { image in
-                    Account.createAccountSync(user.username, nickname: user.nickname, image: image!)
-                    completed(user: nil)
-                    return
-                }
-            }
-            
-            FBRequestConnection.startForMeWithCompletionHandler({ connection, result, error in
-                let facebookUser = TypedFacebookUser(data: result)
-                completed(user: facebookUser)
-                })
-            })
     }
 }
 
