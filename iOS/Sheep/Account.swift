@@ -55,6 +55,12 @@ class Account: NSManagedObject {
             }
         }
     }
+    class func deleteInstance() {
+        let account = Account.instance()
+        let moc = account.managedObjectContext
+        moc.deleteObject(account)
+        moc.MR_saveOnlySelfAndWait()
+    }
 }
 
 extension PFUser {

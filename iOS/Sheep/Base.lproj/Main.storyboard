@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
@@ -48,6 +47,16 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="GdR-SO-uoA"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gW-n1-hTM">
+                                <rect key="frame" x="505" y="88" width="75" height="30"/>
+                                <state key="normal" title="ログアウト">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oCj-nr-sbn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -56,13 +65,16 @@
                             <constraint firstAttribute="trailing" secondItem="jME-aa-N5q" secondAttribute="trailing" id="CCY-4B-2O7"/>
                             <constraint firstItem="utT-sx-NGd" firstAttribute="leading" secondItem="Tgc-ZQ-sX7" secondAttribute="trailing" constant="10" id="Cor-Qm-2X8"/>
                             <constraint firstItem="Tgc-ZQ-sX7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="OTT-nF-Guw"/>
+                            <constraint firstItem="Tgc-ZQ-sX7" firstAttribute="bottom" secondItem="0gW-n1-hTM" secondAttribute="bottom" id="Tss-wf-HYI"/>
                             <constraint firstItem="jME-aa-N5q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VKC-hc-Ifl"/>
                             <constraint firstAttribute="trailing" secondItem="utT-sx-NGd" secondAttribute="trailing" constant="10" id="b4c-Ui-Sad"/>
+                            <constraint firstAttribute="trailing" secondItem="0gW-n1-hTM" secondAttribute="trailing" constant="20" id="bek-Bg-nrG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jME-aa-N5q" secondAttribute="bottom" id="uVv-nb-cf2"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="jME-aa-N5q" id="a7S-2W-jgN"/>
+                        <outlet property="logoutButton" destination="0gW-n1-hTM" id="5ZQ-OD-6Qh"/>
                         <outlet property="nameLabel" destination="utT-sx-NGd" id="YZg-cH-TYu"/>
                         <outlet property="profileImageView" destination="Tgc-ZQ-sX7" id="P5Q-kx-UIl"/>
                     </connections>
