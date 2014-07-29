@@ -20,6 +20,7 @@ class RegistrationViewController: UIViewController {
         configureBackgroundTheme()
         designButton(registerButton)
         registerButton.alpha = 0.5
+        
         profileImageView.sd_setImageWithURL(NSURL(string: user.imageURL), completed: {image, error, type, url -> () in
             self.registerButton.alpha = 1
             self.registerButton.enabled = true
@@ -40,7 +41,7 @@ class RegistrationViewController: UIViewController {
     }
     
     func processRegistration() {
-        Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, completed: { success in
+        Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, email: user.email!, completed: { success in
             SVProgressHUD.dismiss()
             (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
         })

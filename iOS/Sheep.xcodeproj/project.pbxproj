@@ -24,6 +24,7 @@
 		FE5E829A198590F500898315 /* twitter_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E8298198590F500898315 /* twitter_logo.png */; };
 		FE5E829B198590F500898315 /* twitter_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E8299198590F500898315 /* twitter_logo@2x.png */; };
 		FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C17851980B64A0070FAD3 /* Crashlytics.framework */; };
+		FE93F12219883DDD00310F7D /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93F12119883DDD00310F7D /* RestClient.swift */; };
 		FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */; };
 		FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */; };
 		FEC4AB4019819E0C00E84978 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3F19819E0C00E84978 /* Account.swift */; };
@@ -69,6 +70,7 @@
 		FE7C17851980B64A0070FAD3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FE7C17871980B6620070FAD3 /* Sheep-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sheep-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sheep.entitlements; sourceTree = "<group>"; };
+		FE93F12119883DDD00310F7D /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedSNSUser.swift; sourceTree = "<group>"; };
 		FEC4AB3D19819DE000E84978 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		FEC4AB3F19819E0C00E84978 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				FE38E09219874F1B00CEE29B /* SNSClient.swift */,
+				FE93F12119883DDD00310F7D /* RestClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				FEC4AB4019819E0C00E84978 /* Account.swift in Sources */,
 				FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */,
 				FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */,
+				FE93F12219883DDD00310F7D /* RestClient.swift in Sources */,
 				FE50AD0D1987D87C0054B5F3 /* FriendCell.swift in Sources */,
 				FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */,
 				FECB66EC1980B2DA00FFD05C /* MainViewController.swift in Sources */,

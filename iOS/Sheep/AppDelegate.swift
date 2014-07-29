@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
+        AFNetworkActivityIndicatorManager.sharedManager().enabled = true
         Parse.setApplicationId(ObjcHelper.parseApplicationId(), clientKey: ObjcHelper.parseClientKey())        
         PFFacebookUtils.initializeFacebook()
         PFTwitterUtils.initializeWithConsumerKey("YhUif46nJ7plXPW35wasVRLNH", consumerSecret: "lk95mJpSKThQSaujTagAyEZuQre2HbspOLP2e8MwrowYm37J98")

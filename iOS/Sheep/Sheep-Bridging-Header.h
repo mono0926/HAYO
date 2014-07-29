@@ -10,3 +10,5 @@
 #import "CWStatusBarNotification.h"
 #import "SVProgressHUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "AFNetworking.h"
+#import "AFNetworkActivityIndicatorManager.h"

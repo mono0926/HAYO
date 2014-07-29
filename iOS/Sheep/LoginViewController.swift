@@ -40,7 +40,12 @@ class LoginViewController: UIViewController {
     
     @IBAction func facebookDidTap(sender: UIButton) {
         SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
-        SNSClient.sharedInstance.loginToFacebook() { user in
+        Account.loginToFacebook() { user in
+            
+            if Account.instance() {                
+                (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
+            }
+            
             self.facebookUser = user
             SVProgressHUD.dismiss()
             self.performSegueWithIdentifier("Registration", sender: self)
