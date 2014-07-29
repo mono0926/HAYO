@@ -45,6 +45,7 @@ class Account: NSManagedObject {
             user.nickname = nickname
             user.imageURL = imageURL
             user.save()
+            println(installation)
             println(user)
             let account = Account.MR_createEntity() as Account
             account.username = user.username
