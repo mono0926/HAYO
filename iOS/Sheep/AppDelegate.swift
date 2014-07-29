@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ObjcHelper.registerRemoteNotification()
         application.statusBarStyle = .LightContent;
         
+        window = UIWindow(frame:UIScreen.mainScreen().bounds)
+        window.makeKeyAndVisible()
         navigate()
         
         Crashlytics.startWithAPIKey("d95b1c50531d0d17895fc1a2c84053145215f757")
@@ -32,10 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func navigate() {
-        window = UIWindow(frame:UIScreen.mainScreen().bounds)
         let sbName = Account.instance() ? "Main" : "Login";
         let vc = UIStoryboard(name: sbName, bundle: nil).instantiateInitialViewController() as UIViewController
-        window.makeKeyAndVisible()
         window.rootViewController = vc
     }
 

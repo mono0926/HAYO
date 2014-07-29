@@ -38,12 +38,14 @@ class Account: NSManagedObject {
         dispatchAsync(.High) {
             let installation = PFInstallation.currentInstallation()
             let user = PFUser.currentUser()
+            println(user.username)
             installation["user"] = user
             installation.save()
             // TODO: エラー処理
             user.nickname = nickname
             user.imageURL = imageURL
             user.save()
+            println(user)
             let account = Account.MR_createEntity() as Account
             account.username = user.username
             account.nickname = nickname
