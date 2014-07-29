@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import QuartzCore
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var facebookButton: UIButton!
@@ -18,23 +17,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gradient = CAGradientLayer()
-        gradient.frame = self.view.frame
-        let startColor = UIColor(hue: 162/360.0, saturation: 0.67, brightness: 0.82, alpha: 1).CGColor
-        let endColor = UIColor(hue: 205/360.0, saturation: 0.76, brightness: 0.93, alpha: 1).CGColor
-        gradient.colors = NSArray(objects: startColor, endColor)
-        self.view.layer.insertSublayer(gradient, atIndex: 0)
-        
+        configureBackgroundTheme()
         designButton(facebookButton)
         designButton(twitterButton)
         designButton(emailButton)
-    }
-    
-    func designButton(button: UIButton) {
-        
-        button.layer.borderColor = UIColor.whiteColor().CGColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 4
     }
     
     @IBAction func twitterDidTap(sender: UIButton) {
@@ -49,7 +35,6 @@ class LoginViewController: UIViewController {
             } else {
                 println("User logged in with Twitter!")
             }
-            (UIApplication.sharedApplication().delegate as AppDelegate).navigateToMain()
         }
     }
     
@@ -59,7 +44,6 @@ class LoginViewController: UIViewController {
             self.facebookUser = user
             SVProgressHUD.dismiss()
             self.performSegueWithIdentifier("Registration", sender: self)
-//            (UIApplication.sharedApplication().delegate as AppDelegate).navigateToMain()
         }
     }
     

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SER-Ln-0bs">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
@@ -128,27 +129,44 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S1t-wM-2Vq">
-                                <rect key="frame" x="178" y="242" width="245" height="30"/>
+                                <rect key="frame" x="225" y="234" width="150" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="HRn-MU-ojw"/>
-                                    <constraint firstAttribute="width" constant="245" id="MDF-n3-sdO"/>
+                                    <constraint firstAttribute="width" constant="150" id="MDF-n3-sdO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2x-sb-7rH">
+                                <rect key="frame" x="225" y="274" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0FJ-8q-68F"/>
+                                    <constraint firstAttribute="width" constant="150" id="YTO-t1-iMa"/>
+                                </constraints>
+                                <state key="normal" title="登録">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerDidTap:" destination="ejl-2k-aUy" eventType="touchUpInside" id="wt9-PN-lA1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="ymn-RH-Ykv" secondAttribute="centerX" id="Fac-kQ-kYy"/>
-                            <constraint firstItem="S1t-wM-2Vq" firstAttribute="top" secondItem="ymn-RH-Ykv" secondAttribute="bottom" constant="18" id="HUI-ih-gt0"/>
+                            <constraint firstAttribute="centerX" secondItem="p2x-sb-7rH" secondAttribute="centerX" id="GQY-bX-Lr4"/>
+                            <constraint firstItem="S1t-wM-2Vq" firstAttribute="top" secondItem="ymn-RH-Ykv" secondAttribute="bottom" constant="10" id="HUI-ih-gt0"/>
                             <constraint firstItem="ymn-RH-Ykv" firstAttribute="top" secondItem="XMI-jx-cid" secondAttribute="bottom" constant="10" id="IdI-a2-lfz"/>
+                            <constraint firstItem="p2x-sb-7rH" firstAttribute="top" secondItem="S1t-wM-2Vq" secondAttribute="bottom" constant="10" id="Juo-Jp-nIB"/>
                             <constraint firstAttribute="centerX" secondItem="S1t-wM-2Vq" secondAttribute="centerX" id="ihs-L1-Wxh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="登録HAYO" id="btz-qZ-PtG"/>
                     <connections>
-                        <outlet property="nameLabel" destination="S1t-wM-2Vq" id="loi-ST-xO0"/>
+                        <outlet property="nameTextField" destination="S1t-wM-2Vq" id="KJq-Po-AZx"/>
                         <outlet property="profileImageView" destination="ymn-RH-Ykv" id="ulp-We-KoD"/>
+                        <outlet property="registerButton" destination="p2x-sb-7rH" id="f4k-ll-oPG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Bl-g5-KtD" userLabel="First Responder" sceneMemberID="firstResponder"/>

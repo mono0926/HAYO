@@ -10,6 +10,7 @@
 		3DBC48682F2F47E98CC8C415 /* libPods-Sheep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */; };
 		583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */; };
 		FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06BE13198117A1007367EA /* ObjcHelper.m */; };
+		FE12D6AE1987BA510019DF03 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE12D6AD1987BA510019DF03 /* ViewUtils.swift */; };
 		FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */; };
 		FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09219874F1B00CEE29B /* SNSClient.swift */; };
 		FE5E82841985898000898315 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE5E82831985898000898315 /* Login.storyboard */; };
@@ -27,7 +28,7 @@
 		FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB4219819F5300E84978 /* IOUtil.swift */; };
 		FEC4AB451981AB1B00E84978 /* sheep.caf in Resources */ = {isa = PBXBuildFile; fileRef = FEC4AB441981AA4400E84978 /* sheep.caf */; };
 		FECB66EA1980B2DA00FFD05C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECB66E91980B2DA00FFD05C /* AppDelegate.swift */; };
-		FECB66EC1980B2DA00FFD05C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECB66EB1980B2DA00FFD05C /* ViewController.swift */; };
+		FECB66EC1980B2DA00FFD05C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECB66EB1980B2DA00FFD05C /* MainViewController.swift */; };
 		FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FECB66ED1980B2DA00FFD05C /* Main.storyboard */; };
 		FECB66F11980B2DA00FFD05C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECB66F01980B2DA00FFD05C /* Images.xcassets */; };
 		FECB66FD1980B2DA00FFD05C /* SheepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECB66FC1980B2DA00FFD05C /* SheepTests.swift */; };
@@ -50,6 +51,7 @@
 		73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheepTests.xcconfig"; path = "Pods/Pods-SheepTests.xcconfig"; sourceTree = "<group>"; };
 		FE06BE12198117A1007367EA /* ObjcHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcHelper.h; sourceTree = "<group>"; };
 		FE06BE13198117A1007367EA /* ObjcHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcHelper.m; sourceTree = "<group>"; };
+		FE12D6AD1987BA510019DF03 /* ViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FE38E09219874F1B00CEE29B /* SNSClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSClient.swift; sourceTree = "<group>"; };
 		FE5E82831985898000898315 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -71,7 +73,7 @@
 		FECB66E41980B2DA00FFD05C /* Sheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECB66E81980B2DA00FFD05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FECB66E91980B2DA00FFD05C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FECB66EB1980B2DA00FFD05C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FECB66EB1980B2DA00FFD05C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FECB66EE1980B2DA00FFD05C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FECB66F01980B2DA00FFD05C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FECB66F61980B2DA00FFD05C /* SheepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,23 @@
 				6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE12D6AC1987BA420019DF03 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FE12D6AD1987BA510019DF03 /* ViewUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		FE12D6AF1987BC7C0019DF03 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FECB66ED1980B2DA00FFD05C /* Main.storyboard */,
+				FECB66EB1980B2DA00FFD05C /* MainViewController.swift */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 		FE38E09419874F2700CEE29B /* API */ = {
@@ -159,6 +178,7 @@
 		FEC4AB3819819BF500E84978 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FE12D6AC1987BA420019DF03 /* Utils */,
 				FEB7BC8D198662D500321AC3 /* Model */,
 				FEC4AB3919819BFB00E84978 /* View */,
 			);
@@ -169,8 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				FE5E82821985896D00898315 /* Login */,
-				FECB66EB1980B2DA00FFD05C /* ViewController.swift */,
-				FECB66ED1980B2DA00FFD05C /* Main.storyboard */,
+				FE12D6AF1987BC7C0019DF03 /* Main */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -463,12 +482,13 @@
 			files = (
 				FE5E82861985899400898315 /* LoginViewController.swift in Sources */,
 				FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */,
+				FE12D6AE1987BA510019DF03 /* ViewUtils.swift in Sources */,
 				FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */,
 				FEC4AB4019819E0C00E84978 /* Account.swift in Sources */,
 				FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */,
 				FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */,
 				FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */,
-				FECB66EC1980B2DA00FFD05C /* ViewController.swift in Sources */,
+				FECB66EC1980B2DA00FFD05C /* MainViewController.swift in Sources */,
 				FECB66EA1980B2DA00FFD05C /* AppDelegate.swift in Sources */,
 				FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */,
 			);

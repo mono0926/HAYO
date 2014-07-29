@@ -9,56 +9,27 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var user: PFUser?
     var users: Array<PFUser>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.tableView.backgroundColor = UIColor.clearColor()
         
+        self.configureBackgroundTheme()
         
-        let user = PFUser.currentUser()
-        self.nameTextField.enabled = false
-        self.registerButton.enabled = false
+        let account = Account.instance()!
+        nameLabel.text = account.nickname
+        profileImageView.image = account.image
+        
         self.loadUsers()
-        PFUser.logInWithUsernameInBackground(user.username, password: nil, block: {user, error in
-            self.user = user
-            self.loadUsers()
-            
-            FBRequestConnection.startForMeWithCompletionHandler({ connection, result, error in
-                let facebookUser = TypedFacebookUser(data: result)
-                self.nameTextField.text = facebookUser.name
-                println(facebookUser.email)
-                
-                })
-            
-            /*
-            let request = FBRequest(forGraphPath: "me/?fields=name,picture,email")
-            request.startWithCompletionHandler({ connection, result, error in
-                println(result)
-                let facebookUser = TypedFacebookUser(data: result)
-                println(facebookUser.name)
-                return ()
-                
-                })
-*/
-
-//            FBRequestConnection.startWithGraphPath("me", parameters: ["fields": ["name", "picture", "email"]], HTTPMethod: "GET", completionHandler: { connection, result, error in
-//                
-//                let facebookUser = TypedFacebookUser(data: result)
-//                println(facebookUser.name)
-//                return ()
-//                
-//                })
-            
-            let installation = PFInstallation.currentInstallation()
-            println(installation["user"])
-            installation["user"] = PFUser.currentUser()
-            installation.saveInBackground()
-            })
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -71,11 +42,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         users = query.findObjects() as Array<PFUser>?
         println(users)
         self.tableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
@@ -91,7 +57,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as UITableViewCell
         let user = users![indexPath.row]
-        cell.textLabel.text = user.username
+        user.fetchIfNeeded()
+        println(user)
+        cell.textLabel.text = user.valueForKey("nickname") as String
         return cell
     }
     

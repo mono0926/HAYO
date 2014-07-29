@@ -149,7 +149,7 @@ class FormatterUtil {
 }
 
 extension NSManagedObject {
-    func save() {
+    func saveSync() {
         self.managedObjectContext.MR_saveToPersistentStoreAndWait()
     }
 }

@@ -10,12 +10,39 @@ import Foundation
 
 class RegistrationViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
     var user: TypedFacebookUser!
+    var profileImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileImageView.sd_setImageWithURL(NSURL(string: user.imageURL))
-        nameLabel.text = user.name
+        configureBackgroundTheme()
+        designButton(registerButton)
+        registerButton.alpha = 0.5
+        profileImageView.sd_setImageWithURL(NSURL(string: user.imageURL), completed: {image, error, type, url -> () in
+            self.registerButton.alpha = 1
+            self.registerButton.enabled = true
+            })
+        nameTextField.text = user.name
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        nameTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func registerDidTap(sender: UIButton) {
+        nameTextField.resignFirstResponder()
+        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
+        processRegistration()
+    }
+    
+    func processRegistration() {
+        Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, completed: { success in
+            SVProgressHUD.dismiss()
+            (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
+        })
     }
 }

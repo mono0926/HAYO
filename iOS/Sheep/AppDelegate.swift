@@ -21,26 +21,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFFacebookUtils.initializeFacebook()
         PFTwitterUtils.initializeWithConsumerKey("YhUif46nJ7plXPW35wasVRLNH", consumerSecret: "lk95mJpSKThQSaujTagAyEZuQre2HbspOLP2e8MwrowYm37J98")
         
-        window = UIWindow(frame:UIScreen.mainScreen().bounds)
-//        navigateToMain();
-        
-        let sb = UIStoryboard(name: "Login", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as UIViewController
-        window.rootViewController = vc
-
-        window.makeKeyAndVisible()
-        
         MagicalRecord.setupCoreDataStack()
-        
         ObjcHelper.registerRemoteNotification()
+        application.statusBarStyle = .LightContent;
+        
+        navigate()
         
         Crashlytics.startWithAPIKey("d95b1c50531d0d17895fc1a2c84053145215f757")
         return true;
     }
     
-    func navigateToMain() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as UIViewController
+    func navigate() {
+        window = UIWindow(frame:UIScreen.mainScreen().bounds)
+        let sbName = Account.instance() ? "Main" : "Login";
+        let vc = UIStoryboard(name: sbName, bundle: nil).instantiateInitialViewController() as UIViewController
+        window.makeKeyAndVisible()
         window.rootViewController = vc
     }
 
