@@ -34,7 +34,7 @@ class Account: NSManagedObject {
         return Account.MR_findFirst() as Account
     }
     
-    class func loginToTwitter(completed: (user: TypedFacebookUser?) -> ()) {
+    class func loginToTwitter(completed: (user: TypedTwitterUser?) -> ()) {
         
         PFTwitterUtils.logInWithBlock {
             (user: PFUser!, error: NSError!) in
@@ -48,10 +48,28 @@ class Account: NSManagedObject {
                 completed(user: nil)
                 return
             }
+            println("User with twitter logged in!, user: %@", user)
             if user.isNew {
-                println("user.isNew, user: %@", user)
-            } else {
-                println("User with facebook logged in!, user: %@", user)
+                let twitter = PFTwitterUtils.twitter()
+                println(twitter.consumerKey)
+                let url = NSURL(string: NSString(format: "https://api.twitter.com/1.1/users/show.json?screen_name=%@", twitter.screenName))
+                println(url)
+                var request = NSMutableURLRequest(URL: url)
+                request.HTTPMethod = "GET"
+                twitter.signRequest(request)
+                var response:NSURLResponse?
+                // TODO: エラー処理
+                var error: NSError?
+                let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
+                let json = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: nil) as NSDictionary
+                println(json)
+                let twitterUser = TypedTwitterUser(data: json)
+                completed(user: twitterUser)
+                return
+            }
+            RestClient.sharedInstance.get(user.imageURL) { image in
+                Account.createAccountSync(user.username, nickname: user.nickname, image: image!)
+                completed(user: nil)
             }
         }
     }
@@ -72,52 +90,35 @@ class Account: NSManagedObject {
                 completed(user: nil)
                 return
             }
-            if !user.isNew {
-                println("user.isNew, user: %@", user)
-                println("User with facebook logged in!, user: %@", user)
-                
-                RestClient.sharedInstance.get(user.imageURL) { image in
-                    Account.createAccountSync(user.username, nickname: user.nickname, image: image!)
-                    completed(user: nil)
-                }
+            println("User with facebook logged in!, user: %@", user)
+            if user.isNew {
+                FBRequestConnection.startForMeWithCompletionHandler({ connection, result, error in
+                    let facebookUser = TypedFacebookUser(data: result as NSDictionary)
+                    completed(user: facebookUser)
+                    })
                 return
             }
-            FBRequestConnection.startForMeWithCompletionHandler({ connection, result, error in
-                let facebookUser = TypedFacebookUser(data: result)
-                let userQuery = PFUser.query()
-                userQuery.whereKey("email", equalTo: facebookUser.email)
-                if let existingUser = userQuery.getFirstObject() as? PFUser {
-                    user.delete()
-                    completed(user: nil)
-                    return;
-                }
-                completed(user: facebookUser)
-                })
+            
+            RestClient.sharedInstance.get(user.imageURL) { image in
+                Account.createAccountSync(user.username, nickname: user.nickname, image: image!)
+                completed(user: nil)
+            }
             })
     }
     
-    class func createAsync(nickname: String, imageURL: String, image: UIImage, email: String, completed: (error: NSError?) -> ()) {
+    class func createAsync(nickname: String, imageURL: String, image: UIImage, email: String?, completed: (error: NSError?) -> ()) {
         dispatchAsync(.High) {
             let installation = PFInstallation.currentInstallation()
             let user = PFUser.currentUser()
             println(user.username)
             installation["user"] = user
             installation.save()
-            // TODO: エラー処理
             user.nickname = nickname
             user.imageURL = imageURL
             user.email = email
             var error: NSError? = nil
-            if !user.save(&error) {
-                user.delete()
-                dispatchOnMainThread() {
-                    completed(error: error)
-                }
-                return
-            }
+            user.save(&error)
             println(error)
-            println(installation)
-            println(user)
             self.createAccountSync(user.username, nickname: nickname, image: image)
             dispatchOnMainThread() {
                 completed(error: nil)
