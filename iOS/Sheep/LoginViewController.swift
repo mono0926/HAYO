@@ -24,26 +24,21 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func twitterDidTap(sender: UIButton) {
-        PFTwitterUtils.logInWithBlock {
-            (user: PFUser!, error: NSError!) in
-            if !user {
-                println("Uh oh. The user cancelled the Twitter login.")
-                return
-            }
-            if user.isNew {
-                println("User signed up and logged in with Twitter!")
-            } else {
-                println("User logged in with Twitter!")
-            }
-        }
+        Account.loginToTwitter() { user in }
     }
     
     @IBAction func facebookDidTap(sender: UIButton) {
         SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
         Account.loginToFacebook() { user in
             
-            if Account.instance() {                
+            if Account.instance() {
                 (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
+                return
+            }
+            
+            if !user {
+                SVProgressHUD.showErrorWithStatus("エラーが発生しました。Twitter認証で再度お願いします。")
+                return;
             }
             
             self.facebookUser = user

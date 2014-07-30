@@ -86,20 +86,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         println(indexPath)
         let user = users![indexPath.row]
-        let userQuery = PFUser.query()
-        userQuery.whereKey("username", equalTo: user.username)
-        let debug = userQuery.findObjects() as Array<PFUser>?
-        println(debug)
-        let pushQuery = PFInstallation.query()
-        pushQuery.whereKey("user", matchesQuery: userQuery)
         
-        let push = PFPush()
-        push.setQuery(pushQuery)
-        let message = NSString(format: "%@ < HAYO!!", Account.instance().nickname)
-        let data = ["alert": message, "sound": "sheep.caf"]
-//        push.setMessage("(　´･‿･｀)")
-        push.setData(data)
-        push.sendPushInBackground()
+        SNSClient.sharedInstance.hayo(user)
     }
 }
 

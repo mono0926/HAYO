@@ -41,9 +41,17 @@ class RegistrationViewController: UIViewController {
     }
     
     func processRegistration() {
-        Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, email: user.email!, completed: { success in
-            SVProgressHUD.dismiss()
-            (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
+        Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, email: user.email!, completed: { error in
+            if !error {
+                SVProgressHUD.dismiss()
+                (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
+                return
+            }
+            let message = error?.isEmailTaken() ? "Twitterで登録済みなので、そちらから再度お願いします" : "エラーが発生しました"
+            SVProgressHUD.showErrorWithStatus(message)
+            self.bk_performBlock({ obj in
+                (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
+                }, afterDelay: 3)
         })
     }
 }
