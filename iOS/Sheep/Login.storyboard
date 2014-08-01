@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SER-Ln-0bs">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
@@ -166,11 +167,31 @@
                         <outlet property="nameTextField" destination="S1t-wM-2Vq" id="KJq-Po-AZx"/>
                         <outlet property="profileImageView" destination="ymn-RH-Ykv" id="ulp-We-KoD"/>
                         <outlet property="registerButton" destination="p2x-sb-7rH" id="f4k-ll-oPG"/>
+                        <segue destination="UP5-KO-sAV" kind="show" identifier="Friends" id="nxD-UE-9PZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Bl-g5-KtD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1897" y="710"/>
+        </scene>
+        <!--友だち探しHAYO-->
+        <scene sceneID="LoP-jc-IzX">
+            <objects>
+                <viewController id="UP5-KO-sAV" customClass="SearchFriendsViewController" customModule="Sheep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nd1-FH-rXm"/>
+                        <viewControllerLayoutGuide type="bottom" id="zuT-8X-oeN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5w9-TF-BbO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="友だち探しHAYO" id="OKF-Zu-aJG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="koI-hy-cXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2623" y="710"/>
         </scene>
     </scenes>
     <resources>

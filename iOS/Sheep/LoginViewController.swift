@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
-    var facebookUser: TypedFacebookUser!
+    var snsUser: SNSUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,33 +24,39 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func twitterDidTap(sender: UIButton) {
-        Account.loginToTwitter() { user in }
+        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
+        Account.loginToTwitter() { user in
+            self.handleResponse(user)
+        }
     }
     
     @IBAction func facebookDidTap(sender: UIButton) {
         SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
         Account.loginToFacebook() { user in
-            
-            if Account.instance() {
-                (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
-                return
-            }
-            
-            if !user {
-                SVProgressHUD.showErrorWithStatus("エラーが発生しました。Twitter認証で再度お願いします。")
-                return;
-            }
-            
-            self.facebookUser = user
-            SVProgressHUD.dismiss()
-            self.performSegueWithIdentifier("Registration", sender: self)
+            self.handleResponse(user)
         }
+    }
+    
+    func handleResponse(user: SNSUser?) {
+        if Account.instance() {
+            (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
+            return
+        }
+        
+        if !user {
+            SVProgressHUD.showErrorWithStatus(self.localize("ErrorOccured"))
+            return;
+        }
+        
+        self.snsUser = user
+        SVProgressHUD.dismiss()
+        self.performSegueWithIdentifier("Registration", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if segue.identifier == "Registration" {
             let vc = segue.destinationViewController.topViewController as RegistrationViewController
-            vc.user = facebookUser
+            vc.user = snsUser
         }
     }
 }

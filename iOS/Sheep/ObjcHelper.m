@@ -46,4 +46,9 @@
 #endif
 }
 
++(NSString*)replace:(NSString*)input from:(NSString *)from to:(NSString *)to
+{
+    return [input stringByReplacingOccurrencesOfString:from withString:to];
+}
+
 @end

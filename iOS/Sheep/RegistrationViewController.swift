@@ -12,7 +12,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
-    var user: TypedFacebookUser!
+    var user: SNSUser!
     var profileImage: UIImage?
     
     override func viewDidLoad() {
@@ -21,6 +21,10 @@ class RegistrationViewController: UIViewController {
         designButton(registerButton)
         registerButton.alpha = 0.5
         
+        let hoge = user.name
+        println(hoge)
+        let url = user.imageURL
+        println(url)
         profileImageView.sd_setImageWithURL(NSURL(string: user.imageURL), completed: {image, error, type, url -> () in
             self.registerButton.alpha = 1
             self.registerButton.enabled = true
@@ -41,14 +45,14 @@ class RegistrationViewController: UIViewController {
     }
     
     func processRegistration() {
-        Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, email: user.email!, completed: { error in
+        Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, email: user.email, completed: { error in
             if !error {
                 SVProgressHUD.dismiss()
-                (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
+                self.performSegueWithIdentifier("Friends", sender: self)
+//                (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
                 return
             }
-            let message = error?.isEmailTaken() ? "Twitterで登録済みなので、そちらから再度お願いします" : "エラーが発生しました"
-            SVProgressHUD.showErrorWithStatus(message)
+            SVProgressHUD.showErrorWithStatus(self.localize("ErrorOccured"))
             self.bk_performBlock({ obj in
                 (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
                 }, afterDelay: 3)

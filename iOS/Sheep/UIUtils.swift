@@ -25,4 +25,8 @@ extension UIViewController {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 4
     }
+    
+    func localize(key: String) -> String {
+        return NSLocalizedString(key, comment: "")
+    }
 }

@@ -10,7 +10,8 @@
 		3DBC48682F2F47E98CC8C415 /* libPods-Sheep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */; };
 		583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */; };
 		FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06BE13198117A1007367EA /* ObjcHelper.m */; };
-		FE12D6AE1987BA510019DF03 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE12D6AD1987BA510019DF03 /* ViewUtils.swift */; };
+		FE12D6AE1987BA510019DF03 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE12D6AD1987BA510019DF03 /* UIUtils.swift */; };
+		FE254BCB198B08C400BA9848 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE254BCA198B08C400BA9848 /* SearchFriendsViewController.swift */; };
 		FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */; };
 		FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09219874F1B00CEE29B /* SNSClient.swift */; };
 		FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE50AD0A1987D8700054B5F3 /* FriendCell.xib */; };
@@ -26,6 +27,7 @@
 		FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C17851980B64A0070FAD3 /* Crashlytics.framework */; };
 		FE93F12219883DDD00310F7D /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93F12119883DDD00310F7D /* RestClient.swift */; };
 		FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */; };
+		FEBED927198B0738003E93EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEBED926198B0738003E93EB /* Localizable.strings */; };
 		FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */; };
 		FEC4AB4019819E0C00E84978 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3F19819E0C00E84978 /* Account.swift */; };
 		FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB4219819F5300E84978 /* IOUtil.swift */; };
@@ -54,7 +56,8 @@
 		73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheepTests.xcconfig"; path = "Pods/Pods-SheepTests.xcconfig"; sourceTree = "<group>"; };
 		FE06BE12198117A1007367EA /* ObjcHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcHelper.h; sourceTree = "<group>"; };
 		FE06BE13198117A1007367EA /* ObjcHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcHelper.m; sourceTree = "<group>"; };
-		FE12D6AD1987BA510019DF03 /* ViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
+		FE12D6AD1987BA510019DF03 /* UIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
+		FE254BCA198B08C400BA9848 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FE38E09219874F1B00CEE29B /* SNSClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSClient.swift; sourceTree = "<group>"; };
 		FE50AD0A1987D8700054B5F3 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sheep.entitlements; sourceTree = "<group>"; };
 		FE93F12119883DDD00310F7D /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedSNSUser.swift; sourceTree = "<group>"; };
+		FEBED926198B0738003E93EB /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FEC4AB3D19819DE000E84978 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		FEC4AB3F19819E0C00E84978 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		FEC4AB4219819F5300E84978 /* IOUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOUtil.swift; sourceTree = "<group>"; };
@@ -121,7 +125,7 @@
 		FE12D6AC1987BA420019DF03 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FE12D6AD1987BA510019DF03 /* ViewUtils.swift */,
+				FE12D6AD1987BA510019DF03 /* UIUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -152,6 +156,7 @@
 				FE5E82831985898000898315 /* Login.storyboard */,
 				FE5E82851985899400898315 /* LoginViewController.swift */,
 				FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */,
+				FE254BCA198B08C400BA9848 /* SearchFriendsViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				FECB66F01980B2DA00FFD05C /* Images.xcassets */,
 				FEC4AB441981AA4400E84978 /* sheep.caf */,
 				FECB66E71980B2DA00FFD05C /* Supporting Files */,
+				FEBED926198B0738003E93EB /* Localizable.strings */,
 			);
 			path = Sheep;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE5E829A198590F500898315 /* twitter_logo.png in Resources */,
+				FEBED927198B0738003E93EB /* Localizable.strings in Resources */,
 				FE5E82841985898000898315 /* Login.storyboard in Resources */,
 				FE5E828F19858E0D00898315 /* logo@2x.png in Resources */,
 				FE5E828E19858E0D00898315 /* logo.png in Resources */,
@@ -492,7 +499,8 @@
 			files = (
 				FE5E82861985899400898315 /* LoginViewController.swift in Sources */,
 				FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */,
-				FE12D6AE1987BA510019DF03 /* ViewUtils.swift in Sources */,
+				FE254BCB198B08C400BA9848 /* SearchFriendsViewController.swift in Sources */,
+				FE12D6AE1987BA510019DF03 /* UIUtils.swift in Sources */,
 				FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */,
 				FEC4AB4019819E0C00E84978 /* Account.swift in Sources */,
 				FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */,

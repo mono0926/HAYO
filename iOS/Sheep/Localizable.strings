@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  Sheep
+
+  Created by mono on 8/1/14.
+  Copyright (c) 2014 Sheep. All rights reserved.
+*/
+"ErrorOccured" = "エラーが発生しました。";
