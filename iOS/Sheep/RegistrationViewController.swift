@@ -20,6 +20,9 @@ class RegistrationViewController: UIViewController {
         configureBackgroundTheme()
         designButton(registerButton)
         registerButton.alpha = 0.5
+        profileImageView.configureAsCircle()
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = UIColor(white: 1, alpha: 0.5).CGColor
         
         let hoge = user.name
         println(hoge)
@@ -42,6 +45,10 @@ class RegistrationViewController: UIViewController {
         nameTextField.resignFirstResponder()
         SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
         processRegistration()
+    }
+    @IBAction func cancelDidTap(sender: UIBarButtonItem) {
+        nameTextField.resignFirstResponder()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func processRegistration() {

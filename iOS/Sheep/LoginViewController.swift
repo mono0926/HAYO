@@ -11,7 +11,6 @@ import Foundation
 class LoginViewController: UIViewController {
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var twitterButton: UIButton!
-    @IBOutlet weak var emailButton: UIButton!
     var snsUser: SNSUser!
     
     override func viewDidLoad() {
@@ -20,17 +19,30 @@ class LoginViewController: UIViewController {
         configureBackgroundTheme()
         designButton(facebookButton)
         designButton(twitterButton)
-        designButton(emailButton)
     }
     
+    @IBAction func twitterDidTouchUpOutside(sender: UIButton) {
+        facebookButton.backgroundColor = UIColor.clearColor()
+    }
+    @IBAction func twitterDidTouchDown(sender: UIButton) {
+        facebookButton.backgroundColor = UIColor(white: 1, alpha: 0.35)
+    }
     @IBAction func twitterDidTap(sender: UIButton) {
         SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
         Account.loginToTwitter() { user in
             self.handleResponse(user)
         }
     }
-    
+    @IBAction func facebookDidTouchDown(sender: UIButton) {
+        facebookButton.backgroundColor = UIColor(white: 1, alpha: 0.35)
+    }
+    @IBAction func facebookDidTouchUpOutside(sender: UIButton) {
+        facebookButton.backgroundColor = UIColor.clearColor()
+    }
     @IBAction func facebookDidTap(sender: UIButton) {
+        
+        facebookButton.backgroundColor = UIColor.clearColor()
+
         SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
         Account.loginToFacebook() { user in
             self.handleResponse(user)

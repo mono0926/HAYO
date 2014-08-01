@@ -29,6 +29,7 @@ class TypedUserBase {
     }
 }
 
+@objc // TODO: なんぞ
 protocol SNSUser {
     var name: String! { get }
     var imageURL: String! { get }

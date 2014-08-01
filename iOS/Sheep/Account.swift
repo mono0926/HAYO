@@ -55,7 +55,6 @@ class Account: NSManagedObject {
                 let url = NSURL(string: NSString(format: "https://api.twitter.com/1.1/users/show.json?screen_name=%@", twitter.screenName))
                 println(url)
                 var request = NSMutableURLRequest(URL: url)
-                request.HTTPMethod = "GET"
                 twitter.signRequest(request)
                 var response:NSURLResponse?
                 // TODO: エラー処理
@@ -92,7 +91,7 @@ class Account: NSManagedObject {
                 return
             }
             println("User with facebook logged in!, user: %@", user)
-            if user.isNew {
+            if user.isNew || !user.imageURL? {
                 FBRequestConnection.startForMeWithCompletionHandler({ connection, result, error in
                     let facebookUser = TypedFacebookUser(data: result as NSDictionary)
                     completed(user: facebookUser)
@@ -107,13 +106,52 @@ class Account: NSManagedObject {
             })
     }
     
-    class func searchFacebookFriends() {
+    
+    class func searchFriendCandidates(completed: (friendCandidates: [SNSUser]) -> ()) {
+        if PFFacebookUtils.isLinkedWithUser(PFUser.currentUser()) {
+            searchFacebookFriends() { friendCandidates in
+                completed(friendCandidates: friendCandidates)
+            }
+            return;
+        }
+        searchTwitterFriends() { friendCandidates in
+            completed(friendCandidates: friendCandidates)            
+        }
+    }
+    
+    class func searchFacebookFriends(completed: (friendCandidates: [SNSUser]) -> ()) {
         
         FBRequestConnection.startForMyFriendsWithCompletionHandler({ connection, result, error in
             let dict = result as NSDictionary
             let data = dict["data"] as [NSDictionary]
             println("count: \(data.count)")
+            
+            let results = data.map() { dict in
+                println(dict)
+                return TypedFacebookUser(data: dict)
+            } as [SNSUser]
+            completed(friendCandidates: results)
             })
+    }
+    
+    class func searchTwitterFriends(completed: (friendCandidates: [SNSUser]) -> ()) {
+        let twitter = PFTwitterUtils.twitter()
+        let url = NSURL(string: NSString(format: "https://api.twitter.com/1.1/friends/list.json?screen_name=%@", twitter.screenName))
+        var request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "GET"
+        twitter.signRequest(request)
+        var response:NSURLResponse?
+        // TODO: エラー処理
+        var error: NSError?
+        let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
+        let json = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &error) as NSDictionary
+        println(json)
+        let friends = json["users"] as [NSDictionary]
+        let results = friends.map() { dict in
+            println(dict)
+            return TypedTwitterUser(data: dict)
+            } as [SNSUser]
+        completed(friendCandidates: results)
     }
     
     class func createAsync(nickname: String, imageURL: String, image: UIImage, email: String?, completed: (error: NSError?) -> ()) {
@@ -167,7 +205,7 @@ extension PFUser {
         self.setObject(newValue, forKey: "imageURL")
     }
     get {
-        return self.objectForKey("imageURL") as String
+        return self.objectForKey("imageURL") as String?
     }
     }
     func getImageURL() -> String! {

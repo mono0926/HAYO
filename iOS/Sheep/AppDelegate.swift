@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MagicalRecord.setupCoreDataStack()
         ObjcHelper.registerRemoteNotification()
         application.statusBarStyle = .LightContent;
+        applyDesign()
         
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         window.makeKeyAndVisible()
@@ -32,6 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Crashlytics.startWithAPIKey("d95b1c50531d0d17895fc1a2c84053145215f757")
         return true;
+    }
+    
+    func applyDesign() {
+        UINavigationBar.appearance().barTintColor = UIColor(hue: 164/360.0, saturation: 0.7, brightness: 0.45, alpha: 1)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()];
+        UINavigationBar.appearance().translucent = true
     }
     
     func navigate() {
