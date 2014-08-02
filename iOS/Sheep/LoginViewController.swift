@@ -22,10 +22,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func twitterDidTouchUpOutside(sender: UIButton) {
-        facebookButton.backgroundColor = UIColor.clearColor()
+        twitterButton.backgroundColor = UIColor.clearColor()
     }
     @IBAction func twitterDidTouchDown(sender: UIButton) {
-        facebookButton.backgroundColor = UIColor(white: 1, alpha: 0.35)
+        twitterButton.backgroundColor = UIColor(white: 1, alpha: 0.35)
     }
     @IBAction func twitterDidTap(sender: UIButton) {
         SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
