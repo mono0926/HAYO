@@ -20,9 +20,7 @@ class RegistrationViewController: UIViewController {
         configureBackgroundTheme()
         designButton(registerButton)
         registerButton.alpha = 0.5
-        profileImageView.configureAsCircle()
-        profileImageView.layer.borderWidth = 1
-        profileImageView.layer.borderColor = UIColor(white: 1, alpha: 0.5).CGColor
+        profileImageView.configureAsMyCircle()
         
         let hoge = user.name
         println(hoge)

@@ -43,4 +43,9 @@ extension UIView {
         self.layer.cornerRadius = self.frame.size.width/2
         self.clipsToBounds = true
     }
+    func configureAsMyCircle() {
+        self.configureAsCircle()
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(white: 1, alpha: 0.5).CGColor
+    }
 }

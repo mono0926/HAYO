@@ -13,9 +13,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                             
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var logoutButton: UIButton!
 //    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var hayoButton: UIButton!
     var users: Array<PFUser>?
     
     override func viewDidLoad() {
@@ -26,7 +26,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //        self.tableView.backgroundColor = UIColor.clearColor()
         
         self.configureBackgroundTheme()
-        designButton(logoutButton)
+        designButton(hayoButton)
+        profileImageView.configureAsMyCircle()
         
         let account = Account.instance()!
         nameLabel.text = account.nickname
@@ -35,9 +36,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.loadUsers()
         
     }
-    @IBAction func logoutButtonDidTap(sender: UIButton) {
+    @IBAction func homeButtonDidTap(sender: UIBarButtonItem) {
         Account.deleteInstance()
-        (UIApplication.sharedApplication().delegate as AppDelegate).navigate()        
+        (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
     }
     
     override func viewDidAppear(animated: Bool) {
