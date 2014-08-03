@@ -715,7 +715,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */;
 			buildSettings = {
-				APP_NAME = PressureDev;
+				APP_NAME = HAYODev;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_ID_SUFFIX = .dev;
@@ -740,7 +740,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */;
 			buildSettings = {
-				APP_NAME = Pressure;
+				APP_NAME = HAYO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_ID_SUFFIX = "";
