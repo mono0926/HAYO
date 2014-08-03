@@ -11,19 +11,29 @@ import AVFoundation
 
 let sideMenuWidth = CGFloat(200)
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-//    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
+class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, iCarouselDelegate, iCarouselDataSource {
     @IBOutlet weak var hayoButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var carouselContainerView: UIView!
+    var carousel: iCarousel!
     var sideMenuViewController: SideMenuViewController?
-    var users: Array<PFUser>?
+    var users: [PFUser]?
+    let hayoMessages = ["HAYO!!", "進捗どうですか？","返信まだですか？","納品まだですか？","HAYO理由を追加"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hayoButton.enabled = false
         
-        collectionView.registerNib(UINib(nibName: "FriendCell", bundle: nil), forCellWithReuseIdentifier: "FriendCell")
+        carousel = iCarousel()
+        carouselContainerView.addSubview(carousel)
+        let padding = UIEdgeInsetsMake(0, 0, 0, 0);
+        carousel.mas_makeConstraints() {make in
+            make.edges.equalTo()(self.carouselContainerView).with().insets()(padding)
+            return ()
+        }
+        carousel.delegate = self
+        carousel.dataSource = self
+        carousel.type = iCarouselTypeCoverFlow
     
         self.configureBackgroundTheme()
         designButton(hayoButton)
@@ -35,6 +45,18 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         self.loadUsers()
         
+    }
+    @IBAction func hayoDidTap(sender: UIButton) {
+        let user = users![carousel.currentItemIndex]
+        let message = hayoMessages[pickerView.selectedRowInComponent(0)]
+        SNSClient.sharedInstance.hayo(user, message: message) { success, error in
+            if error {
+                self.showError()
+                return
+            }
+            let message = NSString(format: localize("SentHayoFormat"), user.getNickname())
+            self.showSuccess(message)
+            }
     }
     
     func profileDidTap() {
@@ -71,17 +93,19 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.closeMenu()
             switch type {
             case .HayoList:
+                self.notImplemented()
                 let hayoVC = HayoListViewController.create()
                 self.navigationController.presentViewController(hayoVC, animated: true, completion: {})
             case .SearchFrinds:
+                self.notImplemented()
                 let searchVC = SearchFriendsViewController.create()
                 let navVC = UINavigationController(rootViewController: searchVC)
                 self.navigationController.presentViewController(navVC, animated: true, completion: {})
                 return
             case .EditHayoMessage:
-                return
+                self.notImplemented()
             case .NotificationSound:
-                return
+                self.notImplemented()
             }
         }
         
@@ -116,49 +140,41 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func loadUsers() {
         let query = PFUser.query()
-        users = query.findObjects() as Array<PFUser>?
-        println(users)
-        collectionView.reloadData()
+        query.findObjectsInBackgroundWithBlock({objects, error in
+            if error {
+                self.showError()
+                return
+            }
+            self.hayoButton.enabled = true
+            self.users = objects as? [PFUser]
+            println(self.users)
+            self.carousel.reloadData()
+            self.carousel.currentItemIndex = min(self.users!.count, 1)
+            })
     }
     
-    func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+    func numberOfItemsInCarousel(carousel: iCarousel!) -> UInt {
         let count = users?.count
-        // TODO:
-        return count ? count!+5 : 0
+        return count ? UInt(count!) : 0
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int
-    {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FriendCell", forIndexPath: indexPath) as FriendCell
-        // TODO:
-        let user = users![0]
+    func carousel(carousel: iCarousel!, viewForItemAtIndex index: UInt, reusingView view: UIView!) -> UIView! {
+     
+        var friendView: FriendView! = view as? FriendView
+        if !friendView {
+            friendView = FriendView.create()
+//            friendView.frame = CGRectMake(0, 0, 130, 150)
+        } else {
+            println("view resused")
+        }
+        let user = users![Int(index)]
         user.fetchIfNeeded()
-        println(user)
-        
-        cell.imageView.sd_setImageWithURL(NSURL(string: user.getImageURL()), completed: {image, error, type, url -> () in
-            })
-        return cell
+        friendView.user = user
+        return friendView
     }
     
-    func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
-        
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        UIView.animateWithDuration(0.3, animations: {
-            cell.alpha = 0.5
-            UIView.animateWithDuration(0.1, animations: {
-                cell.alpha = 1
-                })
-            })
-        
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-        println(indexPath)
-        let user = users![indexPath.row]
-        
-        SNSClient.sharedInstance.hayo(user)
+    func carouselItemWidth(carousel: iCarousel!) -> CGFloat {
+        return 140
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int {
@@ -169,22 +185,18 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return 5
     }
     
+    func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
+        
+    }
+    
     func pickerView(pickerView: UIPickerView!, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString! {
         
         var title = ""
         switch row {
         case 0:
             title = "とにかくHAYO!!"
-        case 1:
-            title = "進捗どうですか？"
-        case 2:
-            title = "返信まだですか？"
-        case 3:
-            title = "納品まだですか？"
-        case 4:
-            title = "HAYO理由を追加"
         default:
-            title = ""
+            title = hayoMessages[row]
         }
         
         return NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
@@ -192,7 +204,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
         if row == 4 {
-            SVProgressHUD.showWithStatus("追加画面へ(未実装)")
+            SVProgressHUD.showErrorWithStatus("追加画面へ？(未実装)")
             return
         }
         SVProgressHUD.dismiss()

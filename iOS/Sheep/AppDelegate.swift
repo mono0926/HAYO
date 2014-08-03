@@ -27,9 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.statusBarStyle = .LightContent;
         applyDesign()
         
+        
+//        FLEXManager.sharedManager().showExplorer()
+        
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         window.makeKeyAndVisible()
         navigate()
+        
         
         Crashlytics.startWithAPIKey("d95b1c50531d0d17895fc1a2c84053145215f757")
         return true;
@@ -43,6 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func navigate() {
+        
+        for v in window.subviews {
+            v.removeFromSuperview()
+        }
+        
         let sbName = Account.instance() ? "Main" : "Login";
         let vc = UIStoryboard(name: sbName, bundle: nil).instantiateInitialViewController() as UIViewController
         window.rootViewController = vc

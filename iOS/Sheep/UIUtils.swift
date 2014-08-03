@@ -9,6 +9,10 @@
 import Foundation
 import QuartzCore
 
+func localize(key: String) -> String {
+    return NSLocalizedString(key, comment: "")
+}
+
 let themeColor = UIColor(red: 62/255.0, green: 182/255.0, blue: 208/255.0, alpha: 1)
 
 extension UIViewController {
@@ -21,12 +25,23 @@ extension UIViewController {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 4
     }
-    
-    func localize(key: String) -> String {
-        return NSLocalizedString(key, comment: "")
-    }
     func appDelegate() -> AppDelegate {
         return UIApplication.sharedApplication().delegate as AppDelegate
+    }
+    func showError(message: String) {
+        SVProgressHUD.showErrorWithStatus(message)
+    }
+    func showError() {
+        showError(localize("ErrorOccured"))
+    }
+    func showSuccess() {
+        showSuccess(localize("Succeeded"))
+    }
+    func showSuccess(message: String) {
+        SVProgressHUD.showSuccessWithStatus(message)
+    }
+    func notImplemented() {
+        showError("この画面はまだ機能しません")
     }
 }
 

@@ -57,7 +57,7 @@ class RegistrationViewController: UIViewController {
 //                (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
                 return
             }
-            SVProgressHUD.showErrorWithStatus(self.localize("ErrorOccured"))
+            self.showError()
             self.bk_performBlock({ obj in
                 (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
                 }, afterDelay: 3)

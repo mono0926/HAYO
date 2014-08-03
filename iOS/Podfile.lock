@@ -41,7 +41,9 @@ PODS:
   - Facebook-iOS-SDK (3.16.2):
     - Bolts
   - FFCircularProgressView (0.4)
+  - FLEX (1.1.0)
   - GoogleAnalytics-iOS-SDK (3.0.8)
+  - iCarousel (1.7.6)
   - JDStatusBarNotification (1.4.8)
   - MagicalRecord (2.2):
     - MagicalRecord/Core
@@ -163,7 +165,9 @@ DEPENDENCIES:
   - CWStatusBarNotification
   - DACircularProgress
   - FFCircularProgressView
+  - FLEX
   - GoogleAnalytics-iOS-SDK
+  - iCarousel
   - JDStatusBarNotification
   - MagicalRecord
   - Masonry
@@ -181,7 +185,9 @@ SPEC CHECKSUMS:
   DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
   Facebook-iOS-SDK: 34eef640c2cc4c8618ba0f574ad2b290e07f1b4e
   FFCircularProgressView: 8b1def13f3eb58916162867c5cea79c242679b96
+  FLEX: fa5e81b7b25ba64afe4fad14deb27d4b95efd75e
   GoogleAnalytics-iOS-SDK: a3206c68ee5f2a014ed67383d1f779072b653988
+  iCarousel: c35a4e26b3c657847e523012b593e70ddbd84992
   JDStatusBarNotification: c68611370dedc0ef865fb0fc1768dfbaf8fd961f
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   Masonry: ec0189e1a07af00913e4a1a335ea76887adc86e1

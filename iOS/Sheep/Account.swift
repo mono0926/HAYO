@@ -136,7 +136,7 @@ class Account: NSManagedObject {
             println("count: \(data.count)")
             
             let results = data.map() { dict in
-                println(dict)
+//                println(dict)
                 return TypedFacebookUser(data: dict)
             } as [SNSUser]
             completed(friendCandidates: results)
@@ -154,10 +154,10 @@ class Account: NSManagedObject {
         var error: NSError?
         let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
         let json = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &error) as NSDictionary
-        println(json)
+//        println(json)
         let friends = json["users"] as [NSDictionary]
         let results = friends.map() { dict in
-            println(dict)
+//            println(dict)
             return TypedTwitterUser(data: dict)
             } as [SNSUser]
         completed(friendCandidates: results)
@@ -198,9 +198,21 @@ class Account: NSManagedObject {
         moc.deleteObject(account)
         moc.MR_saveOnlySelfAndWait()
     }
+    
+    class func unregister(completed: () -> ()) {
+        let account = Account.instance()
+        let moc = account.managedObjectContext
+        PFUser.currentUser().deleteInBackgroundWithBlock() {success, error in
+            self.deleteInstance()
+            completed()
+        }
+    }
 }
 
 extension PFUser {
+    func getNickname() -> String! {
+        return self.nickname
+    }
     var nickname: String! {
     set {
         self.setObject(newValue, forKey: "nickname")

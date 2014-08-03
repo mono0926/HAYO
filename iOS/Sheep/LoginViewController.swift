@@ -51,12 +51,13 @@ class LoginViewController: UIViewController {
     
     func handleResponse(user: SNSUser?) {
         if Account.instance() {
+            SVProgressHUD.dismiss()
             (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
             return
         }
         
         if !user {
-            SVProgressHUD.showErrorWithStatus(self.localize("ErrorOccured"))
+            showError()
             return;
         }
         

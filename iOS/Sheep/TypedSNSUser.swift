@@ -14,14 +14,14 @@ class TypedUserBase {
         self.data = data as Dictionary<String, AnyObject>
     }
     func getStringValue(key: String) -> String? {
-        println("key: \(key), value: \(self.data[key])")
+//        println("key: \(key), value: \(self.data[key])")
         if let d: AnyObject = data[key] {
             return d as? String
         }
         return nil
     }
     func getBoolValue(key: String) -> Bool? {
-        println("key: \(key), value: \(self.data[key])")
+//        println("key: \(key), value: \(self.data[key])")
         if let d: AnyObject = data[key] {
             return d as? Bool
         }

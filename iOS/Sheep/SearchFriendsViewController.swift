@@ -12,6 +12,7 @@ class SearchFriendsViewController: UITableViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var messageBackgroundView: UIView!
+    var fromMain = false
     var friendsCandidates: [SNSUser]!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class SearchFriendsViewController: UITableViewController {
         
         Account.searchFriendCandidates() { friendsCandidate in
             self.friendsCandidates = friendsCandidate
-            self.friendCandicateCountLabel.text = NSString(format: self.localize("FriendCandidatesCountFormat"), self.friendsCandidates.count)
+            self.friendCandicateCountLabel.text = NSString(format: localize("FriendCandidatesCountFormat"), self.friendsCandidates.count)
             self.tableView .reloadData()
         }
         
@@ -32,11 +33,14 @@ class SearchFriendsViewController: UITableViewController {
     
     class func create() -> SearchFriendsViewController {
         let sb = UIStoryboard(name: "Login", bundle: nil)
-        return sb.instantiateViewControllerWithIdentifier("SearchFriends") as SearchFriendsViewController
+        let vc = sb.instantiateViewControllerWithIdentifier("SearchFriends") as SearchFriendsViewController
+        vc.fromMain = true
+        return vc
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        notImplemented()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int
@@ -54,6 +58,10 @@ class SearchFriendsViewController: UITableViewController {
     }
     
     @IBAction func doneButtonDidTap(sender: UIBarButtonItem) {
+        if fromMain {
+            self.dismissViewControllerAnimated(true, completion: {})
+            return
+        }
         self.appDelegate().navigate()
     }
 }

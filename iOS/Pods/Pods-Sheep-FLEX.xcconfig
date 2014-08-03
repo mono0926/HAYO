@@ -1,0 +1,1 @@
+PODS_SHEEP_FLEX_OTHER_LDFLAGS = -framework CoreGraphics

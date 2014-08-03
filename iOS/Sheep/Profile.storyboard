@@ -46,8 +46,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="on6-Vq-b9v">
+                                <rect key="frame" x="285" y="486" width="30" height="30"/>
+                                <state key="normal" title="退会">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="unregisterDidTap:" destination="5Y3-Fr-bvX" eventType="touchUpInside" id="fak-RS-Y5p"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C06-jA-NZV">
-                                <rect key="frame" x="263" y="486" width="75" height="30"/>
+                                <rect key="frame" x="263" y="448" width="75" height="30"/>
                                 <state key="normal" title="ログアウト">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,11 +69,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="on6-Vq-b9v" secondAttribute="centerX" id="1eq-BM-n8o"/>
                             <constraint firstAttribute="centerX" secondItem="C06-jA-NZV" secondAttribute="centerX" id="2MH-ht-qwJ"/>
                             <constraint firstAttribute="centerX" secondItem="FX3-uP-85X" secondAttribute="centerX" id="ATl-kJ-qzm"/>
+                            <constraint firstItem="b4q-GK-YXy" firstAttribute="top" secondItem="on6-Vq-b9v" secondAttribute="bottom" constant="20" id="Jb3-74-98v"/>
                             <constraint firstItem="FX3-uP-85X" firstAttribute="top" secondItem="PXT-5v-MlO" secondAttribute="bottom" constant="10" id="NNf-Ak-3gF"/>
+                            <constraint firstItem="on6-Vq-b9v" firstAttribute="top" secondItem="C06-jA-NZV" secondAttribute="bottom" constant="8" id="NVJ-yy-3hF"/>
                             <constraint firstAttribute="centerX" secondItem="PXT-5v-MlO" secondAttribute="centerX" id="vfc-Ez-BSR"/>
-                            <constraint firstItem="b4q-GK-YXy" firstAttribute="top" secondItem="C06-jA-NZV" secondAttribute="bottom" constant="20" id="w6I-J4-CkA"/>
                             <constraint firstItem="PXT-5v-MlO" firstAttribute="top" secondItem="ur2-rY-tIA" secondAttribute="bottom" constant="20" id="zDx-Ao-Wnc"/>
                         </constraints>
                     </view>
@@ -79,6 +91,7 @@
                         <outlet property="imageView" destination="PXT-5v-MlO" id="zSr-Rv-ghz"/>
                         <outlet property="logoutButton" destination="C06-jA-NZV" id="Sza-f5-mqs"/>
                         <outlet property="nameLabel" destination="FX3-uP-85X" id="RG7-in-Mpc"/>
+                        <outlet property="unregisterButton" destination="on6-Vq-b9v" id="MqW-Tb-5bk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JF-2F-l8t" userLabel="First Responder" sceneMemberID="firstResponder"/>

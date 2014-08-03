@@ -13,5 +13,11 @@
 #import "AFNetworking.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import <BlocksKit/BlocksKit.h>
+#import "BlocksKit+UIKit.h"
 #import "Masonry.h"
-//#import "iCrousel.h"
+#import "iCarousel.h"
+#import "Toast+UIView.h"
+
+#if DEBUG
+#import "FLEXManager.h"
+#endif

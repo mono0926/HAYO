@@ -15,20 +15,20 @@ class SNSClient {
         return Static.instance
     }
     
-    func hayo(user: PFUser) {
+    func hayo(user: PFUser, message: String, completed: (success: Bool, error: NSError!) -> ()) {
         let userQuery = PFUser.query()
         userQuery.whereKey("username", equalTo: user.username)
-        let debug = userQuery.findObjects() as Array<PFUser>?
-        println(debug)
+//        let debug = userQuery.findObjects() as Array<PFUser>?
+//        println(debug)
         let pushQuery = PFInstallation.query()
         pushQuery.whereKey("user", matchesQuery: userQuery)
         
         let push = PFPush()
         push.setQuery(pushQuery)
-        let message = NSString(format: "%@ < HAYO!!", Account.instance().nickname)
+        let message = NSString(format: localize("HayoFormat"), Account.instance().nickname, message)
         let data = ["alert": message, "sound": "sheep.caf"]
         //        push.setMessage("(　´･‿･｀)")
         push.setData(data)
-        push.sendPushInBackground()
+        push.sendPushInBackgroundWithBlock(completed)
     }
 }
