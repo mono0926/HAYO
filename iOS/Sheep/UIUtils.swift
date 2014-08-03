@@ -49,3 +49,22 @@ extension UIView {
         layer.borderColor = UIColor(white: 1, alpha: 0.5).CGColor
     }
 }
+extension UIScrollView {
+    func changeBottomInset(inset: CGFloat) {
+        changeTopInset(nil, bottomInset: inset)
+    }
+    func changeTopInset(inset: CGFloat) {
+        changeTopInset(inset, bottomInset: nil)
+    }
+    func changeTopInset(topInset: CGFloat?, bottomInset: CGFloat?) {
+        var insets = self.contentInset
+        if let top = topInset {
+            insets.top = top
+        }
+        if let bottom = bottomInset {
+            insets.bottom = bottom
+        }
+        self.contentInset = insets
+        self.scrollIndicatorInsets = insets
+    }
+}

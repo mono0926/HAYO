@@ -26,6 +26,15 @@ class Account: NSManagedObject {
     }
     }
     
+    var _barButtonImage: UIImage? = nil
+    var barButtonImage: UIImage {
+    get {
+        if !_barButtonImage {
+            _barButtonImage = self.image.circularImage(36).borderedImage()
+        }
+        return _barButtonImage!
+    }
+    }
     
     class func instance() -> Account! {
         if Account.MR_countOfEntities() == 0 {

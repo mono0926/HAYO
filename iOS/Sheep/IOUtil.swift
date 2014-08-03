@@ -43,6 +43,72 @@ func dispatchOnMainThread(block: () -> ()) {
     }
 }
 
+extension UIImage {
+    func resizedImage(size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        self.drawInRect(CGRectMake(0, 0, size.width, size.height))
+        let resized = UIGraphicsGetImageFromCurrentImageContext()
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetInterpolationQuality(context, kCGInterpolationHigh)
+        UIGraphicsEndImageContext()
+        return resized
+    }
+    
+    func circularImage(diameter: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(diameter, diameter), false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        let image = self
+        let imageWidth = image.size.width
+        let center = diameter/2
+        let radius = diameter/2
+        CGContextBeginPath(context)
+        CGContextAddArc (context, center, center, radius, CGFloat(0), 2.0*CGFloat(M_PI), 0);
+        CGContextClosePath (context);
+        CGContextClip (context);
+        let scaleFactor = diameter/imageWidth;
+        CGContextScaleCTM (context, scaleFactor, scaleFactor);
+        
+        let myRect = CGRectMake(0, 0, imageWidth, imageWidth);
+        image.drawInRect(myRect)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return newImage;
+    }
+    
+    func borderedImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(self.size, false, 0)
+        
+        self.drawInRect(CGRectMake(0, 0, size.width, size.height))
+        
+        let strokeWidth = CGFloat(1.0);
+        let context = UIGraphicsGetCurrentContext();
+        CGContextSetLineWidth(context, strokeWidth);
+        CGContextSetStrokeColorWithColor(context, UIColor.whiteColor().CGColor);
+        
+        let radius = self.size.width/2;
+        let rrect = CGRectMake(strokeWidth / 2, strokeWidth / 2, self.size.width - strokeWidth, self.size.height - strokeWidth);
+        let width = CGRectGetWidth(rrect);
+        let height = CGRectGetHeight(rrect);
+        let minx = CGRectGetMinX(rrect);
+        let midx = CGRectGetMidX(rrect);
+        let maxx = CGRectGetMaxX(rrect);
+        let miny = CGRectGetMinY(rrect);
+        let midy = CGRectGetMidY(rrect);
+        let maxy = CGRectGetMaxY(rrect);
+        CGContextMoveToPoint(context, minx, midy);
+        CGContextAddArcToPoint(context, minx, miny, midx, miny, radius);
+        CGContextAddArcToPoint(context, maxx, miny, maxx, midy, radius);
+        CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, radius);
+        CGContextAddArcToPoint(context, minx, maxy, minx, midy, radius);
+        CGContextClosePath(context);
+        CGContextDrawPath(context, kCGPathStroke);
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return newImage;
+    }
+}
+
 extension NSURL {
     func saveTemporary() {
         let data = NSData(contentsOfURL: self)        

@@ -9,13 +9,12 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-                            
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
+    
 //    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var hayoButton: UIButton!
+    @IBOutlet weak var pickerView: UIPickerView!
     var users: Array<PFUser>?
     
     override func viewDidLoad() {
@@ -23,15 +22,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         collectionView.registerNib(UINib(nibName: "FriendCell", bundle: nil), forCellWithReuseIdentifier: "FriendCell")
     
-//        self.tableView.backgroundColor = UIColor.clearColor()
-        
         self.configureBackgroundTheme()
         designButton(hayoButton)
-        profileImageView.configureAsMyCircle()
         
         let account = Account.instance()!
-        nameLabel.text = account.nickname
-        profileImageView.image = account.image
+        let image = account.barButtonImage.imageWithRenderingMode(.AlwaysOriginal)
+        let profileButtonItem = UIBarButtonItem(image: image, style: .Plain, target: self, action: "")
+        self.navigationItem.rightBarButtonItem = profileButtonItem
         
         self.loadUsers()
         
@@ -55,7 +52,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
         let count = users?.count
-        return count ? count! : 0
+        // TODO:
+        return count ? count!+5 : 0
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int
@@ -65,7 +63,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FriendCell", forIndexPath: indexPath) as FriendCell
-        let user = users![indexPath.row]
+        // TODO:
+        let user = users![0]
         user.fetchIfNeeded()
         println(user)
         
@@ -89,6 +88,43 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let user = users![indexPath.row]
         
         SNSClient.sharedInstance.hayo(user)
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int {
+        return 5
+    }
+    
+    func pickerView(pickerView: UIPickerView!, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString! {
+        
+        var title = ""
+        switch row {
+        case 0:
+            title = "とにかくHAYO!!"
+        case 1:
+            title = "進捗どうですか？"
+        case 2:
+            title = "返信まだですか？"
+        case 3:
+            title = "納品まだですか？"
+        case 4:
+            title = "HAYO理由を追加"
+        default:
+            title = ""
+        }
+        
+        return NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+    }
+    
+    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
+        if row == 4 {
+            SVProgressHUD.showWithStatus("追加画面へ")
+            return
+        }
+        SVProgressHUD.dismiss()
     }
 }
 
