@@ -165,11 +165,7 @@ class Account: NSManagedObject {
     
     class func createAsync(nickname: String, imageURL: String, image: UIImage, email: String?, completed: (error: NSError?) -> ()) {
         dispatchAsync(.High) {
-            let installation = PFInstallation.currentInstallation()
             let user = PFUser.currentUser()
-            println(user.username)
-            installation["user"] = user
-            installation.save()
             user.nickname = nickname
             user.imageURL = imageURL
             user.email = email
@@ -183,7 +179,15 @@ class Account: NSManagedObject {
         }
     }
     
+    class func associateInstallation() {
+        let installation = PFInstallation.currentInstallation()
+        let user = PFUser.currentUser()
+        installation["user"] = user
+        installation.save()
+    }
+    
     private class func createAccountSync(username: String, nickname: String, image: UIImage) {
+        associateInstallation()
         let account = Account.MR_createEntity() as Account
         account.username = username
         account.nickname = nickname
