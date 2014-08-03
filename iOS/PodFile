@@ -17,6 +17,7 @@ def import
   pod 'FFCircularProgressView'
   pod 'Masonry'
   pod 'Parse'
+  pod 'Masonry'
   # pod 'GPUImage'
   # pod 'CocoaLumberjack'
   # pod 'Bolts'

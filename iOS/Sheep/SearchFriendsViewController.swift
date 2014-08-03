@@ -30,6 +30,11 @@ class SearchFriendsViewController: UITableViewController {
         
     }
     
+    class func create() -> SearchFriendsViewController {
+        let sb = UIStoryboard(name: "Login", bundle: nil)
+        return sb.instantiateViewControllerWithIdentifier("SearchFriends") as SearchFriendsViewController
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }

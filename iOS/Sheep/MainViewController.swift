@@ -9,12 +9,15 @@
 import UIKit
 import AVFoundation
 
+let sideMenuWidth = CGFloat(200)
+
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
 //    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var hayoButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
+    var sideMenuViewController: SideMenuViewController?
     var users: Array<PFUser>?
     
     override func viewDidLoad() {
@@ -27,16 +30,84 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let account = Account.instance()!
         let image = account.barButtonImage.imageWithRenderingMode(.AlwaysOriginal)
-        let profileButtonItem = UIBarButtonItem(image: image, style: .Plain, target: self, action: "")
+        let profileButtonItem = UIBarButtonItem(image: image, style: .Plain, target: self, action: "profileDidTap")
         self.navigationItem.rightBarButtonItem = profileButtonItem
         
         self.loadUsers()
         
     }
-    @IBAction func homeButtonDidTap(sender: UIBarButtonItem) {
-        Account.deleteInstance()
-        (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
+    
+    func profileDidTap() {
+        let vc = ProfileViewController.create()
+        self.presentViewController(vc, animated: true, completion: {})
     }
+    
+    func closeMenu() {
+    
+        self.view.layoutIfNeeded()
+        let vc = sideMenuViewController!
+        vc.view.mas_updateConstraints({make in
+            make.left.equalTo()(self.view.mas_left).with().offset()(-sideMenuWidth)
+            return ()
+        })
+        
+        UIView.animateWithDuration(0.3, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: {finished in
+            vc.view .removeFromSuperview()
+            self.sideMenuViewController = nil
+        })
+    }
+    
+    @IBAction func homeButtonDidTap(sender: UIBarButtonItem) {
+        
+        if let vc = sideMenuViewController {
+            closeMenu()
+            return
+        }
+        
+        sideMenuViewController = SideMenuViewController.create()
+        sideMenuViewController!.selectedBlock = { type in
+            self.closeMenu()
+            switch type {
+            case .HayoList:
+                let hayoVC = HayoListViewController.create()
+                self.navigationController.presentViewController(hayoVC, animated: true, completion: {})
+            case .SearchFrinds:
+                let searchVC = SearchFriendsViewController.create()
+                let navVC = UINavigationController(rootViewController: searchVC)
+                self.navigationController.presentViewController(navVC, animated: true, completion: {})
+                return
+            case .EditHayoMessage:
+                return
+            case .NotificationSound:
+                return
+            }
+        }
+        
+        let view = sideMenuViewController!.view
+        
+        self.view.addSubview(view)
+        
+        view.mas_makeConstraints({make in
+            make.bottom.equalTo()(self.view.mas_bottom).with().offset()(0)
+            make.top.equalTo()(self.view.mas_top).with().offset()(0)
+            make.left.equalTo()(self.view.mas_left).with().offset()(-sideMenuWidth)
+            make.width.equalTo()(sideMenuWidth)
+            return ()
+            })
+        
+        self.view.layoutIfNeeded()
+        
+        view.mas_updateConstraints({make in
+            make.left.equalTo()(self.view.mas_left).with().offset()(0)
+            return ()
+            })
+        
+        UIView.animateWithDuration(0.3, animations: {
+            self.view.layoutIfNeeded()
+            }, completion: {finished in })
+        }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -121,7 +192,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
         if row == 4 {
-            SVProgressHUD.showWithStatus("追加画面へ")
+            SVProgressHUD.showWithStatus("追加画面へ(未実装)")
             return
         }
         SVProgressHUD.dismiss()

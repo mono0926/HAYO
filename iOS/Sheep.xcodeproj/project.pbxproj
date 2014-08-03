@@ -17,6 +17,8 @@
 		FE266A54198C6006001A0F13 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE266A52198C6006001A0F13 /* home@2x.png */; };
 		FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */; };
 		FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09219874F1B00CEE29B /* SNSClient.swift */; };
+		FE3F7E7B198E007A001E779A /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE3F7E7A198E007A001E779A /* SideMenu.storyboard */; };
+		FE3F7E7D198E008D001E779A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F7E7C198E008D001E779A /* SideMenuViewController.swift */; };
 		FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE50AD0A1987D8700054B5F3 /* FriendCell.xib */; };
 		FE50AD0D1987D87C0054B5F3 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */; };
 		FE5E82861985899400898315 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5E82851985899400898315 /* LoginViewController.swift */; };
@@ -28,6 +30,12 @@
 		FE5E829B198590F500898315 /* twitter_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E8299198590F500898315 /* twitter_logo@2x.png */; };
 		FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C17851980B64A0070FAD3 /* Crashlytics.framework */; };
 		FE93F12219883DDD00310F7D /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93F12119883DDD00310F7D /* RestClient.swift */; };
+		FEA7BCF5198E05830023AF7A /* HayoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7BCF4198E05830023AF7A /* HayoListViewController.swift */; };
+		FEA7BCF7198E05BB0023AF7A /* HayoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BCF6198E05BB0023AF7A /* HayoList.storyboard */; };
+		FEA7BCFE198E0CA20023AF7A /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BCFC198E0CA20023AF7A /* close.png */; };
+		FEA7BCFF198E0CA20023AF7A /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BCFD198E0CA20023AF7A /* close@2x.png */; };
+		FEA7BD02198E0EAD0023AF7A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BD01198E0EAD0023AF7A /* Profile.storyboard */; };
+		FEA7BD04198E0EB80023AF7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7BD03198E0EB80023AF7A /* ProfileViewController.swift */; };
 		FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */; };
 		FEBED927198B0738003E93EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEBED926198B0738003E93EB /* Localizable.strings */; };
 		FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */; };
@@ -66,6 +74,8 @@
 		FE266A52198C6006001A0F13 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
 		FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FE38E09219874F1B00CEE29B /* SNSClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSClient.swift; sourceTree = "<group>"; };
+		FE3F7E7A198E007A001E779A /* SideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		FE3F7E7C198E008D001E779A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		FE50AD0A1987D8700054B5F3 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		FE5E82831985898000898315 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -80,6 +90,12 @@
 		FE7C17871980B6620070FAD3 /* Sheep-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sheep-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sheep.entitlements; sourceTree = "<group>"; };
 		FE93F12119883DDD00310F7D /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		FEA7BCF4198E05830023AF7A /* HayoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HayoListViewController.swift; sourceTree = "<group>"; };
+		FEA7BCF6198E05BB0023AF7A /* HayoList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HayoList.storyboard; sourceTree = "<group>"; };
+		FEA7BCFC198E0CA20023AF7A /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		FEA7BCFD198E0CA20023AF7A /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		FEA7BD01198E0EAD0023AF7A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		FEA7BD03198E0EB80023AF7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedSNSUser.swift; sourceTree = "<group>"; };
 		FEBED926198B0738003E93EB /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FEC4AB3D19819DE000E84978 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -145,6 +161,8 @@
 				FECB66EB1980B2DA00FFD05C /* MainViewController.swift */,
 				FE50AD0A1987D8700054B5F3 /* FriendCell.xib */,
 				FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */,
+				FE3F7E7A198E007A001E779A /* SideMenu.storyboard */,
+				FE3F7E7C198E008D001E779A /* SideMenuViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -183,6 +201,7 @@
 		FE5E828A19858DFC00898315 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FEA7BCFB198E0C980023AF7A /* Common */,
 				FE266A50198C5FFE001A0F13 /* Main */,
 				FE5E828B19858E0300898315 /* Login */,
 			);
@@ -200,6 +219,33 @@
 				FE5E8299198590F500898315 /* twitter_logo@2x.png */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		FEA7BCF3198E05010023AF7A /* HayoList */ = {
+			isa = PBXGroup;
+			children = (
+				FEA7BCF6198E05BB0023AF7A /* HayoList.storyboard */,
+				FEA7BCF4198E05830023AF7A /* HayoListViewController.swift */,
+			);
+			name = HayoList;
+			sourceTree = "<group>";
+		};
+		FEA7BCFB198E0C980023AF7A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FEA7BCFC198E0CA20023AF7A /* close.png */,
+				FEA7BCFD198E0CA20023AF7A /* close@2x.png */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		FEA7BD00198E0EA10023AF7A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FEA7BD01198E0EAD0023AF7A /* Profile.storyboard */,
+				FEA7BD03198E0EB80023AF7A /* ProfileViewController.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		FEB7BC8D198662D500321AC3 /* Model */ = {
@@ -222,6 +268,8 @@
 		FEC4AB3919819BFB00E84978 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FEA7BD00198E0EA10023AF7A /* Profile */,
+				FEA7BCF3198E05010023AF7A /* HayoList */,
 				FE5E82821985896D00898315 /* Login */,
 				FE12D6AF1987BC7C0019DF03 /* Main */,
 			);
@@ -412,14 +460,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA7BCFE198E0CA20023AF7A /* close.png in Resources */,
 				FE5E829A198590F500898315 /* twitter_logo.png in Resources */,
+				FEA7BD02198E0EAD0023AF7A /* Profile.storyboard in Resources */,
 				FEBED927198B0738003E93EB /* Localizable.strings in Resources */,
 				FE266A53198C6006001A0F13 /* home.png in Resources */,
+				FE3F7E7B198E007A001E779A /* SideMenu.storyboard in Resources */,
 				FE5E828F19858E0D00898315 /* logo@2x.png in Resources */,
 				FE5E828E19858E0D00898315 /* logo.png in Resources */,
 				FE266A54198C6006001A0F13 /* home@2x.png in Resources */,
 				FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */,
+				FEA7BCFF198E0CA20023AF7A /* close@2x.png in Resources */,
 				FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */,
+				FEA7BCF7198E05BB0023AF7A /* HayoList.storyboard in Resources */,
 				FE5E829619858F1400898315 /* facebook24.png in Resources */,
 				FEC4AB451981AB1B00E84978 /* sheep.caf in Resources */,
 				FEC78CD9198BBAD3008E7C10 /* FriendCandidateCell.xib in Resources */,
@@ -520,10 +573,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE3F7E7D198E008D001E779A /* SideMenuViewController.swift in Sources */,
 				FE5E82861985899400898315 /* LoginViewController.swift in Sources */,
+				FEA7BCF5198E05830023AF7A /* HayoListViewController.swift in Sources */,
 				FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */,
 				FE254BCB198B08C400BA9848 /* SearchFriendsViewController.swift in Sources */,
 				FEC78CD7198BBAB5008E7C10 /* FriendCandidateCell.swift in Sources */,
+				FEA7BD04198E0EB80023AF7A /* ProfileViewController.swift in Sources */,
 				FE12D6AE1987BA510019DF03 /* UIUtils.swift in Sources */,
 				FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */,
 				FEC4AB4019819E0C00E84978 /* Account.swift in Sources */,
