@@ -18,7 +18,8 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var carousel: iCarousel!
     var sideMenuViewController: SideMenuViewController?
     var users: [PFUser]?
-    let hayoMessages = ["HAYO!!", "進捗どうですか？","返信まだですか？","納品まだですか？","HAYO理由を追加"]
+    let hayoMessages = ["HAYO!!", "返信まだですか？", "到着まだですか？", "ご飯行きましょう"]
+    let hayoMessages2 = ["進捗どうですか？","納品まだですか？","リリースまだですか？","会議まだ終わらないんですか？"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,31 +179,73 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int {
-        return 1
+        return 2
     }
     
     func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int {
-        return 5
+        switch component {
+        case 0: return 2
+        case 1: return 4
+        default: return 0
+        }
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
         
     }
     
+    func pickerView(pickerView: UIPickerView!, widthForComponent component: Int) -> CGFloat {
+        switch component {
+        case 0:
+            return 80
+        case 1:
+            return 240
+        default:
+            return 0
+        }
+    }
+    
     func pickerView(pickerView: UIPickerView!, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString! {
         
-        var title = ""
-        switch row {
-        case 0:
-            title = "とにかくHAYO!!"
-        default:
-            title = hayoMessages[row]
-        }
         
-        return NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        var title = ""
+        switch component {
+        case 0:
+            switch row {
+            case 0:
+                title = "標準"
+            case 1:
+                title = "開発"
+            default:
+                break
+            }
+        case 1:
+            switch row {
+            case 0:
+                if pickerView.selectedRowInComponent(0) == 0 {
+                    title = "とにかくHAYO!!"
+                } else {
+                    
+                    title = hayoMessages2[row]
+                }
+            default:
+                if pickerView.selectedRowInComponent(0) == 0 {
+                    title = hayoMessages[row]
+                } else {
+                    
+                    title = hayoMessages2[row]
+                }
+            }
+        default:
+            break
+        }
+        return NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName:UIFont.systemFontOfSize(9)])
     }
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
+        
+        pickerView.reloadAllComponents()
+        
         if row == 4 {
             SVProgressHUD.showErrorWithStatus("追加画面へ？(未実装)")
             return
