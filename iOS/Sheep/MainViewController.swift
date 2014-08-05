@@ -155,7 +155,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func numberOfItemsInCarousel(carousel: iCarousel!) -> UInt {
         let count = users?.count
-        return count ? UInt(count!) : 0
+        return count != nil ? UInt(count!) : 0
     }
     
     func carousel(carousel: iCarousel!, viewForItemAtIndex index: UInt, reusingView view: UIView!) -> UIView! {

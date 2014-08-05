@@ -29,7 +29,7 @@ class Account: NSManagedObject {
     var _barButtonImage: UIImage? = nil
     var barButtonImage: UIImage {
     get {
-        if !_barButtonImage {
+        if nil == _barButtonImage {
             _barButtonImage = self.image.circularImage(36).borderedImage()
         }
         return _barButtonImage!
@@ -100,7 +100,7 @@ class Account: NSManagedObject {
                 return
             }
             println("User with facebook logged in!, user: %@", user)
-            if user.isNew || !user.imageURL? {
+            if user.isNew || nil == user.imageURL? {
                 FBRequestConnection.startForMeWithCompletionHandler({ connection, result, error in
                     let facebookUser = TypedFacebookUser(data: result as NSDictionary)
                     completed(user: facebookUser)

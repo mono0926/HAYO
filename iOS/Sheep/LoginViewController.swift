@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        if !user {
+        if user == nil {
             showError()
             return;
         }

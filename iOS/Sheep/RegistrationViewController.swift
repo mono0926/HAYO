@@ -51,7 +51,7 @@ class RegistrationViewController: UIViewController {
     
     func processRegistration() {
         Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, email: user.email, completed: { error in
-            if !error {
+            if nil == error {
                 SVProgressHUD.dismiss()
                 self.performSegueWithIdentifier("Friends", sender: self)
 //                (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
