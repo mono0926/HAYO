@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
@@ -29,18 +29,21 @@ class ProfileViewController: UIViewController {
     
     @IBAction func unregisterDidTap(sender: UIButton) {
         
-        let actionSheet = UIActionSheet.bk_actionSheetWithTitle(localize("ConfirmUnregister")) as UIActionSheet
-        actionSheet.bk_setDestructiveButtonWithTitle(localize("Ok")) {
-        Account.unregister() {
-            self.appDelegate().navigate()
-        }
-        }
-        actionSheet.bk_setCancelButtonWithTitle(localize("Cancel")) {
-            
-        }
+        let actionSheet = UIActionSheet(title: localize("ConfirmUnregister"), delegate: self, cancelButtonTitle: localize("Cancel"), destructiveButtonTitle: localize("Ok"))
+        
         actionSheet.showInView(self.view.window)
         
     }
+    
+    func actionSheet(actionSheet: UIActionSheet!, clickedButtonAtIndex buttonIndex: Int) {
+        
+        if buttonIndex == 0 {
+            Account.unregister() {
+                self.appDelegate().navigate()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
