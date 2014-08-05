@@ -34,7 +34,7 @@ class FriendView: UIView {
     set {
         _user = newValue
         nicknameLabel.text = _user.getNickname()
-        imageView.sd_setImageWithURL(NSURL(string: user.getImageURL()), completed: {image, error, type, url -> () in
+        imageView.sd_setImageWithURL(NSURL(string: _user.getImageURL()), completed: {image, error, type, url -> () in
             })
     }
     }
