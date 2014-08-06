@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Zk-Az-OF2">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+    </dependencies>
+    <scenes>
+        <!--hoge-->
+        <scene sceneID="ea3-6H-7iS">
+            <objects>
+                <tableViewController id="qVO-PA-OC4" customClass="FriendViewController" customModule="Sheep" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hPt-N4-YJS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lpA-o1-ifC">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lpA-o1-ifC" id="nsj-g9-sAv">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qVO-PA-OC4" id="40o-Ly-d46"/>
+                            <outlet property="delegate" destination="qVO-PA-OC4" id="nh0-tP-9GC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="hoge" id="Q5j-PY-pUe">
+                        <barButtonItem key="leftBarButtonItem" image="close.png" id="fzH-FA-QjT">
+                            <connections>
+                                <action selector="closeDidTap:" destination="qVO-PA-OC4" id="U5j-YI-eIF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Nl-VO-LUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26" y="576"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QQf-Mk-aZy">
+            <objects>
+                <navigationController id="4Zk-Az-OF2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2gU-mD-DX8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qVO-PA-OC4" kind="relationship" relationship="rootViewController" id="dkc-5b-4f2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahy-XZ-dmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-846" y="576"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="close.png" width="15" height="15"/>
+    </resources>
+</document>

@@ -186,7 +186,11 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
-        
+        let vc = FriendViewController.create()
+        let user = users![Int(index)]
+        let friendVC = vc.topViewController as FriendViewController
+        friendVC.user = user
+        self.presentViewController(vc, animated: true, completion: {})
     }
     
     func pickerView(pickerView: UIPickerView!, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString! {

@@ -39,6 +39,8 @@
 		FEA7BD06198E15890023AF7A /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7BD05198E15890023AF7A /* FriendView.swift */; };
 		FEA7BD08198E15950023AF7A /* FriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BD07198E15950023AF7A /* FriendView.xib */; };
 		FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */; };
+		FEB977C11991D7EA000032E6 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB977C01991D7EA000032E6 /* FriendViewController.swift */; };
+		FEB977C31991D7F4000032E6 /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB977C21991D7F4000032E6 /* Friend.storyboard */; };
 		FEBED927198B0738003E93EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEBED926198B0738003E93EB /* Localizable.strings */; };
 		FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */; };
 		FEC4AB4019819E0C00E84978 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3F19819E0C00E84978 /* Account.swift */; };
@@ -101,6 +103,8 @@
 		FEA7BD05198E15890023AF7A /* FriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		FEA7BD07198E15950023AF7A /* FriendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendView.xib; sourceTree = "<group>"; };
 		FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedSNSUser.swift; sourceTree = "<group>"; };
+		FEB977C01991D7EA000032E6 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		FEB977C21991D7F4000032E6 /* Friend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
 		FEBED926198B0738003E93EB /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FEC4AB3D19819DE000E84978 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		FEC4AB3F19819E0C00E84978 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -261,6 +265,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		FEB977BF1991D7DB000032E6 /* Frined */ = {
+			isa = PBXGroup;
+			children = (
+				FEB977C21991D7F4000032E6 /* Friend.storyboard */,
+				FEB977C01991D7EA000032E6 /* FriendViewController.swift */,
+			);
+			name = Frined;
+			sourceTree = "<group>";
+		};
 		FEC4AB3819819BF500E84978 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +287,7 @@
 		FEC4AB3919819BFB00E84978 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FEB977BF1991D7DB000032E6 /* Frined */,
 				FEA7BD00198E0EA10023AF7A /* Profile */,
 				FEA7BCF3198E05010023AF7A /* HayoList */,
 				FE5E82821985896D00898315 /* Login */,
@@ -472,6 +486,7 @@
 				FEA7BD02198E0EAD0023AF7A /* Profile.storyboard in Resources */,
 				FEBED927198B0738003E93EB /* Localizable.strings in Resources */,
 				FE266A53198C6006001A0F13 /* home.png in Resources */,
+				FEB977C31991D7F4000032E6 /* Friend.storyboard in Resources */,
 				FE3F7E7B198E007A001E779A /* SideMenu.storyboard in Resources */,
 				FE5E828F19858E0D00898315 /* logo@2x.png in Resources */,
 				FE5E828E19858E0D00898315 /* logo.png in Resources */,
@@ -584,6 +599,7 @@
 				FE5E82861985899400898315 /* LoginViewController.swift in Sources */,
 				FEA7BCF5198E05830023AF7A /* HayoListViewController.swift in Sources */,
 				FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */,
+				FEB977C11991D7EA000032E6 /* FriendViewController.swift in Sources */,
 				FE254BCB198B08C400BA9848 /* SearchFriendsViewController.swift in Sources */,
 				FEC78CD7198BBAB5008E7C10 /* FriendCandidateCell.swift in Sources */,
 				FEA7BD04198E0EB80023AF7A /* ProfileViewController.swift in Sources */,
