@@ -13,18 +13,20 @@ class FriendHayoCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     
     
-    var _hayo: PFObject? = nil
-    var hayo: PFObject! {
+    var _hayo: Hayo! = nil
+    var hayo: Hayo! {
         set {
             if !newValue {
                 return
             }
-            println(newValue.objectForKey("message"))
             _hayo = newValue
-            let user = _hayo!.objectForKey("from") as PFUser
-            self.profileImageView.sd_setImageWithURL((NSURL(string: user.imageURL!)), completed: {image, error, type, url -> () in
-            })
-            self.messageLabel.text = _hayo!.objectForKey("message") as String
+            _hayo.getImageURL() { url in
+                self.profileImageView.sd_setImageWithURL((NSURL(string: url)), completed: {image, error, type, url -> () in
+                })
+            }
+            _hayo.getFriendMessage() { message in
+                self.messageLabel.text = message
+            }
         }
         get {
             return _hayo

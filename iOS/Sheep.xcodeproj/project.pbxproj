@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3DBC48682F2F47E98CC8C415 /* libPods-Sheep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */; };
 		583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */; };
+		FE05E5AE19943B40001C60F0 /* Hayo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05E5AD19943B40001C60F0 /* Hayo.swift */; };
 		FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06BE13198117A1007367EA /* ObjcHelper.m */; };
 		FE06C73F19941ED200CE8FEA /* FriendHayoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE06C73E19941ED200CE8FEA /* FriendHayoCell.xib */; };
 		FE06C74119941EDA00CE8FEA /* MyHayoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE06C74019941EDA00CE8FEA /* MyHayoCell.xib */; };
@@ -74,6 +75,7 @@
 		58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sheep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SheepTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheepTests.xcconfig"; path = "Pods/Pods-SheepTests.xcconfig"; sourceTree = "<group>"; };
+		FE05E5AD19943B40001C60F0 /* Hayo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hayo.swift; sourceTree = "<group>"; };
 		FE06BE12198117A1007367EA /* ObjcHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcHelper.h; sourceTree = "<group>"; };
 		FE06BE13198117A1007367EA /* ObjcHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcHelper.m; sourceTree = "<group>"; };
 		FE06C73E19941ED200CE8FEA /* FriendHayoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendHayoCell.xib; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 		FEC4AB3B19819DD100E84978 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FE05E5AD19943B40001C60F0 /* Hayo.swift */,
 				FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */,
 				FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */,
 				FEC4AB3F19819E0C00E84978 /* Account.swift */,
@@ -609,6 +612,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE05E5AE19943B40001C60F0 /* Hayo.swift in Sources */,
 				FE3F7E7D198E008D001E779A /* SideMenuViewController.swift in Sources */,
 				FE5E82861985899400898315 /* LoginViewController.swift in Sources */,
 				FEA7BCF5198E05830023AF7A /* HayoListViewController.swift in Sources */,

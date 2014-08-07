@@ -10,7 +10,7 @@ import Foundation
 class FriendViewController: UITableViewController {
     
     var user: PFUser!
-    var hayoList: [PFObject]?
+    var hayoList: [Hayo]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +23,11 @@ class FriendViewController: UITableViewController {
         
         PFCloud.callFunctionInBackground("hayoList", withParameters: ["fromId": PFUser.currentUser().objectId, "toId": user.objectId], block: { result, error in
             println(result)
-            self.hayoList = result as [PFObject]?
-            self.tableView.reloadData()
-            for hayo in self.hayoList! {
-                println(hayo.objectForKey("message"))
-                println(hayo.createdAt)
+            let sources = result as [PFObject]
+            self.hayoList = sources.map() { s in
+                return Hayo(source: s)
             }
+            self.tableView.reloadData()
         })
     }
     @IBAction func closeDidTap(sender: UIBarButtonItem) {
@@ -42,22 +41,26 @@ class FriendViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return hayoList == nil ? 0 : hayoList!.count
     }
     
+    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let hayo = hayoList![indexPath.row]
-        let user = hayo.objectForKey("from") as PFUser
-        if user.objectId == PFUser.currentUser().objectId {
+        let hayo = hayoList![indexPath.section]
+        if hayo.fromUser.objectId == PFUser.currentUser().objectId {
             let cell = tableView.dequeueReusableCellWithIdentifier("MyHayoCell", forIndexPath: indexPath) as MyHayoCell
+            cell.hayo = hayo
             return cell
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendHayoCell", forIndexPath: indexPath) as FriendHayoCell
         cell.hayo = hayo
         return cell
+    }
+    
+    override func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+        return 22
     }
 }

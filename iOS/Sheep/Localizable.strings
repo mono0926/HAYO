@@ -13,3 +13,5 @@
 "ConfirmUnregister" = "退会すると、プロフィール情報・友だち情報が失われます。よろしいですか？";
 "Ok" = "OK";
 "Cancel" = "キャンセル";
+"HayoFriendMessageFormat" = "%@ < %@";
+"HayoMyMessageFormat" = "%@ > %@";
