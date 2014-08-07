@@ -34,6 +34,6 @@ curl -X POST \
   -H "X-Parse-Application-Id: jmhZPiIg1DZLjIs7b7p5jyTa5cKHzJEw0YPHo794" \
   -H "X-Parse-REST-API-Key: NqsH0k5qe2v3mtXcwAWpqMmYFQwB3Rok0d6om47P" \
   -H "Content-Type: application/json" \
-  -d '{"userId": "G21FScCN8l"}' \
+  -d '{"fromId": "G21FScCN8l", "toId": "zIeMszAgkz"}' \
   https://api.parse.com/1/functions/hayoList
 ```

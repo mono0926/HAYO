@@ -10,16 +10,24 @@ import Foundation
 class FriendViewController: UITableViewController {
     
     var user: PFUser!
+    var hayoList: [PFObject]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.registerNib(UINib(nibName: "MyHayoCell", bundle: nil), forCellReuseIdentifier: "MyHayoCell")
+        tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil), forCellReuseIdentifier: "FriendHayoCell")
+        self.tableView.rowHeight = 60
+        
         self.title = user.nickname
         
-        PFCloud.callFunctionInBackground("hayoList", withParameters: ["userId": PFUser.currentUser().objectId], block: { result, error in
+        PFCloud.callFunctionInBackground("hayoList", withParameters: ["fromId": PFUser.currentUser().objectId, "toId": user.objectId], block: { result, error in
             println(result)
-            let hayoList = result as [PFObject]
-            for hayo in hayoList {
+            self.hayoList = result as [PFObject]?
+            self.tableView.reloadData()
+            for hayo in self.hayoList! {
                 println(hayo.objectForKey("message"))
+                println(hayo.createdAt)
             }
         })
     }
@@ -31,5 +39,23 @@ class FriendViewController: UITableViewController {
         let sb = UIStoryboard(name: "Friend", bundle: nil)
         let navVC = sb.instantiateInitialViewController() as UINavigationController
         return navVC
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        return hayoList == nil ? 0 : hayoList!.count
+    }
+    
+    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        let hayo = hayoList![indexPath.row]
+        if hayo.objectId == PFUser.currentUser().objectId {
+            let cell = tableView.dequeueReusableCellWithIdentifier("MyHayoCell", forIndexPath: indexPath) as MyHayoCell
+            return cell
+        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("FriendHayoCell", forIndexPath: indexPath) as FriendHayoCell
+        return cell
     }
 }

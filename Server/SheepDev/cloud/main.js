@@ -47,22 +47,30 @@ Parse.Cloud.define("hayo", function(request, response) {
 Parse.Cloud.define("hayoList", function(request, response) {
   console.log(request)
 
-  var userId = request.params.userId
-  var userQuery = new Parse.Query(Parse.User)
-  userQuery.equalTo("objectId", userId)
+  var fromId = request.params.fromId
+  console.log("fromId: " + fromId)
+  var toId = request.params.toId
+  console.log("toId: " + toId)
+  var fromQuery = new Parse.Query(Parse.User)
+  fromQuery.equalTo("objectId", fromId)
+  var toQuery = new Parse.Query(Parse.User)
+  toQuery.equalTo("objectId", toId)
 
-  console.log("userId: " + userId)
+  var hayoQuery1 = new Parse.Query(Hayo)
+  hayoQuery1.matchesQuery("from", fromQuery)
+  hayoQuery1.matchesQuery("to", toQuery)
+  var hayoQuery2 = new Parse.Query(Hayo)
+  hayoQuery2.matchesQuery("from", toQuery)
+  hayoQuery2.matchesQuery("to", fromQuery)
+  var orQuery = Parse.Query.or(hayoQuery1, hayoQuery2).ascending("createdAt")
 
-  var hayoQuery = new Parse.Query(Hayo)
-  hayoQuery.matchesQuery("from", userQuery)
-
-  hayoQuery.find().then(function(results) {
+  orQuery.find().then(function(results) {
     for (var i = 0; i < results.length; i++) {
       var hayo = results[i]
       console.log(hayo.get("message"))
+      console.log("time: " + hayo.createdAt)
     }
     response.success(results)
-
   })
 })
 
