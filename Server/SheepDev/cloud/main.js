@@ -29,22 +29,42 @@ Parse.Cloud.define("hayo", function(request, response) {
     fromUser = result
     var toQuery = new Parse.Query(Parse.User)
     toQuery.equalTo("username", to)
-    toQuery.first().then(function(result) {
-      return result.fetch()
-    }).then(function(result) {
-      toUser = result
-    }).then(function(a) {
-      console.log("fromUser: " + fromUser)
-      console.log("toUser: " + toUser)
-      saveHayo(fromUser, toUser, message, function(hayo) {
-        console.log("hayo saved: " + hayo)
-        push(to, fromUser.get("nickname") + " < " + message)
-        response.success("hayo function success")
-      })
+    return toQuery.first()
+  }).then(function(result) {
+    return result.fetch()
+  }).then(function(result) {
+    toUser = result
+    console.log("fromUser: " + fromUser)
+    console.log("toUser: " + toUser)
+    saveHayo(fromUser, toUser, message, function(hayo) {
+      console.log("hayo saved: " + hayo)
+      push(to, fromUser.get("nickname") + " < " + message)
+      response.success("hayo function success")
     })
   })
-
 });
+
+Parse.Cloud.define("hayoList", function(request, response) {
+  console.log(request)
+
+  var userId = request.params.userId
+  var userQuery = new Parse.Query(Parse.User)
+  userQuery.equalTo("objectId", userId)
+
+  console.log("userId: " + userId)
+
+  var hayoQuery = new Parse.Query(Hayo)
+  hayoQuery.matchesQuery("from", userQuery)
+
+  hayoQuery.find().then(function(results) {
+    for (var i = 0; i < results.length; i++) {
+      var hayo = results[i]
+      console.log(hayo.get("message"))
+    }
+    response.success("hayoList function success")
+
+  })
+})
 
 function saveHayo(fromUser, toUser, message, callback) {
   var hayo = new Hayo()
