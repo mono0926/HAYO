@@ -1,33 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Zk-Az-OF2">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--hoge-->
-        <scene sceneID="ea3-6H-7iS">
+        <!--Title-->
+        <scene sceneID="C1Y-9t-6oB">
             <objects>
-                <tableViewController id="qVO-PA-OC4" customClass="FriendViewController" customModule="Sheep" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hPt-N4-YJS">
+                <viewController id="pe4-ag-ceZ" customClass="FriendViewController" customModule="Sheep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ea-fe-X5J"/>
+                        <viewControllerLayoutGuide type="bottom" id="oSo-Xz-BgE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="evM-zi-g55">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="qVO-PA-OC4" id="40o-Ly-d46"/>
-                            <outlet property="delegate" destination="qVO-PA-OC4" id="nh0-tP-9GC"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="hoge" id="Q5j-PY-pUe">
-                        <barButtonItem key="leftBarButtonItem" image="close.png" id="fzH-FA-QjT">
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="n60-Gd-lw2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pe4-ag-ceZ" id="m92-nr-EU6"/>
+                                    <outlet property="delegate" destination="pe4-ag-ceZ" id="zix-d0-IqU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oSo-Xz-BgE" firstAttribute="top" secondItem="n60-Gd-lw2" secondAttribute="bottom" id="Rxk-6d-Oz0"/>
+                            <constraint firstItem="n60-Gd-lw2" firstAttribute="leading" secondItem="evM-zi-g55" secondAttribute="leading" id="YeB-Bf-A5V"/>
+                            <constraint firstAttribute="trailing" secondItem="n60-Gd-lw2" secondAttribute="trailing" id="obI-sI-U9J"/>
+                            <constraint firstItem="n60-Gd-lw2" firstAttribute="top" secondItem="evM-zi-g55" secondAttribute="topMargin" id="tes-rz-mej"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="bSt-jv-XM5">
+                        <barButtonItem key="leftBarButtonItem" image="close.png" id="BG0-1u-ZOL">
                             <connections>
-                                <action selector="closeDidTap:" destination="qVO-PA-OC4" id="U5j-YI-eIF"/>
+                                <action selector="closeDidTap:" destination="pe4-ag-ceZ" id="fWM-bb-P9c"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Nl-VO-LUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="tableView" destination="n60-Gd-lw2" id="cR0-uW-rxN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8oF-YB-VvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26" y="576"/>
+            <point key="canvasLocation" x="-26" y="1269"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QQf-Mk-aZy">
@@ -38,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="qVO-PA-OC4" kind="relationship" relationship="rootViewController" id="dkc-5b-4f2"/>
+                        <segue destination="pe4-ag-ceZ" kind="relationship" relationship="rootViewController" id="ifH-nf-VrT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahy-XZ-dmR" userLabel="First Responder" sceneMemberID="firstResponder"/>

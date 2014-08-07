@@ -7,13 +7,18 @@
 //
 
 import Foundation
-class FriendViewController: UITableViewController {
+class FriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     var user: PFUser!
     var hayoList: [Hayo]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.backgroundView = nil
+        
+        self.configureBackgroundTheme()
         
         tableView.registerNib(UINib(nibName: "MyHayoCell", bundle: nil), forCellReuseIdentifier: "MyHayoCell")
         tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil), forCellReuseIdentifier: "FriendHayoCell")
@@ -40,15 +45,15 @@ class FriendViewController: UITableViewController {
         return navVC
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         return hayoList == nil ? 0 : hayoList!.count
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let hayo = hayoList![indexPath.section]
         if hayo.fromUser.objectId == PFUser.currentUser().objectId {
             let cell = tableView.dequeueReusableCellWithIdentifier("MyHayoCell", forIndexPath: indexPath) as MyHayoCell
@@ -60,7 +65,13 @@ class FriendViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView!, viewForHeaderInSection section: Int) -> UIView! {
+        let v = UIView()
+        v.backgroundColor = UIColor.clearColor()
+        return v
+    }
+    
+    func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
         return 22
     }
 }
