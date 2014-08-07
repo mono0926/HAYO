@@ -16,19 +16,11 @@ class SNSClient {
     }
     
     func hayo(user: PFUser, message: String, completed: (success: Bool, error: NSError!) -> ()) {
-        let userQuery = PFUser.query()
-        userQuery.whereKey("username", equalTo: user.username)
-//        let debug = userQuery.findObjects() as Array<PFUser>?
-//        println(debug)
-        let pushQuery = PFInstallation.query()
-        pushQuery.whereKey("user", matchesQuery: userQuery)
         
-        let push = PFPush()
-        push.setQuery(pushQuery)
-        let message = NSString(format: localize("HayoFormat"), Account.instance().nickname, message)
-        let data = ["alert": message, "sound": "sheep.caf"]
-        //        push.setMessage("(　´･‿･｀)")
-        push.setData(data)
-        push.sendPushInBackgroundWithBlock(completed)
+        let me = PFUser.currentUser()
+        
+        PFCloud.callFunctionInBackground("hayo", withParameters: ["from": me.username, "to": user.username, "message": message], block: { result, error in
+            completed(success: true, error: error)
+        })
     }
 }

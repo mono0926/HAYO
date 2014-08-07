@@ -26,5 +26,5 @@ curl -X POST \
   -H "X-Parse-REST-API-Key: NqsH0k5qe2v3mtXcwAWpqMmYFQwB3Rok0d6om47P" \
   -H "Content-Type: application/json" \
   -d '{"from": "qZTbMdqYlkwVWg9meLfDrsVJ5", "to": "tfuOLiuZzJLRlstF5d7s5tXsx", "message": "test"}' \
-  https://api.parse.com/1/functions/push
+  https://api.parse.com/1/functions/hayo
 ```

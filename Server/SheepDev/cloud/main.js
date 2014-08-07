@@ -7,7 +7,7 @@ Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
 
-Parse.Cloud.define("push", function(request, response) {
+Parse.Cloud.define("hayo", function(request, response) {
 
   console.log(request)
 
@@ -15,7 +15,6 @@ Parse.Cloud.define("push", function(request, response) {
   var to = request.params.to
   var message = request.params.message
 
-  push(to, "test")
 
   var fromUser, toUser;
 
@@ -35,11 +34,12 @@ Parse.Cloud.define("push", function(request, response) {
     }).then(function(result) {
       toUser = result
     }).then(function(a) {
-      console.log("from: " + fromUser)
-      console.log("to: " + toUser)
+      console.log("fromUser: " + fromUser)
+      console.log("toUser: " + toUser)
       saveHayo(fromUser, toUser, message, function(hayo) {
         console.log("hayo saved: " + hayo)
-        response.success("push function success")
+        push(to, fromUser.get("nickname") + " < " + message)
+        response.success("hayo function success")
       })
     })
   })
