@@ -51,11 +51,13 @@ class FriendViewController: UITableViewController {
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let hayo = hayoList![indexPath.row]
-        if hayo.objectId == PFUser.currentUser().objectId {
+        let user = hayo.objectForKey("from") as PFUser
+        if user.objectId == PFUser.currentUser().objectId {
             let cell = tableView.dequeueReusableCellWithIdentifier("MyHayoCell", forIndexPath: indexPath) as MyHayoCell
             return cell
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendHayoCell", forIndexPath: indexPath) as FriendHayoCell
+        cell.hayo = hayo
         return cell
     }
 }
