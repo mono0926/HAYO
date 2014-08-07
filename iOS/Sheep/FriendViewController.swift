@@ -14,6 +14,14 @@ class FriendViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = user.nickname
+        
+        PFCloud.callFunctionInBackground("hayoList", withParameters: ["userId": PFUser.currentUser().objectId], block: { result, error in
+            println(result)
+            let hayoList = result as [PFObject]
+            for hayo in hayoList {
+                println(hayo.objectForKey("message"))
+            }
+        })
     }
     @IBAction func closeDidTap(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: {})

@@ -61,7 +61,7 @@ Parse.Cloud.define("hayoList", function(request, response) {
       var hayo = results[i]
       console.log(hayo.get("message"))
     }
-    response.success("hayoList function success")
+    response.success(results)
 
   })
 })
