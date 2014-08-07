@@ -19,3 +19,12 @@ curl -X POST \
   -d '{}' \
   https://api.parse.com/1/functions/hello
 ```
+
+```
+curl -X POST \
+  -H "X-Parse-Application-Id: jmhZPiIg1DZLjIs7b7p5jyTa5cKHzJEw0YPHo794" \
+  -H "X-Parse-REST-API-Key: NqsH0k5qe2v3mtXcwAWpqMmYFQwB3Rok0d6om47P" \
+  -H "Content-Type: application/json" \
+  -d '{"to": "tfuOLiuZzJLRlstF5d7s5tXsx", "from": "qZTbMdqYlkwVWg9meLfDrsVJ5", "message": "test"}' \
+  https://api.parse.com/1/functions/push
+```
