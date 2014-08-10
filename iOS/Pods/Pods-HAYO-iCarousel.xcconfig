@@ -1,0 +1,1 @@
+PODS_HAYO_ICAROUSEL_OTHER_LDFLAGS = -framework QuartzCore

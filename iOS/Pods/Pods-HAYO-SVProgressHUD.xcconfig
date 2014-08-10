@@ -1,0 +1,1 @@
+PODS_HAYO_SVPROGRESSHUD_OTHER_LDFLAGS = -framework QuartzCore

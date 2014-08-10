@@ -1,6 +1,0 @@
-#include "Pods-Sheep-GoogleAnalytics-iOS-SDK.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/GoogleAnalytics-iOS-SDK" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/BlocksKit" "${PODS_ROOT}/Headers/Bolts" "${PODS_ROOT}/Headers/CWStatusBarNotification" "${PODS_ROOT}/Headers/DACircularProgress" "${PODS_ROOT}/Headers/FFCircularProgressView" "${PODS_ROOT}/Headers/FLEX" "${PODS_ROOT}/Headers/Facebook-iOS-SDK" "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" "${PODS_ROOT}/Headers/GoogleAnalytics-iOS-SDK" "${PODS_ROOT}/Headers/JDStatusBarNotification" "${PODS_ROOT}/Headers/MagicalRecord" "${PODS_ROOT}/Headers/Masonry" "${PODS_ROOT}/Headers/Parse" "${PODS_ROOT}/Headers/SDWebImage" "${PODS_ROOT}/Headers/SVProgressHUD" "${PODS_ROOT}/Headers/Toast" "${PODS_ROOT}/Headers/Typhoon" "${PODS_ROOT}/Headers/iCarousel" ${PODS_SHEEP_GOOGLEANALYTICS_IOS_SDK_HEADER_SEARCH_PATHS}
-LIBRARY_SEARCH_PATHS = ${PODS_SHEEP_GOOGLEANALYTICS_IOS_SDK_LIBRARY_SEARCH_PATHS}
-OTHER_LDFLAGS = -ObjC ${PODS_SHEEP_GOOGLEANALYTICS_IOS_SDK_OTHER_LDFLAGS}
-PODS_ROOT = ${SRCROOT}

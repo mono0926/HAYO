@@ -42,13 +42,13 @@ PODS:
     - Bolts
   - FFCircularProgressView (0.4)
   - FLEX (1.1.0)
-  - GoogleAnalytics-iOS-SDK (3.0.8)
-  - iCarousel (1.7.6)
+  - GoogleAnalytics-iOS-SDK (3.0.9)
+  - iCarousel (1.8)
   - JDStatusBarNotification (1.4.8)
   - MagicalRecord (2.2):
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
-  - Masonry (0.5.2)
+  - Masonry (0.5.3)
   - Parse (1.2.20):
     - Facebook-iOS-SDK (~> 3.11)
   - SDWebImage (3.7.1):
@@ -56,108 +56,9 @@ PODS:
   - SDWebImage/Core (3.7.1)
   - SVProgressHUD (1.0)
   - Toast (2.2)
-  - Typhoon (2.1.5):
-    - Typhoon/Configuration
-    - Typhoon/Definition
-    - Typhoon/Factory
-    - Typhoon/Factory
-    - Typhoon/ios
+  - Typhoon (2.2.0):
     - Typhoon/no-arc
-    - Typhoon/Test
-    - Typhoon/TypeConversion
-    - Typhoon/Utils
-  - Typhoon/Configuration (2.1.5):
-    - Typhoon/Configuration/ConfigPostProcessor
-    - Typhoon/Configuration/DefinitionOptionConfiguration
-    - Typhoon/Configuration/Resource
-    - Typhoon/Configuration/Startup
-    - Typhoon/Factory
-  - Typhoon/Configuration/ConfigPostProcessor (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/Configuration/DefinitionOptionConfiguration (2.1.5):
-    - Typhoon/Configuration/DefinitionOptionConfiguration/Factory
-    - Typhoon/Factory
-  - Typhoon/Configuration/DefinitionOptionConfiguration/Factory (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/Configuration/Resource (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/Configuration/Startup (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/Definition (2.1.5):
-    - Typhoon/Definition/Injections
-    - Typhoon/Definition/Internal
-    - Typhoon/Definition/Method
-    - Typhoon/Factory
-  - Typhoon/Definition/Injections (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/Definition/Internal (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/Definition/Method (2.1.5):
-    - Typhoon/Definition/Method/Internal
-    - Typhoon/Factory
-  - Typhoon/Definition/Method/Internal (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/Factory (2.1.5):
-    - Typhoon/Configuration
-    - Typhoon/Definition
-    - Typhoon/Factory
-    - Typhoon/Factory/Block
-    - Typhoon/Factory/Hooks
-    - Typhoon/Factory/Internal
-    - Typhoon/Factory/Pool
-    - Typhoon/no-arc
-    - Typhoon/TypeConversion
-    - Typhoon/Utils
-  - Typhoon/Factory/Block (2.1.5):
-    - Typhoon/Configuration
-    - Typhoon/Definition
-    - Typhoon/Factory
-    - Typhoon/no-arc
-    - Typhoon/TypeConversion
-    - Typhoon/Utils
-  - Typhoon/Factory/Hooks (2.1.5):
-    - Typhoon/Configuration
-    - Typhoon/Definition
-    - Typhoon/Factory
-    - Typhoon/no-arc
-    - Typhoon/TypeConversion
-    - Typhoon/Utils
-  - Typhoon/Factory/Internal (2.1.5):
-    - Typhoon/Configuration
-    - Typhoon/Definition
-    - Typhoon/Factory
-    - Typhoon/no-arc
-    - Typhoon/TypeConversion
-    - Typhoon/Utils
-  - Typhoon/Factory/Pool (2.1.5):
-    - Typhoon/Configuration
-    - Typhoon/Definition
-    - Typhoon/Factory
-    - Typhoon/no-arc
-    - Typhoon/TypeConversion
-    - Typhoon/Utils
-  - Typhoon/ios (2.1.5):
-    - Typhoon/Factory
-    - Typhoon/ios/Configuration
-    - Typhoon/ios/Storyboard
-    - Typhoon/ios/TypeConversion
-  - Typhoon/ios/Configuration (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/ios/Storyboard (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/ios/TypeConversion (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/no-arc (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/Test (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/TypeConversion (2.1.5):
-    - Typhoon/Factory
-    - Typhoon/TypeConversion/Converters
-  - Typhoon/TypeConversion/Converters (2.1.5):
-    - Typhoon/Factory
-  - Typhoon/Utils (2.1.5):
-    - Typhoon/Factory
+  - Typhoon/no-arc (2.2.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -186,15 +87,15 @@ SPEC CHECKSUMS:
   Facebook-iOS-SDK: 34eef640c2cc4c8618ba0f574ad2b290e07f1b4e
   FFCircularProgressView: 8b1def13f3eb58916162867c5cea79c242679b96
   FLEX: fa5e81b7b25ba64afe4fad14deb27d4b95efd75e
-  GoogleAnalytics-iOS-SDK: a3206c68ee5f2a014ed67383d1f779072b653988
-  iCarousel: c35a4e26b3c657847e523012b593e70ddbd84992
+  GoogleAnalytics-iOS-SDK: d9e198b1f955259a72886769be7377cdfcdb2250
+  iCarousel: cf77aea48dfcde9a0cd85569a1d8a9b6dd543bd7
   JDStatusBarNotification: c68611370dedc0ef865fb0fc1768dfbaf8fd961f
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
-  Masonry: ec0189e1a07af00913e4a1a335ea76887adc86e1
+  Masonry: 35368c2ca9577ca87722c12fc52c4bad9b1c1516
   Parse: 28c0dc54f30201a369d29a2f76c09fa43b2add16
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
   Toast: dcf6e9f10369291f9c22feae1bed93c9ed3d84a2
-  Typhoon: c7c9d3e6e89f7177331504308f99c58d0b1a91b5
+  Typhoon: 6fc39bd11ed9a71f2551594590f4ef8bf7043afb
 
 COCOAPODS: 0.33.1

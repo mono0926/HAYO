@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DBC48682F2F47E98CC8C415 /* libPods-Sheep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */; };
+		3E25E533CB034ED487ABCDC6 /* libPods-HAYO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A73363C7814AD39855A577 /* libPods-HAYO.a */; };
 		583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */; };
+		9DE252B91FDA46EB9E7E1CA5 /* libPods-HAYOTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE7ADF2C8F04E1489FE3809 /* libPods-HAYOTests.a */; };
 		FE05E5AE19943B40001C60F0 /* Hayo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05E5AD19943B40001C60F0 /* Hayo.swift */; };
 		FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06BE13198117A1007367EA /* ObjcHelper.m */; };
 		FE06C73F19941ED200CE8FEA /* FriendHayoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE06C73E19941ED200CE8FEA /* FriendHayoCell.xib */; };
@@ -71,10 +72,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sheep.xcconfig"; path = "Pods/Pods-Sheep.xcconfig"; sourceTree = "<group>"; };
+		3AFC4349CDA84B2188819E39 /* Pods-HAYOTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HAYOTests.xcconfig"; path = "Pods/Pods-HAYOTests.xcconfig"; sourceTree = "<group>"; };
 		58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sheep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SheepTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheepTests.xcconfig"; path = "Pods/Pods-SheepTests.xcconfig"; sourceTree = "<group>"; };
+		7BE7ADF2C8F04E1489FE3809 /* libPods-HAYOTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HAYOTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2A73363C7814AD39855A577 /* libPods-HAYO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HAYO.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E200B034FC5E432783E95F37 /* Pods-HAYO.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HAYO.xcconfig"; path = "Pods/Pods-HAYO.xcconfig"; sourceTree = "<group>"; };
 		FE05E5AD19943B40001C60F0 /* Hayo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hayo.swift; sourceTree = "<group>"; };
 		FE06BE12198117A1007367EA /* ObjcHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcHelper.h; sourceTree = "<group>"; };
 		FE06BE13198117A1007367EA /* ObjcHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcHelper.m; sourceTree = "<group>"; };
@@ -139,7 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */,
-				3DBC48682F2F47E98CC8C415 /* libPods-Sheep.a in Frameworks */,
+				3E25E533CB034ED487ABCDC6 /* libPods-HAYO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */,
+				9DE252B91FDA46EB9E7E1CA5 /* libPods-HAYOTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +164,8 @@
 				FE7C17851980B64A0070FAD3 /* Crashlytics.framework */,
 				58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */,
 				6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */,
+				A2A73363C7814AD39855A577 /* libPods-HAYO.a */,
+				7BE7ADF2C8F04E1489FE3809 /* libPods-HAYOTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -346,9 +352,9 @@
 				FECB66E61980B2DA00FFD05C /* Sheep */,
 				FECB66F91980B2DA00FFD05C /* SheepTests */,
 				FECB66E51980B2DA00FFD05C /* Products */,
-				15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */,
 				82555195273D4FD39C824368 /* Frameworks */,
-				73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */,
+				E200B034FC5E432783E95F37 /* Pods-HAYO.xcconfig */,
+				3AFC4349CDA84B2188819E39 /* Pods-HAYOTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -567,7 +573,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Sheep-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-HAYO-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6CA076177BDA44DD94C95115 /* Copy Pods Resources */ = {
@@ -582,7 +588,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-SheepTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-HAYOTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CA98AC92D3A24BDBB2B462DC /* Check Pods Manifest.lock */ = {
@@ -757,7 +763,7 @@
 		};
 		FECB67011980B2DA00FFD05C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */;
+			baseConfigurationReference = E200B034FC5E432783E95F37 /* Pods-HAYO.xcconfig */;
 			buildSettings = {
 				APP_NAME = HAYODev;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -782,7 +788,7 @@
 		};
 		FECB67021980B2DA00FFD05C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15987A3D436C49ED943AFB7A /* Pods-Sheep.xcconfig */;
+			baseConfigurationReference = E200B034FC5E432783E95F37 /* Pods-HAYO.xcconfig */;
 			buildSettings = {
 				APP_NAME = HAYO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -807,7 +813,7 @@
 		};
 		FECB67041980B2DA00FFD05C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */;
+			baseConfigurationReference = 3AFC4349CDA84B2188819E39 /* Pods-HAYOTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sheep.app/Sheep";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -827,7 +833,7 @@
 		};
 		FECB67051980B2DA00FFD05C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73105CB695E240E9B52057E2 /* Pods-SheepTests.xcconfig */;
+			baseConfigurationReference = 3AFC4349CDA84B2188819E39 /* Pods-HAYOTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sheep.app/Sheep";
 				FRAMEWORK_SEARCH_PATHS = (

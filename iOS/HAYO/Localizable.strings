@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Sheep
+
+  Created by mono on 8/1/14.
+  Copyright (c) 2014 Sheep. All rights reserved.
+*/
+"ErrorOccured" = "エラーが発生しました。";
+"Succeeded" = "成功しました";
+"FriendCandidatesCountFormat" = "%d人";
+"HayoFormat" = "%@ < %@";
+"SentHayoFormat" = "%@さんに\nHAYOしました d(´･‿･｀）";
+"ConfirmUnregister" = "退会すると、プロフィール情報・友だち情報が失われます。よろしいですか？";
+"Ok" = "OK";
+"Cancel" = "キャンセル";
+"HayoFriendMessageFormat" = "%@ < %@";
+"HayoMyMessageFormat" = "%@ > %@";

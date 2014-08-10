@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>30A12168-41ED-48EE-BA9B-6E2896EE347C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HAYO</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</key>
+		<string>github.com:SheepYo/HAYO.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS/HAYO.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:SheepYo/HAYO.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HAYO</string>
+		</dict>
+	</array>
+</dict>
+</plist>

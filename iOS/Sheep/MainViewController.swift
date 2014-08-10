@@ -33,7 +33,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
         carousel.delegate = self
         carousel.dataSource = self
-        carousel.type = iCarouselTypeCoverFlow
+        carousel.type = .CoverFlow
     
         self.configureBackgroundTheme()
         designButton(hayoButton)
@@ -153,13 +153,12 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             })
     }
     
-    func numberOfItemsInCarousel(carousel: iCarousel!) -> UInt {
+    func numberOfItemsInCarousel(carousel: iCarousel!) -> Int {
         let count = users?.count
-        return count != nil ? UInt(count!) : 0
+        return count != nil ? count! : 0
     }
     
-    func carousel(carousel: iCarousel!, viewForItemAtIndex index: UInt, reusingView view: UIView!) -> UIView! {
-     
+    func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, reusingView view: UIView!) -> UIView! {
         var friendView: FriendView! = view as? FriendView
         if !friendView {
             friendView = FriendView.create()

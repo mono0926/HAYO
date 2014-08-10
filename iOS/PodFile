@@ -31,12 +31,12 @@ def import
   # pod 'CrashlyticsFramework' # http://qiita.com/asakahara/items/cfa404267ed60fb21927
 end
 
-target :Sheep, :exclusive => true do
+target :HAYO, :exclusive => true do
   import
 end
 
 # Testing framework for Test target.
-target :SheepTests, :exclusive => true do
+target :HAYOTests, :exclusive => true do
   # pod 'Kiwi/XCTest'
   import
 end
