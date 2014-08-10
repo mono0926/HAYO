@@ -122,13 +122,13 @@
 		FEC4AB441981AA4400E84978 /* sheep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sheep.caf; sourceTree = "<group>"; };
 		FEC78CD6198BBAB5008E7C10 /* FriendCandidateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCandidateCell.swift; sourceTree = "<group>"; };
 		FEC78CD8198BBAD3008E7C10 /* FriendCandidateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCandidateCell.xib; sourceTree = "<group>"; };
-		FECB66E41980B2DA00FFD05C /* Sheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FECB66E41980B2DA00FFD05C /* HAYO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HAYO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECB66E81980B2DA00FFD05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FECB66E91980B2DA00FFD05C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FECB66EB1980B2DA00FFD05C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FECB66EE1980B2DA00FFD05C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FECB66F01980B2DA00FFD05C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FECB66F61980B2DA00FFD05C /* SheepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FECB66F61980B2DA00FFD05C /* HAYOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HAYOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECB66FB1980B2DA00FFD05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FECB66FC1980B2DA00FFD05C /* SheepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -354,8 +354,8 @@
 		FECB66E51980B2DA00FFD05C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FECB66E41980B2DA00FFD05C /* Sheep.app */,
-				FECB66F61980B2DA00FFD05C /* SheepTests.xctest */,
+				FECB66E41980B2DA00FFD05C /* HAYO.app */,
+				FECB66F61980B2DA00FFD05C /* HAYOTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -407,9 +407,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FECB66E31980B2DA00FFD05C /* Sheep */ = {
+		FECB66E31980B2DA00FFD05C /* HAYO */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FECB67001980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "Sheep" */;
+			buildConfigurationList = FECB67001980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "HAYO" */;
 			buildPhases = (
 				CA98AC92D3A24BDBB2B462DC /* Check Pods Manifest.lock */,
 				FECB66E01980B2DA00FFD05C /* Sources */,
@@ -422,14 +422,14 @@
 			);
 			dependencies = (
 			);
-			name = Sheep;
+			name = HAYO;
 			productName = Sheep;
-			productReference = FECB66E41980B2DA00FFD05C /* Sheep.app */;
+			productReference = FECB66E41980B2DA00FFD05C /* HAYO.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FECB66F51980B2DA00FFD05C /* SheepTests */ = {
+		FECB66F51980B2DA00FFD05C /* HAYOTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FECB67031980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "SheepTests" */;
+			buildConfigurationList = FECB67031980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "HAYOTests" */;
 			buildPhases = (
 				02954D9DD00A455C891506E0 /* Check Pods Manifest.lock */,
 				FECB66F21980B2DA00FFD05C /* Sources */,
@@ -442,9 +442,9 @@
 			dependencies = (
 				FECB66F81980B2DA00FFD05C /* PBXTargetDependency */,
 			);
-			name = SheepTests;
+			name = HAYOTests;
 			productName = SheepTests;
-			productReference = FECB66F61980B2DA00FFD05C /* SheepTests.xctest */;
+			productReference = FECB66F61980B2DA00FFD05C /* HAYOTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -471,7 +471,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FECB66DF1980B2DA00FFD05C /* Build configuration list for PBXProject "Sheep" */;
+			buildConfigurationList = FECB66DF1980B2DA00FFD05C /* Build configuration list for PBXProject "HAYO" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -484,8 +484,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FECB66E31980B2DA00FFD05C /* Sheep */,
-				FECB66F51980B2DA00FFD05C /* SheepTests */,
+				FECB66E31980B2DA00FFD05C /* HAYO */,
+				FECB66F51980B2DA00FFD05C /* HAYOTests */,
 			);
 		};
 /* End PBXProject section */
@@ -651,7 +651,7 @@
 /* Begin PBXTargetDependency section */
 		FECB66F81980B2DA00FFD05C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FECB66E31980B2DA00FFD05C /* Sheep */;
+			target = FECB66E31980B2DA00FFD05C /* HAYO */;
 			targetProxy = FECB66F71980B2DA00FFD05C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -765,7 +765,7 @@
 				INFOPLIST_FILE = Sheep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HAYO;
 				PROVISIONING_PROFILE = "96702ED8-B6D5-4767-8215-4C5D8B50CA10";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sheep/Sheep-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -790,7 +790,7 @@
 				INFOPLIST_FILE = Sheep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HAYO;
 				PROVISIONING_PROFILE = "F3B3ACCB-68F8-4CDE-90EB-6CE3F3641669";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sheep/Sheep-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -812,7 +812,7 @@
 				);
 				INFOPLIST_FILE = SheepTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HAYOTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -828,7 +828,7 @@
 				);
 				INFOPLIST_FILE = SheepTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HAYOTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -836,7 +836,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FECB66DF1980B2DA00FFD05C /* Build configuration list for PBXProject "Sheep" */ = {
+		FECB66DF1980B2DA00FFD05C /* Build configuration list for PBXProject "HAYO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FECB66FE1980B2DA00FFD05C /* Debug */,
@@ -845,7 +845,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FECB67001980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "Sheep" */ = {
+		FECB67001980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "HAYO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FECB67011980B2DA00FFD05C /* Debug */,
@@ -854,7 +854,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FECB67031980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "SheepTests" */ = {
+		FECB67031980B2DA00FFD05C /* Build configuration list for PBXNativeTarget "HAYOTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FECB67041980B2DA00FFD05C /* Debug */,
