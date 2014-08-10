@@ -17,6 +17,9 @@
 #import "Masonry.h"
 #import "iCarousel.h"
 #import "Toast+UIView.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
 
 #if DEBUG
 #import "FLEXManager.h"
