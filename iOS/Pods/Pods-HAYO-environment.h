@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 3
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
+// Aspects
+#define COCOAPODS_POD_AVAILABLE_Aspects
+#define COCOAPODS_VERSION_MAJOR_Aspects 1
+#define COCOAPODS_VERSION_MINOR_Aspects 4
+#define COCOAPODS_VERSION_PATCH_Aspects 1
+
 // BlocksKit
 #define COCOAPODS_POD_AVAILABLE_BlocksKit
 #define COCOAPODS_VERSION_MAJOR_BlocksKit 2

@@ -20,6 +20,7 @@
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
+#import "Aspects.h"
 
 #if DEBUG
 #import "FLEXManager.h"

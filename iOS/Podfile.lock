@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - BlocksKit (2.2.3):
     - BlocksKit/All
   - BlocksKit/All (2.2.3):
@@ -62,6 +63,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Aspects
   - BlocksKit
   - CWStatusBarNotification
   - DACircularProgress
@@ -80,6 +82,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  Aspects: a6368eba05295b24ffe0e9acfb9080cc3b0f4b5f
   BlocksKit: 07c8a80f04275efac6a5f8b973782489c083a182
   Bolts: 0ca796081c3e7c139bd86d6903c27f1b83036a5d
   CWStatusBarNotification: 90989a73615aceb90c2da393d926ab76d8ea6a6d

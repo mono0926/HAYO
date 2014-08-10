@@ -14,4 +14,5 @@
 +(NSString*)parseApplicationId;
 +(NSString*)parseClientKey;
 +(NSString*)replace:(NSString*)input from: (NSString*)from to:(NSString*)to;
++(void)applyAutoScreenTracking;
 @end

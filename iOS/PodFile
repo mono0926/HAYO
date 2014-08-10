@@ -19,6 +19,7 @@ def import
   pod 'Parse'
   pod 'iCarousel'
   pod 'FLEX'
+  pod 'Aspects'
   # pod 'GPUImage'
   # pod 'CocoaLumberjack'
   # pod 'Bolts'

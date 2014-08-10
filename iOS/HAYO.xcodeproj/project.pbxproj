@@ -58,6 +58,7 @@
 		FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FECB66ED1980B2DA00FFD05C /* Main.storyboard */; };
 		FECB66F11980B2DA00FFD05C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECB66F01980B2DA00FFD05C /* Images.xcassets */; };
 		FECB66FD1980B2DA00FFD05C /* SheepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECB66FC1980B2DA00FFD05C /* SheepTests.swift */; };
+		FEE26B7E1997454B00D0A7CA /* AnalyticsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE26B7D1997454B00D0A7CA /* AnalyticsUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		FECB66F61980B2DA00FFD05C /* HAYOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HAYOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECB66FB1980B2DA00FFD05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FECB66FC1980B2DA00FFD05C /* SheepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepTests.swift; sourceTree = "<group>"; };
+		FEE26B7D1997454B00D0A7CA /* AnalyticsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,11 +368,11 @@
 			children = (
 				FE7C17871980B6620070FAD3 /* HAYO-Bridging-Header.h */,
 				FECB66E91980B2DA00FFD05C /* AppDelegate.swift */,
+				FE06BE12198117A1007367EA /* ObjcHelper.h */,
+				FE06BE13198117A1007367EA /* ObjcHelper.m */,
 				FE5E828A19858DFC00898315 /* Resources */,
 				FEC4AB3819819BF500E84978 /* UI */,
 				FEC4AB3A19819DB900E84978 /* Library */,
-				FE06BE12198117A1007367EA /* ObjcHelper.h */,
-				FE06BE13198117A1007367EA /* ObjcHelper.m */,
 				FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */,
 				FECB66F01980B2DA00FFD05C /* Images.xcassets */,
 				FEC4AB441981AA4400E84978 /* sheep.caf */,
@@ -408,6 +410,7 @@
 		FECF6EC919973E2100C10AB7 /* GA */ = {
 			isa = PBXGroup;
 			children = (
+				FEE26B7D1997454B00D0A7CA /* AnalyticsUtil.swift */,
 			);
 			name = GA;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				FE12D6AE1987BA510019DF03 /* UIUtils.swift in Sources */,
 				FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */,
 				FE06C74519941EEE00CE8FEA /* MyHayoCell.swift in Sources */,
+				FEE26B7E1997454B00D0A7CA /* AnalyticsUtil.swift in Sources */,
 				FEC4AB4019819E0C00E84978 /* Account.swift in Sources */,
 				FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */,
 				FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */,
@@ -773,6 +777,7 @@
 				INFOPLIST_FILE = HAYO/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_NAME = HAYO;
 				PROVISIONING_PROFILE = "96702ED8-B6D5-4767-8215-4C5D8B50CA10";
 				SWIFT_OBJC_BRIDGING_HEADER = "HAYO/HAYO-Bridging-Header.h";
@@ -798,6 +803,7 @@
 				INFOPLIST_FILE = HAYO/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = HAYO;
 				PROVISIONING_PROFILE = "32560BDF-BCBE-44E9-A2E7-C0077A3944E2";
 				SWIFT_OBJC_BRIDGING_HEADER = "HAYO/HAYO-Bridging-Header.h";
