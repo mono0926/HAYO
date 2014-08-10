@@ -20,13 +20,6 @@ HAYO
 - 自分がいつ誰にどんなプレッシャーをかけたかが分かるタイムライン
 - 誰からどんなことでプレッシャーをかけられているのかをタスクリスト化するとか
 
-## リンク
-
-- [ティザーサイト](http://bit.ly/hayoooo)
-- [Facebook管理](https://developers.facebook.com/apps/480578488712394/dashboard/)
-- [Twitter管理]()
-- [Add Service Integrations | Sheep Slack](https://sheepyo.slack.com/services/new)
-
 ## メモ
 
 - [わかりやすいREADME.mdを書く | SOTA](http://deeeet.com/writing/2014/07/31/readme/)
