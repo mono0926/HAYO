@@ -3,13 +3,12 @@
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Title-->
         <scene sceneID="C1Y-9t-6oB">
             <objects>
-                <viewController id="pe4-ag-ceZ" customClass="FriendViewController" customModule="Sheep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pe4-ag-ceZ" customClass="FriendViewController" customModule="HAYO" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5ea-fe-X5J"/>
                         <viewControllerLayoutGuide type="bottom" id="oSo-Xz-BgE"/>
@@ -33,7 +32,7 @@
                             <constraint firstItem="oSo-Xz-BgE" firstAttribute="top" secondItem="n60-Gd-lw2" secondAttribute="bottom" id="Rxk-6d-Oz0"/>
                             <constraint firstItem="n60-Gd-lw2" firstAttribute="leading" secondItem="evM-zi-g55" secondAttribute="leading" id="YeB-Bf-A5V"/>
                             <constraint firstAttribute="trailing" secondItem="n60-Gd-lw2" secondAttribute="trailing" id="obI-sI-U9J"/>
-                            <constraint firstItem="n60-Gd-lw2" firstAttribute="top" secondItem="evM-zi-g55" secondAttribute="topMargin" id="tes-rz-mej"/>
+                            <constraint firstItem="n60-Gd-lw2" firstAttribute="top" secondItem="evM-zi-g55" secondAttribute="top" id="tes-rz-mej"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="bSt-jv-XM5">
