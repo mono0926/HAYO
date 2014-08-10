@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3E25E533CB034ED487ABCDC6 /* libPods-HAYO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A73363C7814AD39855A577 /* libPods-HAYO.a */; };
-		583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */; };
 		9DE252B91FDA46EB9E7E1CA5 /* libPods-HAYOTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE7ADF2C8F04E1489FE3809 /* libPods-HAYOTests.a */; };
 		FE05E5AE19943B40001C60F0 /* Hayo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05E5AD19943B40001C60F0 /* Hayo.swift */; };
 		FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06BE13198117A1007367EA /* ObjcHelper.m */; };
@@ -73,8 +72,6 @@
 
 /* Begin PBXFileReference section */
 		3AFC4349CDA84B2188819E39 /* Pods-HAYOTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HAYOTests.xcconfig"; path = "Pods/Pods-HAYOTests.xcconfig"; sourceTree = "<group>"; };
-		58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sheep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SheepTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE7ADF2C8F04E1489FE3809 /* libPods-HAYOTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HAYOTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A73363C7814AD39855A577 /* libPods-HAYO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HAYO.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E200B034FC5E432783E95F37 /* Pods-HAYO.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HAYO.xcconfig"; path = "Pods/Pods-HAYO.xcconfig"; sourceTree = "<group>"; };
@@ -104,7 +101,7 @@
 		FE5E8298198590F500898315 /* twitter_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_logo.png; sourceTree = "<group>"; };
 		FE5E8299198590F500898315 /* twitter_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter_logo@2x.png"; sourceTree = "<group>"; };
 		FE7C17851980B64A0070FAD3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		FE7C17871980B6620070FAD3 /* Sheep-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sheep-Bridging-Header.h"; sourceTree = "<group>"; };
+		FE7C17871980B6620070FAD3 /* HAYO-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAYO-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sheep.entitlements; sourceTree = "<group>"; };
 		FE93F12119883DDD00310F7D /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		FEA7BCF4198E05830023AF7A /* HayoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HayoListViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +147,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				583553B10EA248C485992F9B /* libPods-SheepTests.a in Frameworks */,
 				9DE252B91FDA46EB9E7E1CA5 /* libPods-HAYOTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				FE7C17851980B64A0070FAD3 /* Crashlytics.framework */,
-				58B8DA5D3446480EA456CBD3 /* libPods-Sheep.a */,
-				6F68FC543C594724AF0AEF10 /* libPods-SheepTests.a */,
 				A2A73363C7814AD39855A577 /* libPods-HAYO.a */,
 				7BE7ADF2C8F04E1489FE3809 /* libPods-HAYOTests.a */,
 			);
@@ -349,8 +343,8 @@
 		FECB66DB1980B2DA00FFD05C = {
 			isa = PBXGroup;
 			children = (
-				FECB66E61980B2DA00FFD05C /* Sheep */,
-				FECB66F91980B2DA00FFD05C /* SheepTests */,
+				FECB66E61980B2DA00FFD05C /* HAYO */,
+				FECB66F91980B2DA00FFD05C /* HAYOTests */,
 				FECB66E51980B2DA00FFD05C /* Products */,
 				82555195273D4FD39C824368 /* Frameworks */,
 				E200B034FC5E432783E95F37 /* Pods-HAYO.xcconfig */,
@@ -367,10 +361,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FECB66E61980B2DA00FFD05C /* Sheep */ = {
+		FECB66E61980B2DA00FFD05C /* HAYO */ = {
 			isa = PBXGroup;
 			children = (
-				FE7C17871980B6620070FAD3 /* Sheep-Bridging-Header.h */,
+				FE7C17871980B6620070FAD3 /* HAYO-Bridging-Header.h */,
 				FECB66E91980B2DA00FFD05C /* AppDelegate.swift */,
 				FE5E828A19858DFC00898315 /* Resources */,
 				FEC4AB3819819BF500E84978 /* UI */,
@@ -383,7 +377,7 @@
 				FECB66E71980B2DA00FFD05C /* Supporting Files */,
 				FEBED926198B0738003E93EB /* Localizable.strings */,
 			);
-			path = Sheep;
+			path = HAYO;
 			sourceTree = "<group>";
 		};
 		FECB66E71980B2DA00FFD05C /* Supporting Files */ = {
@@ -394,13 +388,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FECB66F91980B2DA00FFD05C /* SheepTests */ = {
+		FECB66F91980B2DA00FFD05C /* HAYOTests */ = {
 			isa = PBXGroup;
 			children = (
 				FECB66FC1980B2DA00FFD05C /* SheepTests.swift */,
 				FECB66FA1980B2DA00FFD05C /* Supporting Files */,
 			);
-			path = SheepTests;
+			path = HAYOTests;
 			sourceTree = "<group>";
 		};
 		FECB66FA1980B2DA00FFD05C /* Supporting Files */ = {
@@ -776,12 +770,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Sheep/Info.plist;
+				INFOPLIST_FILE = HAYO/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = HAYO;
 				PROVISIONING_PROFILE = "96702ED8-B6D5-4767-8215-4C5D8B50CA10";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sheep/Sheep-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HAYO/HAYO-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -801,12 +795,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Sheep/Info.plist;
+				INFOPLIST_FILE = HAYO/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = HAYO;
 				PROVISIONING_PROFILE = "32560BDF-BCBE-44E9-A2E7-C0077A3944E2";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sheep/Sheep-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HAYO/HAYO-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
@@ -815,7 +809,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3AFC4349CDA84B2188819E39 /* Pods-HAYOTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sheep.app/Sheep";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HAYO.app/HAYO";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -824,7 +818,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SheepTests/Info.plist;
+				INFOPLIST_FILE = HAYOTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HAYOTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -835,12 +829,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3AFC4349CDA84B2188819E39 /* Pods-HAYOTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sheep.app/Sheep";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HAYO.app/HAYO";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SheepTests/Info.plist;
+				INFOPLIST_FILE = HAYOTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HAYOTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
