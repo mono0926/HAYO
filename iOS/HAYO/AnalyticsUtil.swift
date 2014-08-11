@@ -8,7 +8,8 @@
 
 import Foundation
 
-class AnalyticsUtil: NSObject {
+@objc
+class AnalyticsUtil {
     
 #if DEBUG
     let trackingId = "UA-53666587-2"
