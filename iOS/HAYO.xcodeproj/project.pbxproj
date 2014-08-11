@@ -33,6 +33,7 @@
 		FE5E829719858F1400898315 /* facebook24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E829519858F1400898315 /* facebook24@2x.png */; };
 		FE5E829A198590F500898315 /* twitter_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E8298198590F500898315 /* twitter_logo.png */; };
 		FE5E829B198590F500898315 /* twitter_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE5E8299198590F500898315 /* twitter_logo@2x.png */; };
+		FE6C9EDA199871BB0096DC7C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6C9ED9199871BB0096DC7C /* NotificationManager.swift */; };
 		FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C17851980B64A0070FAD3 /* Crashlytics.framework */; };
 		FE93F12219883DDD00310F7D /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93F12119883DDD00310F7D /* RestClient.swift */; };
 		FEA7BCF5198E05830023AF7A /* HayoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7BCF4198E05830023AF7A /* HayoListViewController.swift */; };
@@ -101,6 +102,7 @@
 		FE5E829519858F1400898315 /* facebook24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook24@2x.png"; sourceTree = "<group>"; };
 		FE5E8298198590F500898315 /* twitter_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_logo.png; sourceTree = "<group>"; };
 		FE5E8299198590F500898315 /* twitter_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter_logo@2x.png"; sourceTree = "<group>"; };
+		FE6C9ED9199871BB0096DC7C /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		FE7C17851980B64A0070FAD3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FE7C17871980B6620070FAD3 /* HAYO-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAYO-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sheep.entitlements; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				FE12D6AD1987BA510019DF03 /* UIUtils.swift */,
+				FE6C9ED9199871BB0096DC7C /* NotificationManager.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -471,6 +474,9 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = T2A5TG8364;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 0;
 							};
@@ -645,6 +651,7 @@
 				FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */,
 				FECB66EC1980B2DA00FFD05C /* MainViewController.swift in Sources */,
 				FECB66EA1980B2DA00FFD05C /* AppDelegate.swift in Sources */,
+				FE6C9EDA199871BB0096DC7C /* NotificationManager.swift in Sources */,
 				FEA7BD06198E15890023AF7A /* FriendView.swift in Sources */,
 				FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */,
 			);

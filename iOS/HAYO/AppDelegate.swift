@@ -23,7 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFTwitterUtils.initializeWithConsumerKey("YhUif46nJ7plXPW35wasVRLNH", consumerSecret: "lk95mJpSKThQSaujTagAyEZuQre2HbspOLP2e8MwrowYm37J98")
         
         MagicalRecord.setupCoreDataStack()
-        ObjcHelper.registerRemoteNotification()
+        
+        // TODO: あとで
+        // ObjcHelper.registerRemoteNotification()
+        NotificationManager.sharedInstance.setup()
+        
+        
         application.statusBarStyle = .LightContent;
         applyDesign()
         
@@ -37,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AnalyticsUtil.sharedInstance.setup()
         
         ObjcHelper.applyAutoScreenTracking()
+        
         
         Crashlytics.startWithAPIKey("d95b1c50531d0d17895fc1a2c84053145215f757")
         return true;
@@ -82,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication!, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]!) {
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
         println(userInfo)
         let aps = userInfo["aps"] as NSDictionary
@@ -93,8 +99,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = NSURL(fileURLWithPath: path)
         player = AVAudioPlayer(contentsOfURL: url, error: nil)
         player!.play()
+        NotificationManager.sharedInstance.notify()
     }
-    
     
     func application(application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData!)
     {
