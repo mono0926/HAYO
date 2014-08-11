@@ -15,9 +15,10 @@
 		<string>HiraKakuProN-W3</string>
 		<string>HiraKakuProN-W6</string>
 		<string>HelveticaNeue-Bold</string>
+		<string>Arial-Black</string>
 	</array>
 	<key>length</key>
-	<integer>5430040</integer>
+	<integer>5747964</integer>
 	<key>version</key>
 	<integer>37</integer>
 </dict>
