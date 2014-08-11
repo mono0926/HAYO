@@ -2,11 +2,6 @@ var _ = require('underscore');
 
 var Hayo = Parse.Object.extend("Hayo")
 
-Parse.Cloud.define("hello", function(request, response) {
-    pushAll()
-  response.success("Hello world!");
-});
-
 Parse.Cloud.define("hayo", function(request, response) {
 
   console.log(request)
@@ -103,7 +98,8 @@ function push(to, message) {
     where: query, // Set our Installation query
     data: {
       alert: message,
-      sound: "sheep.caf"
+      sound: "sheep.caf",
+      category: "HAYO"
     }
   }, {
     success: function() {

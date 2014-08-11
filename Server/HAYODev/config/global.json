@@ -1,11 +1,11 @@
 {
     "applications": {
-        "Sheep(Dev)": {
+        "HAYODev": {
             "applicationId": "jmhZPiIg1DZLjIs7b7p5jyTa5cKHzJEw0YPHo794", 
             "masterKey": "tHdSUmrVLIJscKlCZv551UEnwvRCy4KIimKGEI5K"
         }, 
         "_default": {
-            "link": "Sheep(Dev)"
+            "link": "HAYODev"
         }
     }, 
     "global": {
