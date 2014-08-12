@@ -36,7 +36,6 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         carousel.type = .CoverFlow
     
         self.configureBackgroundTheme()
-        designButton(hayoButton)
         
         let account = Account.instance()!
         let image = account.barButtonImage.imageWithRenderingMode(.AlwaysOriginal)
