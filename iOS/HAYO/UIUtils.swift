@@ -40,6 +40,21 @@ extension UIViewController {
     func showSuccess(message: String) {
         SVProgressHUD.showSuccessWithStatus(message)
     }
+    func showProgress() {
+        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
+    }
+    func showProgress(message: String) {
+        SVProgressHUD.showWithStatus(message, maskType: UInt(SVProgressHUDMaskTypeGradient))
+    }
+    func dismissProgress() {
+        if NSThread.isMainThread() {
+            SVProgressHUD.dismiss()
+            return
+        }
+        dispatchOnMainThread() {
+            SVProgressHUD.dismiss()
+        }
+    }
     func notImplemented() {
         showError("この画面はまだ機能しません")
     }
