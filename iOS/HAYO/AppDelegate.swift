@@ -18,17 +18,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         AFNetworkActivityIndicatorManager.sharedManager().enabled = true
-        Parse.setApplicationId(ObjcHelper.parseApplicationId(), clientKey: ObjcHelper.parseClientKey())        
+        
+        #if DEBUG
+            let parseApplicationId = "jmhZPiIg1DZLjIs7b7p5jyTa5cKHzJEw0YPHo794"
+            let parseClientKey = "I9LUaBT76zgHxNaFSFM7BsaiK3AhgJejnDGqEKvh"
+            FLEXManager.sharedManager().showExplorer()
+            #else
+            let parseApplicationId = "Wi9CvSjrmZtT9EtQHFMmOCyfhbtg9rRKUPU94CuC"
+            let parseClientKey = "338lq2yik9LA1CV2M0thfKDikwHIpjhHcAU0Pndd"
+        #endif
+        
+        Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
         PFFacebookUtils.initializeFacebook()
         PFTwitterUtils.initializeWithConsumerKey("YhUif46nJ7plXPW35wasVRLNH", consumerSecret: "lk95mJpSKThQSaujTagAyEZuQre2HbspOLP2e8MwrowYm37J98")
         
         MagicalRecord.setupCoreDataStack()
-        ObjcHelper.registerRemoteNotification()
+        registerRemoteNotification()
         application.statusBarStyle = .LightContent;
         applyDesign()
-        
-        
-//        FLEXManager.sharedManager().showExplorer()
         
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         window.makeKeyAndVisible()
@@ -95,6 +102,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         player!.play()
     }
     
+    func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
+        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication, withSession: PFFacebookUtils.session())
+    }
+    
+    // MARK: remote notification
+    
+    private func registerRemoteNotification() {
+        let app = UIApplication.sharedApplication()
+        if app.respondsToSelector("registerUserNotificationSettings:") {
+            let settings = UIUserNotificationSettings(forTypes: .Badge | .Sound | .Alert, categories: nil)
+            app.registerUserNotificationSettings(settings)
+            return
+        }
+        let types : UIRemoteNotificationType = .Badge | .Sound | .Alert
+        app.registerForRemoteNotificationTypes(types)
+    }
+    
     
     func application(application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData!)
     {
@@ -112,25 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication!, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings!)
     {
-        ObjcHelper.registerRemoteNotificationForIOS8()
-//        UIApplication.sharedApplication().registerForRemoteNotifications()
+        application.registerForRemoteNotifications()
     }
-    
-    func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
-        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication, withSession: PFFacebookUtils.session())
-    }
-    
-    /*
-    class func registerRemoteNotification() {
-        let app = UIApplication.sharedApplication();
-        if app.respondsToSelector("registerUserNotificationSettings:") {
-            let settings = UIUserNotificationSettings(forTypes: .Badge | .Sound | .Alert, categories: nil)
-            app.registerUserNotificationSettings(settings)
-            return
-        }
-        let types: UIRemoteNotificationType = .Badge | .Sound | .Alert
-        app.registerForRemoteNotificationTypes(types)
-    }
-    */
 }
 
