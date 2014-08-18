@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController, UIActionSheetDelegate {
     
     @IBAction func unregisterDidTap(sender: UIButton) {
         
-        let actionSheet = UIActionSheet(title: localize("ConfirmUnregister"), delegate: self, cancelButtonTitle: localize("Cancel"), destructiveButtonTitle: localize("Ok"))
+        let actionSheet = UIActionSheet(title: localize("ConfirmUnregister"), delegate: self, cancelButtonTitle: cancelString, destructiveButtonTitle: okString)
         
         actionSheet.showInView(self.view.window)
         

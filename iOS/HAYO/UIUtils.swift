@@ -13,6 +13,9 @@ func localize(key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }
 
+let cancelString = localize("Cancel")
+let okString = localize("Ok")
+
 let themeColor = UIColor(red: 62/255.0, green: 182/255.0, blue: 208/255.0, alpha: 1)
 
 extension UIViewController {
@@ -56,7 +59,7 @@ extension UIViewController {
         }
     }
     func notImplemented() {
-        showError("この画面はまだ機能しません")
+        showError("未実装です")
     }
 }
 
