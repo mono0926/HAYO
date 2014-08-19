@@ -55,16 +55,24 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
         navVC.transitioningDelegate = navVC
         return navVC
     }
+    @IBAction func findFriendDidTap(sender: UIButton) {
+        let searchVC = SearchFriendsViewController.create()
+        let navVC = UINavigationController(rootViewController: searchVC)
+        self.presentViewController(navVC, animated: true, completion: {})
+    }
+    @IBAction func shareMyIdDidTap(sender: UIButton) {
+        let activityVC = UIActivityViewController(activityItems: ["hoge"], applicationActivities: nil)
+        self.presentViewController(activityVC, animated: true) {}
+    }
+    @IBAction func hayoRankingDidTap(sender: UIButton) {
+        notImplemented()
+    }
+    @IBAction func settingDidTap(sender: UIButton) {
+        let sVC = SettingViewController.create()
+        self.presentViewController(sVC, animated: true) {}
+    }
     @IBAction func viewDidTap(sender: UITapGestureRecognizer) {
         self.dismissViewControllerAnimated(true) {}
-    }
-    func vibrancyEffectView(forBlurEffectView blurEffectView:UIVisualEffectView) -> UIVisualEffectView {
-        let vibrancy = UIVibrancyEffect(forBlurEffect: blurEffectView.effect as UIBlurEffect)
-        let vibrancyView = UIVisualEffectView(effect: vibrancy)
-        vibrancyView.userInteractionEnabled = false
-        vibrancyView.frame = blurEffectView.bounds
-        vibrancyView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
-        return vibrancyView
     }
     
     // MARK: UIViewControllerTransitioningDelegate

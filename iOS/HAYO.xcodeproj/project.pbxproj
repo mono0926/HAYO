@@ -49,6 +49,10 @@
 		FECB66F11980B2DA00FFD05C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECB66F01980B2DA00FFD05C /* Images.xcassets */; };
 		FECB66FD1980B2DA00FFD05C /* SheepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECB66FC1980B2DA00FFD05C /* SheepTests.swift */; };
 		FEE26B7E1997454B00D0A7CA /* AnalyticsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE26B7D1997454B00D0A7CA /* AnalyticsUtil.swift */; };
+		FEF1270019A36DEF0023BA23 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF126FF19A36DEF0023BA23 /* SettingViewController.swift */; };
+		FEF1270219A36DF90023BA23 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF1270119A36DF90023BA23 /* Setting.storyboard */; };
+		FEF1270519A36F890023BA23 /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF1270419A36F890023BA23 /* AccountSettingViewController.swift */; };
+		FEF1270719A36F980023BA23 /* AccountSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF1270619A36F980023BA23 /* AccountSetting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +117,10 @@
 		FECB66FB1980B2DA00FFD05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FECB66FC1980B2DA00FFD05C /* SheepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepTests.swift; sourceTree = "<group>"; };
 		FEE26B7D1997454B00D0A7CA /* AnalyticsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsUtil.swift; sourceTree = "<group>"; };
+		FEF126FF19A36DEF0023BA23 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		FEF1270119A36DF90023BA23 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		FEF1270419A36F890023BA23 /* AccountSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
+		FEF1270619A36F980023BA23 /* AccountSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AccountSetting.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +251,8 @@
 		FEC4AB3919819BFB00E84978 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FEF1270319A36F340023BA23 /* Account */,
+				FEF126FE19A36DDD0023BA23 /* Setting */,
 				FEB977BF1991D7DB000032E6 /* Frined */,
 				FEA7BD00198E0EA10023AF7A /* Menu */,
 				FEA7BCF3198E05010023AF7A /* HayoList */,
@@ -354,6 +364,24 @@
 			name = GA;
 			sourceTree = "<group>";
 		};
+		FEF126FE19A36DDD0023BA23 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				FEF126FF19A36DEF0023BA23 /* SettingViewController.swift */,
+				FEF1270119A36DF90023BA23 /* Setting.storyboard */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		FEF1270319A36F340023BA23 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				FEF1270619A36F980023BA23 /* AccountSetting.storyboard */,
+				FEF1270419A36F890023BA23 /* AccountSettingViewController.swift */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -451,9 +479,11 @@
 				FEBED927198B0738003E93EB /* Localizable.strings in Resources */,
 				FEB977C31991D7F4000032E6 /* Friend.storyboard in Resources */,
 				FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */,
+				FEF1270719A36F980023BA23 /* AccountSetting.storyboard in Resources */,
 				FE06C74119941EDA00CE8FEA /* MyHayoCell.xib in Resources */,
 				FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */,
 				FEA7BCF7198E05BB0023AF7A /* HayoList.storyboard in Resources */,
+				FEF1270219A36DF90023BA23 /* Setting.storyboard in Resources */,
 				FEC4AB451981AB1B00E84978 /* sheep.caf in Resources */,
 				FEC78CD9198BBAD3008E7C10 /* FriendCandidateCell.xib in Resources */,
 				FECB66F11980B2DA00FFD05C /* Images.xcassets in Resources */,
@@ -561,6 +591,8 @@
 				FEC78CD7198BBAB5008E7C10 /* FriendCandidateCell.swift in Sources */,
 				FEA7BD04198E0EB80023AF7A /* MenuViewController.swift in Sources */,
 				FE12D6AE1987BA510019DF03 /* UIUtils.swift in Sources */,
+				FEF1270019A36DEF0023BA23 /* SettingViewController.swift in Sources */,
+				FEF1270519A36F890023BA23 /* AccountSettingViewController.swift in Sources */,
 				FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */,
 				FE06C74519941EEE00CE8FEA /* MyHayoCell.swift in Sources */,
 				FEE26B7E1997454B00D0A7CA /* AnalyticsUtil.swift in Sources */,

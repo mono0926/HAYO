@@ -35,7 +35,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="bSt-jv-XM5">
-                        <barButtonItem key="leftBarButtonItem" image="close.png" id="BG0-1u-ZOL">
+                        <barButtonItem key="leftBarButtonItem" image="close" id="BG0-1u-ZOL">
                             <connections>
                                 <action selector="closeDidTap:" destination="pe4-ag-ceZ" id="fWM-bb-P9c"/>
                             </connections>
@@ -67,6 +67,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close.png" width="15" height="15"/>
+        <image name="close" width="15" height="15"/>
     </resources>
 </document>

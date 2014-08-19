@@ -11,7 +11,9 @@
 "HayoFormat" = "%@ < %@";
 "SentHayoFormat" = "%@さんに\nHAYOしました d(´･‿･｀）";
 "ConfirmUnregister" = "退会すると、プロフィール情報・友だち情報が失われます。よろしいですか？";
+"DoUnregister" = "退会する";
 "Ok" = "OK";
 "Cancel" = "キャンセル";
 "HayoFriendMessageFormat" = "%@ < %@";
 "HayoMyMessageFormat" = "%@ > %@";
+"AccountSetting" = "アカウント設定";

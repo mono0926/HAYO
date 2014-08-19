@@ -9,6 +9,13 @@
 import Foundation
 class FriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    class func create() -> UINavigationController {
+        let sb = UIStoryboard(name: "Friend", bundle: nil)
+        let navVC = sb.instantiateInitialViewController() as UINavigationController
+        return navVC
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     var user: PFUser!
     var hayoList: [Hayo]?
@@ -38,12 +45,6 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     }
     @IBAction func closeDidTap(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: {})
-    }
-    
-    class func create() -> UINavigationController {
-        let sb = UIStoryboard(name: "Friend", bundle: nil)
-        let navVC = sb.instantiateInitialViewController() as UINavigationController
-        return navVC
     }
     
     func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
