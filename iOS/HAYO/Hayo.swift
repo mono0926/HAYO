@@ -1,4 +1,4 @@
-//
+ //
 //  Hayo.swift
 //  Sheep
 //
@@ -35,16 +35,16 @@ class Hayo {
     private func getMessage(mine: Bool, completed: (message:String) -> ()) {
         let user = self.fromUser
         user.fetchIfNeededInBackgroundWithBlock(){ a in
-            let result = mine ? NSString(format: localize("HayoMyMessageFormat"), self.message, user.nickname):
-                NSString(format: localize("HayoFriendMessageFormat"), user.nickname, self.message)
+            let result = mine ? NSString(format: localize("HayoMyMessageFormat"), self.message, user.username):
+                NSString(format: localize("HayoFriendMessageFormat"), user.username, self.message)
             completed(message: result)
         }
     }
     
     func getImageURL(completed: (url: String) -> ()) {
         let user = source.objectForKey("from") as PFUser
-        user.fetchIfNeededInBackgroundWithBlock(){ a in
-            completed(url: user.imageURL)
+        user.fetchIfNeededInBackgroundWithBlock(){ result, error in
+            completed(url: user.getImageURL())
         }
     }
 }

@@ -16,8 +16,6 @@ class Account: NSManagedObject {
     @NSManaged
     var username: String
     @NSManaged
-    var nickname: String
-    @NSManaged
     var imageData: NSData
     
     var image: UIImage {
@@ -76,7 +74,7 @@ class Account: NSManagedObject {
                 return
             }
             RestClient.sharedInstance.get(user.imageURL) { image in
-                Account.createAccountSync(user.username, nickname: user.nickname, image: image!)
+                Account.createAccountSync(user.username, image: image!)
                 completed(user: nil)
             }
         }
@@ -109,7 +107,7 @@ class Account: NSManagedObject {
             }
             
             RestClient.sharedInstance.get(user.imageURL) { image in
-                Account.createAccountSync(user.username, nickname: user.nickname, image: image!)
+                Account.createAccountSync(user.username, image: image!)
                 completed(user: nil)
             }
             })
@@ -163,16 +161,16 @@ class Account: NSManagedObject {
         completed(friendCandidates: results)
     }
     
-    class func createAsync(nickname: String, imageURL: String, image: UIImage, email: String?, completed: (error: NSError?) -> ()) {
+    class func createAsync(username: String, imageURL: String, image: UIImage, email: String?, completed: (error: NSError?) -> ()) {
         dispatchAsync(.High) {
             let user = PFUser.currentUser()
-            user.nickname = nickname
+            user.username = username
             user.imageURL = imageURL
             user.email = email
             var error: NSError? = nil
             user.save(&error)
             println(error)
-            self.createAccountSync(user.username, nickname: nickname, image: image)
+            self.createAccountSync(user.username, image: image)
             dispatchOnMainThread() {
                 completed(error: nil)
             }
@@ -186,11 +184,10 @@ class Account: NSManagedObject {
         installation.save()
     }
     
-    private class func createAccountSync(username: String, nickname: String, image: UIImage) {
+    private class func createAccountSync(username: String, image: UIImage) {
         associateInstallation()
         let account = Account.MR_createEntity() as Account
         account.username = username
-        account.nickname = nickname
         let imageData = NSData(data: UIImageJPEGRepresentation(image, 1))
         account.imageData = imageData
         account.saveSync()
@@ -214,17 +211,6 @@ class Account: NSManagedObject {
 }
 
 extension PFUser {
-    func getNickname() -> String! {
-        return self.nickname
-    }
-    var nickname: String! {
-    set {
-        self.setObject(newValue, forKey: "nickname")
-    }
-    get {
-        return self.objectForKey("nickname") as String
-    }
-    }
     var imageURL: String! {
     set {
         self.setObject(newValue, forKey: "imageURL")

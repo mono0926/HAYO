@@ -52,7 +52,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 self.showError()
                 return
             }
-            let message = NSString(format: localize("SentHayoFormat"), user.getNickname())
+            let message = NSString(format: localize("SentHayoFormat"), user.username)
             self.showSuccess(message)
             }
     }

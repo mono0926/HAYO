@@ -33,7 +33,7 @@ Parse.Cloud.define("hayo", function(request, response) {
     console.log("toUser: " + toUser)
     saveHayo(fromUser, toUser, message, function(hayo) {
       console.log("hayo saved: " + hayo)
-      push(to, fromUser.get("nickname") + " < " + message)
+      push(to, fromUser.get("username") + " < " + message)
       response.success("hayo function success")
     })
   })

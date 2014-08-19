@@ -40,7 +40,7 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
         let account = Account.instance()
         imageButton.imageView.contentMode = .ScaleAspectFill
         imageButton .setImage(account.image, forState: .Normal)
-        nameButton.setTitle(account.nickname, forState: .Normal)
+        nameButton.setTitle(account.username, forState: .Normal)
     }
     
     class func designMenuButton(button: UIButton) {
