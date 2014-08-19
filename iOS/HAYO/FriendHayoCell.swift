@@ -16,7 +16,7 @@ class FriendHayoCell: UITableViewCell {
     var _hayo: Hayo! = nil
     var hayo: Hayo! {
         set {
-            if !newValue {
+            if nil == newValue {
                 return
             }
             _hayo = newValue

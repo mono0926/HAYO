@@ -16,7 +16,6 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var carouselContainerView: UIView!
     var carousel: iCarousel!
-    var sideMenuViewController: SideMenuViewController?
     var users: [PFUser]?
     let hayoMessages = ["HAYO!!", "進捗どうですか？","返信まだですか？","納品まだですか？","HAYO理由を追加"]
     
@@ -49,7 +48,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let user = users![carousel.currentItemIndex]
         let message = hayoMessages[pickerView.selectedRowInComponent(0)]
         SNSClient.sharedInstance.hayo(user, message: message) { success, error in
-            if error {
+            if nil != error {
                 self.showError()
                 return
             }
@@ -59,78 +58,16 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func profileDidTap() {
-        let vc = ProfileViewController.create()
-        self.presentViewController(vc, animated: true, completion: {})
-    }
-    
-    func closeMenu() {
-    
-        self.view.layoutIfNeeded()
-        let vc = sideMenuViewController!
-        vc.view.mas_updateConstraints({make in
-            make.left.equalTo()(self.view.mas_left).with().offset()(-sideMenuWidth)
-            return ()
-        })
-        
-        UIView.animateWithDuration(0.3, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: {finished in
-            vc.view .removeFromSuperview()
-            self.sideMenuViewController = nil
-        })
+        let vc = MenuViewController.create()
+        self.navigationController.modalPresentationStyle = .CurrentContext // iOS7用
+        self.presentViewController(vc, animated: isIOS8OrLater(), completion: {})
     }
     
     @IBAction func homeButtonDidTap(sender: UIBarButtonItem) {
-        
-        if let vc = sideMenuViewController {
-            closeMenu()
-            return
-        }
-        
-        sideMenuViewController = SideMenuViewController.create()
-        sideMenuViewController!.selectedBlock = { type in
-            self.closeMenu()
-            switch type {
-            case .HayoList:
-                self.notImplemented()
-                let hayoVC = HayoListViewController.create()
-                self.navigationController.presentViewController(hayoVC, animated: true, completion: {})
-            case .SearchFrinds:
-                self.notImplemented()
-                let searchVC = SearchFriendsViewController.create()
-                let navVC = UINavigationController(rootViewController: searchVC)
-                self.navigationController.presentViewController(navVC, animated: true, completion: {})
-                return
-            case .EditHayoMessage:
-                self.notImplemented()
-            case .NotificationSound:
-                self.notImplemented()
-            }
-        }
-        
-        let view = sideMenuViewController!.view
-        
-        self.view.addSubview(view)
-        
-        view.mas_makeConstraints({make in
-            make.bottom.equalTo()(self.view.mas_bottom).with().offset()(0)
-            make.top.equalTo()(self.view.mas_top).with().offset()(0)
-            make.left.equalTo()(self.view.mas_left).with().offset()(-sideMenuWidth)
-            make.width.equalTo()(sideMenuWidth)
-            return ()
-            })
-        
-        self.view.layoutIfNeeded()
-        
-        view.mas_updateConstraints({make in
-            make.left.equalTo()(self.view.mas_left).with().offset()(0)
-            return ()
-            })
-        
-        UIView.animateWithDuration(0.3, animations: {
-            self.view.layoutIfNeeded()
-            }, completion: {finished in })
-        }
+        self.notImplemented()
+        let hayoVC = HayoListViewController.create()
+        self.navigationController.presentViewController(hayoVC, animated: true, completion: {})
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -140,7 +77,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func loadUsers() {
         let query = PFUser.query()
         query.findObjectsInBackgroundWithBlock({objects, error in
-            if error {
+            if nil != error {
                 self.showError()
                 return
             }
@@ -160,7 +97,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, reusingView view: UIView!) -> UIView! {
      
         var friendView: FriendView! = view as? FriendView
-        if !friendView {
+        if nil == friendView {
             friendView = FriendView.create()
 //            friendView.frame = CGRectMake(0, 0, 130, 150)
         } else {

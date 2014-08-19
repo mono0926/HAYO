@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
     }
     
     func handleResponse(user: SNSUser?) {
-        if Account.instance() {
+        if Account.instance() != nil {
             SVProgressHUD.dismiss()
             (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
             return

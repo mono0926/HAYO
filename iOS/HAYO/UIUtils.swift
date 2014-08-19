@@ -18,7 +18,21 @@ let okString = localize("Ok")
 
 let themeColor = UIColor(red: 62/255.0, green: 182/255.0, blue: 208/255.0, alpha: 1)
 
+func isIOS8OrLater() -> Bool {
+    return (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0;
+}
+
 extension UIViewController {
+    
+    func showAlertView(title: String, message: String, okBlock: () -> (), cancelBlock: (() -> ())?) {
+        let alert = Alert.sharedInstance
+        alert.showAlertView(self, title: title, message: message, okBlock: okBlock, cancelBlock: cancelBlock)
+    }
+    func showActionSheet(title: String, normalButtonActions: [TitleAction] = [], destructiveTitleAction: TitleAction? = nil, cancelBlock: () -> () = {}) {
+        let alert = Alert.sharedInstance
+        alert.showActionSheet(self, title: title, normalButtonActions: normalButtonActions, destructiveTitleAction: destructiveTitleAction, cancelBlock: cancelBlock);
+    }
+    
     func configureBackgroundTheme() {       
         self.view.configureBackgroundTheme()
     }
@@ -80,6 +94,16 @@ extension UIView {
         self.configureAsCircle()
         layer.borderWidth = 1
         layer.borderColor = UIColor(white: 1, alpha: 0.5).CGColor
+    }
+    func enableBlurEffect() -> Bool {
+        if NSClassFromString("UIBlurEffect") != nil {
+            let effect = UIBlurEffect(style: .Dark)
+            let effectView = UIVisualEffectView(effect: effect)
+            effectView.frame = self.frame
+            self.insertSubview(effectView, atIndex: 0)
+            return true
+        }
+        return false
     }
 }
 extension UIScrollView {

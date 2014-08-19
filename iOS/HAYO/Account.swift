@@ -47,8 +47,8 @@ class Account: NSManagedObject {
         
         PFTwitterUtils.logInWithBlock {
             (user: PFUser!, error: NSError!) in
-            if !user {
-                if !error {
+            if nil == user {
+                if nil == error {
                     println("Uh oh. The user cancelled the Twitter login.")
                     completed(user: nil)
                     return;
@@ -68,7 +68,7 @@ class Account: NSManagedObject {
                 var response:NSURLResponse?
                 // TODO: エラー処理
                 var error: NSError?
-                let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
+                let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)!
                 let json = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: nil) as NSDictionary
                 println(json)
                 let twitterUser = TypedTwitterUser(data: json)
@@ -89,8 +89,8 @@ class Account: NSManagedObject {
         let permissions = ["user_about_me", "user_relationships", "user_birthday", "user_location", "read_friendlists", "user_status", "user_friends"]
         PFFacebookUtils.logInWithPermissions(permissions, block: {user, error in
             
-            if !user {
-                if !error {
+            if nil == user {
+                if nil == error {
                     println("Uh oh. The user cancelled the Facebook login.")
                     completed(user: nil)
                     return;
@@ -152,7 +152,7 @@ class Account: NSManagedObject {
         var response:NSURLResponse?
         // TODO: エラー処理
         var error: NSError?
-        let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
+        let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)!
         let json = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &error) as NSDictionary
 //        println(json)
         let friends = json["users"] as [NSDictionary]

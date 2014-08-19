@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
             let parseApplicationId = "jmhZPiIg1DZLjIs7b7p5jyTa5cKHzJEw0YPHo794"
             let parseClientKey = "I9LUaBT76zgHxNaFSFM7BsaiK3AhgJejnDGqEKvh"
-            FLEXManager.sharedManager().showExplorer()
+//            FLEXManager.sharedManager().showExplorer()
             #else
             let parseApplicationId = "Wi9CvSjrmZtT9EtQHFMmOCyfhbtg9rRKUPU94CuC"
             let parseClientKey = "338lq2yik9LA1CV2M0thfKDikwHIpjhHcAU0Pndd"
@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             v.removeFromSuperview()
         }
         
-        let sbName = Account.instance() ? "Main" : "Login";
+        let sbName = Account.instance()? != nil ? "Main" : "Login";
         let vc = UIStoryboard(name: sbName, bundle: nil).instantiateInitialViewController() as UIViewController
         window.rootViewController = vc
     }
@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let alert = aps["alert"] as String
         let notification = CWStatusBarNotification()
         notification.displayNotificationWithMessage(alert, forDuration: 5)
-        let path = NSBundle.mainBundle().pathForResource("sheep", ofType: "caf")
+        let path = NSBundle.mainBundle().pathForResource("sheep", ofType: "caf")!
         let url = NSURL(fileURLWithPath: path)
         player = AVAudioPlayer(contentsOfURL: url, error: nil)
         player!.play()

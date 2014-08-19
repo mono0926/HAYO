@@ -24,7 +24,8 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil), forCellReuseIdentifier: "FriendHayoCell")
         self.tableView.rowHeight = 60
         
-        self.title = user.nickname
+        println(user.username)
+        self.title = user.username
         
         PFCloud.callFunctionInBackground("hayoList", withParameters: ["fromId": PFUser.currentUser().objectId, "toId": user.objectId], block: { result, error in
             println(result)

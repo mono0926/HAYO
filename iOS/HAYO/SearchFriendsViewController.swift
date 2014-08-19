@@ -45,7 +45,7 @@ class SearchFriendsViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int
     {
-        return friendsCandidates ? 1 : 0
+        return friendsCandidates != nil ? 1 : 0
     }
     
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {

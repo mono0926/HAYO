@@ -12,17 +12,17 @@ class FriendCandidateCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var _snsUser: SNSUser? = nil
+    var _snsUser: SNSUser! = nil
     var snsUser: SNSUser! {
     set {
-        if !newValue {
+        if nil == newValue {
             return
         }
         println(newValue.name)
         _snsUser = newValue
-        self.profileImageView.sd_setImageWithURL((NSURL(string: _snsUser?.imageURL!)), completed: {image, error, type, url -> () in
+        self.profileImageView.sd_setImageWithURL((NSURL(string: _snsUser.imageURL!)), completed: {image, error, type, url -> () in
             })
-        self.nameLabel.text = _snsUser?.name
+        self.nameLabel.text = _snsUser.name
     }
     get {
         return _snsUser

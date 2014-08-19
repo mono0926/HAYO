@@ -14,7 +14,7 @@ import CoreImage
 func copyResource(resourceName: String, #targetName:String) -> String {
     let manager = NSFileManager.defaultManager()
     let filePath = getDocumentPath().stringByAppendingPathComponent(targetName)
-    let resourcePath = NSBundle.mainBundle().pathForResource(resourceName, ofType:nil)
+    let resourcePath = NSBundle.mainBundle().pathForResource(resourceName, ofType:nil)!
     manager.copyItemAtPath(resourcePath, toPath: filePath, error: nil)
     return filePath
 }

@@ -20,8 +20,6 @@
 		FE266A4F198C46A7001A0F13 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE5E82831985898000898315 /* Login.storyboard */; };
 		FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */; };
 		FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09219874F1B00CEE29B /* SNSClient.swift */; };
-		FE3F7E7B198E007A001E779A /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE3F7E7A198E007A001E779A /* SideMenu.storyboard */; };
-		FE3F7E7D198E008D001E779A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F7E7C198E008D001E779A /* SideMenuViewController.swift */; };
 		FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE50AD0A1987D8700054B5F3 /* FriendCell.xib */; };
 		FE50AD0D1987D87C0054B5F3 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */; };
 		FE5E82861985899400898315 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5E82851985899400898315 /* LoginViewController.swift */; };
@@ -29,10 +27,12 @@
 		FE93F12219883DDD00310F7D /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93F12119883DDD00310F7D /* RestClient.swift */; };
 		FEA7BCF5198E05830023AF7A /* HayoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7BCF4198E05830023AF7A /* HayoListViewController.swift */; };
 		FEA7BCF7198E05BB0023AF7A /* HayoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BCF6198E05BB0023AF7A /* HayoList.storyboard */; };
-		FEA7BD02198E0EAD0023AF7A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BD01198E0EAD0023AF7A /* Profile.storyboard */; };
-		FEA7BD04198E0EB80023AF7A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7BD03198E0EB80023AF7A /* ProfileViewController.swift */; };
+		FEA7BD02198E0EAD0023AF7A /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BD01198E0EAD0023AF7A /* Menu.storyboard */; };
+		FEA7BD04198E0EB80023AF7A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7BD03198E0EB80023AF7A /* MenuViewController.swift */; };
 		FEA7BD06198E15890023AF7A /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7BD05198E15890023AF7A /* FriendView.swift */; };
 		FEA7BD08198E15950023AF7A /* FriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BD07198E15950023AF7A /* FriendView.xib */; };
+		FEABE80B19A197FB0078CEFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEABE80A19A197FB0078CEFF /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FEABE80D19A1A6A30078CEFF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEABE80C19A1A6A30078CEFF /* Alert.swift */; };
 		FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */; };
 		FEB977C11991D7EA000032E6 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB977C01991D7EA000032E6 /* FriendViewController.swift */; };
 		FEB977C31991D7F4000032E6 /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB977C21991D7F4000032E6 /* Friend.storyboard */; };
@@ -77,8 +77,6 @@
 		FE254BCA198B08C400BA9848 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FE38E09219874F1B00CEE29B /* SNSClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSClient.swift; sourceTree = "<group>"; };
-		FE3F7E7A198E007A001E779A /* SideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
-		FE3F7E7C198E008D001E779A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		FE50AD0A1987D8700054B5F3 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		FE5E82831985898000898315 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -89,10 +87,12 @@
 		FE93F12119883DDD00310F7D /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		FEA7BCF4198E05830023AF7A /* HayoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HayoListViewController.swift; sourceTree = "<group>"; };
 		FEA7BCF6198E05BB0023AF7A /* HayoList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HayoList.storyboard; sourceTree = "<group>"; };
-		FEA7BD01198E0EAD0023AF7A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		FEA7BD03198E0EB80023AF7A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FEA7BD01198E0EAD0023AF7A /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
+		FEA7BD03198E0EB80023AF7A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FEA7BD05198E15890023AF7A /* FriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		FEA7BD07198E15950023AF7A /* FriendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendView.xib; sourceTree = "<group>"; };
+		FEABE80A19A197FB0078CEFF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FEABE80C19A1A6A30078CEFF /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedSNSUser.swift; sourceTree = "<group>"; };
 		FEB977C01991D7EA000032E6 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		FEB977C21991D7F4000032E6 /* Friend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
@@ -120,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEABE80B19A197FB0078CEFF /* UIKit.framework in Frameworks */,
 				FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */,
 				3E25E533CB034ED487ABCDC6 /* libPods-HAYO.a in Frameworks */,
 			);
@@ -139,6 +140,7 @@
 		82555195273D4FD39C824368 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEABE80A19A197FB0078CEFF /* UIKit.framework */,
 				FE7C17851980B64A0070FAD3 /* Crashlytics.framework */,
 				A2A73363C7814AD39855A577 /* libPods-HAYO.a */,
 				7BE7ADF2C8F04E1489FE3809 /* libPods-HAYOTests.a */,
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				FE12D6AD1987BA510019DF03 /* UIUtils.swift */,
+				FEABE80C19A1A6A30078CEFF /* Alert.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -161,8 +164,6 @@
 				FECB66EB1980B2DA00FFD05C /* MainViewController.swift */,
 				FE50AD0A1987D8700054B5F3 /* FriendCell.xib */,
 				FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */,
-				FE3F7E7A198E007A001E779A /* SideMenu.storyboard */,
-				FE3F7E7C198E008D001E779A /* SideMenuViewController.swift */,
 				FEA7BD07198E15950023AF7A /* FriendView.xib */,
 				FEA7BD05198E15890023AF7A /* FriendView.swift */,
 			);
@@ -200,13 +201,13 @@
 			name = HayoList;
 			sourceTree = "<group>";
 		};
-		FEA7BD00198E0EA10023AF7A /* Profile */ = {
+		FEA7BD00198E0EA10023AF7A /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				FEA7BD01198E0EAD0023AF7A /* Profile.storyboard */,
-				FEA7BD03198E0EB80023AF7A /* ProfileViewController.swift */,
+				FEA7BD01198E0EAD0023AF7A /* Menu.storyboard */,
+				FEA7BD03198E0EB80023AF7A /* MenuViewController.swift */,
 			);
-			name = Profile;
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		FEB7BC8D198662D500321AC3 /* Model */ = {
@@ -243,7 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				FEB977BF1991D7DB000032E6 /* Frined */,
-				FEA7BD00198E0EA10023AF7A /* Profile */,
+				FEA7BD00198E0EA10023AF7A /* Menu */,
 				FEA7BCF3198E05010023AF7A /* HayoList */,
 				FE5E82821985896D00898315 /* Login */,
 				FE12D6AF1987BC7C0019DF03 /* Main */,
@@ -446,10 +447,9 @@
 			files = (
 				FEA7BD08198E15950023AF7A /* FriendView.xib in Resources */,
 				FE06C73F19941ED200CE8FEA /* FriendHayoCell.xib in Resources */,
-				FEA7BD02198E0EAD0023AF7A /* Profile.storyboard in Resources */,
+				FEA7BD02198E0EAD0023AF7A /* Menu.storyboard in Resources */,
 				FEBED927198B0738003E93EB /* Localizable.strings in Resources */,
 				FEB977C31991D7F4000032E6 /* Friend.storyboard in Resources */,
-				FE3F7E7B198E007A001E779A /* SideMenu.storyboard in Resources */,
 				FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */,
 				FE06C74119941EDA00CE8FEA /* MyHayoCell.xib in Resources */,
 				FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */,
@@ -552,14 +552,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE05E5AE19943B40001C60F0 /* Hayo.swift in Sources */,
-				FE3F7E7D198E008D001E779A /* SideMenuViewController.swift in Sources */,
 				FE5E82861985899400898315 /* LoginViewController.swift in Sources */,
 				FEA7BCF5198E05830023AF7A /* HayoListViewController.swift in Sources */,
 				FE38E09319874F1B00CEE29B /* SNSClient.swift in Sources */,
 				FEB977C11991D7EA000032E6 /* FriendViewController.swift in Sources */,
 				FE254BCB198B08C400BA9848 /* SearchFriendsViewController.swift in Sources */,
+				FEABE80D19A1A6A30078CEFF /* Alert.swift in Sources */,
 				FEC78CD7198BBAB5008E7C10 /* FriendCandidateCell.swift in Sources */,
-				FEA7BD04198E0EB80023AF7A /* ProfileViewController.swift in Sources */,
+				FEA7BD04198E0EB80023AF7A /* MenuViewController.swift in Sources */,
 				FE12D6AE1987BA510019DF03 /* UIUtils.swift in Sources */,
 				FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */,
 				FE06C74519941EEE00CE8FEA /* MyHayoCell.swift in Sources */,
