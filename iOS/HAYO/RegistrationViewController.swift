@@ -8,29 +8,22 @@
 
 import Foundation
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var registerButton: UIButton!
     var user: SNSUser!
     var profileImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundTheme()
-        designButton(registerButton)
-        registerButton.alpha = 0.5
         profileImageView.configureAsMyCircle()
         
-        let hoge = user.name
-        println(hoge)
         let url = user.imageURL
         println(url)
         profileImageView.sd_setImageWithURL(NSURL(string: user.imageURL), completed: {image, error, type, url -> () in
-            self.registerButton.alpha = 1
-            self.registerButton.enabled = true
             })
-        nameTextField.text = user.name
+        nameTextField.text = user.username
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -39,20 +32,28 @@ class RegistrationViewController: UIViewController {
         nameTextField.becomeFirstResponder()
     }
     
-    @IBAction func registerDidTap(sender: UIButton) {
-        nameTextField.resignFirstResponder()
-        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
-        processRegistration()
-    }
     @IBAction func cancelDidTap(sender: UIBarButtonItem) {
         nameTextField.resignFirstResponder()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        showProgress()
+        Account.unregister() {
+            self.dismissProgress()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    @IBAction func registerDidTap(sender: UIBarButtonItem) {
+        exesuteRegister()
+    }
+    
+    func exesuteRegister() {
+        nameTextField.resignFirstResponder()
+        showProgress()
+        processRegistration()
     }
     
     func processRegistration() {
         Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, email: user.email, completed: { error in
             if nil == error {
-                SVProgressHUD.dismiss()
+                self.dismissProgress()
                 self.performSegueWithIdentifier("Friends", sender: self)
 //                (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
                 return
@@ -62,5 +63,10 @@ class RegistrationViewController: UIViewController {
                 (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
                 }, afterDelay: 3)
         })
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        exesuteRegister()
+        return true
     }
 }

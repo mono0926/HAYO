@@ -18,11 +18,11 @@ class FriendCandidateCell: UITableViewCell {
         if nil == newValue {
             return
         }
-        println(newValue.name)
+        println(newValue.username)
         _snsUser = newValue
         self.profileImageView.sd_setImageWithURL((NSURL(string: _snsUser.imageURL!)), completed: {image, error, type, url -> () in
             })
-        self.nameLabel.text = _snsUser.name
+        self.nameLabel.text = _snsUser.username
     }
     get {
         return _snsUser

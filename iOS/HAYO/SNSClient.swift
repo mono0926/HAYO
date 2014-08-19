@@ -19,7 +19,7 @@ class SNSClient {
         
         let me = PFUser.currentUser()
         
-        PFCloud.callFunctionInBackground("hayo", withParameters: ["from": me.username, "to": user.username, "message": message], block: { result, error in
+        PFCloud.callFunctionInBackground("hayo", withParameters: ["fromId": me.objectId, "toId": user.objectId, "message": message], block: { result, error in
             completed(success: true, error: error)
         })
     }

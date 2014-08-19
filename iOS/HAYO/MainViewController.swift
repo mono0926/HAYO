@@ -144,7 +144,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
         if row == 4 {
-            SVProgressHUD.showErrorWithStatus("追加画面へ？(未実装)")
+            showError("追加画面へ？(未実装)")
             return
         }
         SVProgressHUD.dismiss()

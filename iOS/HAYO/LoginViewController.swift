@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         twitterButton.backgroundColor = UIColor(white: 1, alpha: 0.35)
     }
     @IBAction func twitterDidTap(sender: UIButton) {
-        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
+        showProgress()
         Account.loginToTwitter() { user in
             self.handleResponse(user)
         }
@@ -42,8 +42,8 @@ class LoginViewController: UIViewController {
     @IBAction func facebookDidTap(sender: UIButton) {
         
         facebookButton.backgroundColor = UIColor.clearColor()
-
-        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
+        
+        showProgress()
         Account.loginToFacebook() { user in
             self.handleResponse(user)
         }
@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
     
     func handleResponse(user: SNSUser?) {
         if Account.instance() != nil {
-            SVProgressHUD.dismiss()
+            dismissProgress()
             (UIApplication.sharedApplication().delegate as AppDelegate).navigate()
             return
         }
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         }
         
         self.snsUser = user
-        SVProgressHUD.dismiss()
+        dismissProgress()
         self.performSegueWithIdentifier("Registration", sender: self)
     }
     

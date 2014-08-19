@@ -112,6 +112,8 @@ class Account: NSManagedObject {
             }
             })
     }
+
+    
     
     
     class func searchFriendCandidates(completed: (friendCandidates: [SNSUser]) -> ()) {
@@ -193,25 +195,26 @@ class Account: NSManagedObject {
         account.saveSync()
     }
     
-    class func deleteInstance() {
+    class func deleteInstanceIfExists() {
         let account = Account.instance()
+        if account == nil {
+            return
+        }
         let moc = account.managedObjectContext
         moc.deleteObject(account)
         moc.MR_saveOnlySelfAndWait()
     }
-    
+
     class func unregister(completed: () -> ()) {
-        let account = Account.instance()
-        let moc = account.managedObjectContext
         PFUser.currentUser().deleteInBackgroundWithBlock() {success, error in
-            self.deleteInstance()
+            self.deleteInstanceIfExists()
             completed()
         }
     }
 }
 
 extension PFUser {
-    var imageURL: String! {
+    private var imageURL: String! {
     set {
         self.setObject(newValue, forKey: "imageURL")
     }

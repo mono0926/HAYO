@@ -6,8 +6,8 @@ Parse.Cloud.define("hayo", function(request, response) {
 
   console.log(request)
 
-  var from = request.params.from
-  var to = request.params.to
+  var fromId = request.params.fromId
+  var toId = request.params.toId
   var message = request.params.message
 
 
@@ -15,7 +15,7 @@ Parse.Cloud.define("hayo", function(request, response) {
 
   console.log("userQuery start")
   var fromQuery = new Parse.Query(Parse.User)
-  fromQuery.equalTo("username", from)
+  fromQuery.equalTo("objectId", fromId)
 
   fromQuery.first().then(function(result) {
     console.log("hoge")
@@ -23,7 +23,7 @@ Parse.Cloud.define("hayo", function(request, response) {
   }).then(function(result) {
     fromUser = result
     var toQuery = new Parse.Query(Parse.User)
-    toQuery.equalTo("username", to)
+    toQuery.equalTo("objectId", toId)
     return toQuery.first()
   }).then(function(result) {
     return result.fetch()
@@ -33,7 +33,7 @@ Parse.Cloud.define("hayo", function(request, response) {
     console.log("toUser: " + toUser)
     saveHayo(fromUser, toUser, message, function(hayo) {
       console.log("hayo saved: " + hayo)
-      push(to, fromUser.get("username") + " < " + message)
+      push(toId, fromUser.get("username") + " < " + message)
       response.success("hayo function success")
     })
   })
@@ -85,11 +85,11 @@ function saveHayo(fromUser, toUser, message, callback) {
   })
 }
 
-function push(to, message) {
+function push(toId, message) {
 
-  console.log("to: " + to)
+  console.log("toId: " + toId)
   var userQuery = new Parse.Query(Parse.User)
-  userQuery.equalTo("username", to)
+  userQuery.equalTo("objectId", toId)
 
   var query = new Parse.Query(Parse.Installation);
   query.matchesQuery('user', userQuery);

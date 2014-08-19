@@ -31,13 +31,14 @@ class TypedUserBase {
 
 @objc // TODO: なんぞ
 protocol SNSUser {
-    var name: String! { get }
+    var username: String! { get }
     var imageURL: String! { get }
     var email: String? { get }
 }
 
 class TypedTwitterUser: TypedUserBase, SNSUser {
     
+    var username: String! { get { return self.screen_name } }
     var name: String! { get { return getStringValue("name") } }
     var imageURL: String! { get { return profileImageUrl }}
     var email: String? { get { return nil } }
@@ -177,6 +178,7 @@ notifications: 0]
 
 class TypedFacebookUser: TypedUserBase, SNSUser {
     
+    var username: String! { get { return ObjcHelper.replace(self.first_name, from: " ", to: "") } }
     var name: String! { get { return getStringValue("name") } }
     var email: String? { get { return getStringValue("email") } }
     var imageURL: String! { get { return NSString(format: "https://graph.facebook.com/%@/picture?type=large", self.id) }}

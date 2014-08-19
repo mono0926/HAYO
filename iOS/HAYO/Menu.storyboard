@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Y3-Fr-bvX">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
@@ -95,7 +96,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVm-JN-Cq9">
-                                <rect key="frame" x="240" y="40" width="120" height="120"/>
+                                <rect key="frame" x="240" y="167" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="TF1-Lt-KiJ"/>
                                     <constraint firstAttribute="width" constant="120" id="jXr-4e-myt"/>
@@ -105,7 +106,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVR-eE-VX4">
-                                <rect key="frame" x="285" y="180" width="30" height="33"/>
+                                <rect key="frame" x="285" y="307" width="30" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="aaa">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,13 +121,13 @@
                             <constraint firstItem="sER-yV-UZE" firstAttribute="top" secondItem="ICC-W0-wqR" secondAttribute="bottom" id="5rC-DY-TMo"/>
                             <constraint firstAttribute="centerX" secondItem="jVR-eE-VX4" secondAttribute="centerX" id="6mN-hD-vQ9"/>
                             <constraint firstAttribute="trailing" secondItem="ICC-W0-wqR" secondAttribute="trailing" id="9Xq-en-FSv"/>
+                            <constraint firstItem="jVR-eE-VX4" firstAttribute="top" secondItem="sVm-JN-Cq9" secondAttribute="bottom" constant="20" id="C86-dH-Xbr"/>
                             <constraint firstAttribute="trailing" secondItem="qRY-YO-Qyt" secondAttribute="trailing" id="CRG-7I-og3"/>
                             <constraint firstItem="mm0-GM-EaQ" firstAttribute="leading" secondItem="d6p-tZ-caE" secondAttribute="leading" id="EGa-dk-eQB"/>
                             <constraint firstItem="OYS-g5-cW2" firstAttribute="centerY" secondItem="ICC-W0-wqR" secondAttribute="centerY" id="EX2-EZ-Egl"/>
                             <constraint firstItem="b4q-GK-YXy" firstAttribute="top" secondItem="mm0-GM-EaQ" secondAttribute="bottom" id="ICW-Cd-d24"/>
                             <constraint firstItem="qRY-YO-Qyt" firstAttribute="top" secondItem="sER-yV-UZE" secondAttribute="bottom" id="JfH-Zq-Iqe"/>
                             <constraint firstItem="BBz-WR-T3E" firstAttribute="centerY" secondItem="mm0-GM-EaQ" secondAttribute="centerY" id="NFG-iS-4cO"/>
-                            <constraint firstItem="sVm-JN-Cq9" firstAttribute="top" secondItem="ur2-rY-tIA" secondAttribute="bottom" constant="20" id="P61-Gi-0iH"/>
                             <constraint firstItem="qRY-YO-Qyt" firstAttribute="leading" secondItem="d6p-tZ-caE" secondAttribute="leading" id="W9D-gF-WmY"/>
                             <constraint firstItem="OYS-g5-cW2" firstAttribute="leading" secondItem="17P-73-SVE" secondAttribute="leading" id="XeX-GE-9TJ"/>
                             <constraint firstItem="sER-yV-UZE" firstAttribute="leading" secondItem="d6p-tZ-caE" secondAttribute="leading" id="YAD-Io-VQj"/>
@@ -136,8 +137,8 @@
                             <constraint firstItem="qRY-YO-Qyt" firstAttribute="centerY" secondItem="17P-73-SVE" secondAttribute="centerY" id="hOO-Rl-tvt"/>
                             <constraint firstAttribute="trailing" secondItem="sER-yV-UZE" secondAttribute="trailing" id="k0g-8g-YNP"/>
                             <constraint firstItem="BBz-WR-T3E" firstAttribute="leading" secondItem="17P-73-SVE" secondAttribute="leading" id="kyH-RQ-cZ2"/>
+                            <constraint firstItem="ICC-W0-wqR" firstAttribute="top" secondItem="jVR-eE-VX4" secondAttribute="bottom" constant="20" id="nYd-OB-8hZ"/>
                             <constraint firstAttribute="trailing" secondItem="mm0-GM-EaQ" secondAttribute="trailing" id="qcb-8G-6h9"/>
-                            <constraint firstItem="jVR-eE-VX4" firstAttribute="top" secondItem="sVm-JN-Cq9" secondAttribute="bottom" constant="20" id="tea-UO-Spi"/>
                             <constraint firstItem="BBz-WR-T3E" firstAttribute="leading" secondItem="d6p-tZ-caE" secondAttribute="leading" constant="40" id="u4z-ch-vWB"/>
                             <constraint firstItem="z3H-H5-LsO" firstAttribute="centerY" secondItem="sER-yV-UZE" secondAttribute="centerY" id="uad-3S-zFh"/>
                         </constraints>
