@@ -32,6 +32,12 @@ extension UIViewController {
         let alert = Alert.sharedInstance
         alert.showActionSheet(self, title: title, normalButtonActions: normalButtonActions, destructiveTitleAction: destructiveTitleAction, cancelBlock: cancelBlock);
     }
+
+    func shareMyId() {
+        let message = NSString(format: localize("ShareMyIDFormat"), Account.instance().username)
+        let activityVC = UIActivityViewController(activityItems: [message], applicationActivities: nil)
+        self.presentViewController(activityVC, animated: true) {}
+    }
     
     func configureBackgroundTheme() {       
         self.view.configureBackgroundTheme()

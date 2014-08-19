@@ -23,13 +23,16 @@ class SettingViewController: UITableViewController {
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         
-        if indexPath.row == 3 {
+        switch indexPath.row  {
+        case 0:
+            let searchVC = SearchFriendsViewController.create()
+            self.navigationController.pushViewController(searchVC, animated: true)
+        case 3:
             let accountVc = AccountSettingViewController.create()
             self.navigationController.pushViewController(accountVc, animated: true)
-            return
+        default:
+            break
         }
-        
-        notImplemented()
     }
     @IBAction func doneDidTap(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true) {}

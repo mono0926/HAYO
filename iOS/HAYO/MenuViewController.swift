@@ -61,8 +61,7 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
         self.presentViewController(navVC, animated: true, completion: {})
     }
     @IBAction func shareMyIdDidTap(sender: UIButton) {
-        let activityVC = UIActivityViewController(activityItems: ["hoge"], applicationActivities: nil)
-        self.presentViewController(activityVC, animated: true) {}
+        self.shareMyId()
     }
     @IBAction func hayoRankingDidTap(sender: UIButton) {
         notImplemented()
@@ -73,6 +72,18 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
     @IBAction func viewDidTap(sender: UITapGestureRecognizer) {
         self.dismissViewControllerAnimated(true) {}
+    }
+    @IBAction func profileImageDidTap(sender: UIButton) {
+        showAccountSetting()
+    }
+    @IBAction func usernameDidTap(sender: UIButton) {
+        showAccountSetting()
+    }
+    
+    func showAccountSetting() {
+        let vc = AccountSettingViewController.create()
+        let navVC = UINavigationController(rootViewController: vc)
+        self.presentViewController(navVC, animated: true) {}
     }
     
     // MARK: UIViewControllerTransitioningDelegate

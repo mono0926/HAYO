@@ -17,3 +17,4 @@
 "HayoFriendMessageFormat" = "%@ < %@";
 "HayoMyMessageFormat" = "%@ > %@";
 "AccountSetting" = "アカウント設定";
+"ShareMyIDFormat" = "HAYOしましょう(　´･‿･｀)\n私のID: %@";

@@ -21,6 +21,20 @@ class AccountSettingViewController: UITableViewController {
         self.configureBackgroundTheme()
         self.title = localize("AccountSetting")
         self.usernameLabel.text = Account.instance().username
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareDidTap")
+        
+        if self.navigationController.viewControllers[0] as UIViewController == self {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismiss")
+        }
+    }
+    
+    func shareDidTap() {
+        self.shareMyId()
+    }
+    
+    func dismiss() {
+        self.dismissViewControllerAnimated(true) {}
     }
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
