@@ -1,1 +1,1 @@
-../../Bolts/Bolts/BFWebViewAppLinkResolver.h
+../../Bolts/Bolts/iOS/BFWebViewAppLinkResolver.h

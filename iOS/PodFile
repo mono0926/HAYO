@@ -20,6 +20,7 @@ def import
   pod 'iCarousel'
   pod 'FLEX'
   pod 'Aspects'
+  pod 'SWTableViewCell'
   # pod 'GPUImage'
   # pod 'CocoaLumberjack'
   # pod 'Bolts'

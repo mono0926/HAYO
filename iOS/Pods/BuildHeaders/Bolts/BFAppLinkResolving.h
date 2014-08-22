@@ -1,1 +1,1 @@
-../../Bolts/Bolts/BFAppLinkResolving.h
+../../Bolts/Bolts/iOS/BFAppLinkResolving.h

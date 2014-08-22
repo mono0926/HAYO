@@ -10,7 +10,7 @@ Parse.Cloud.define("hayo", function(request, response) {
   var fromId = request.params.fromId
   var toId = request.params.toId
   var message = request.params.message
-
+  var category = request.params.category
 
   var fromUser, toUser;
 
@@ -27,7 +27,7 @@ Parse.Cloud.define("hayo", function(request, response) {
     return saveHayo(fromUser, toUser, message)
   }).then(function(result) {
     console.log("hayo saved: " + result)
-    push(toId, fromUser.get("username") + " < " + message)
+    push(toId, fromUser.get("username") + " < " + message, category)
     response.success("hayo function success")
   }, function(error) {
     console.log("hayo save error: " + error.message)
@@ -36,7 +36,7 @@ Parse.Cloud.define("hayo", function(request, response) {
 });
 
 
-Parse.Cloud.beforeDelete(Parse.User, function(request) {
+Parse.Cloud.beforeDelete(Parse.User, function(request, response) {
   var object = request.object
   console.log("beforeDelete User")
   deleteData("Hayo", "from", object)
@@ -100,20 +100,25 @@ Parse.Cloud.define("friendList", function(request, response) {
   .then(function(results) {
     var users = _.map(results, function(friend) {
       console.log(friend)
-      return friend.get("to")
+      var to = friend.get("to")
+      return to
     })
-    response.success(users)
+    var filtered = _.filter(users, function(friend) {
+      console.log(friend)
+      return friend !== undefined
+    })
+    response.success(filtered)
   })
 });
 
 
 Parse.Cloud.define("searchFriends", function(request, response) {
-  var mails = request.params.mails
-  var screenNames = request.params.screenNames
+  var facebookIds = request.params.facebookIds
+  var twitterIds = request.params.twitterIds
   var userQuery1 = new Parse.Query(Parse.User)
-  userQuery1.containedIn("email", mails)
+  userQuery1.containedIn("facebookId", facebookIds)
   var userQuery2 = new Parse.Query(Parse.User)
-  userQuery2.containedIn("screenName", screenNames)
+  userQuery2.containedIn("twitterId", twitterIds)
   var orQuery = Parse.Query.or(userQuery1, userQuery2).ascending("username")
   orQuery.find()
   .then(function(results) {
@@ -216,7 +221,7 @@ function saveFriend(from, to) {
   return friend.save()
 }
 
-function push(toId, message) {
+function push(toId, message, category) {
 
   console.log("toId: " + toId)
   var userQuery = new Parse.Query(Parse.User)
@@ -230,7 +235,8 @@ function push(toId, message) {
     data: {
       alert: message,
       sound: "sheep.caf",
-      category: "HAYO"
+      "content-available" : 1,
+      category: category
     }
   }, {
     success: function() {
