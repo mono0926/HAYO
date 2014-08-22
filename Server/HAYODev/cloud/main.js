@@ -174,6 +174,30 @@ Parse.Cloud.define("hayoList", function(request, response) {
   })
 })
 
+Parse.Cloud.define("hayoListAll", function(request, response) {
+  console.log(request)
+
+  var userId = request.params.userId
+  var userQuery = new Parse.Query(Parse.User)
+  userQuery.equalTo("objectId", userId)
+
+  var hayoQuery1 = new Parse.Query(Hayo)
+  hayoQuery1.matchesQuery("from", userQuery)
+  var hayoQuery2 = new Parse.Query(Hayo)
+  hayoQuery2.matchesQuery("to", userQuery)
+  var orQuery = Parse.Query.or(hayoQuery1, hayoQuery2).ascending("createdAt")
+  orQuery.include("to")
+  orQuery.include("from")
+
+  orQuery.find().then(function(results) {
+    var filtered = _.filter(results, function(hayo) {
+      console.log(hayo)
+      return hayo.get("to") !== undefined && hayo.get("from") !== undefined
+    })
+    response.success(filtered)
+  })
+})
+
 function existsFriend(fromUserId, toUserId) {
   var fromQuery = new Parse.Query(Parse.User)
   fromQuery.equalTo("objectId", fromUserId)

@@ -7,28 +7,38 @@
 //
 
 import Foundation
-class FriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class FriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {    
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    var user: User!
+    var hayoList: NSFetchedResultsController!
+    private var _needReload = false
     
     class func create() -> UINavigationController {
         let sb = UIStoryboard(name: "Friend", bundle: nil)
         let navVC = sb.instantiateInitialViewController() as UINavigationController
         return navVC
     }
-    
-    @IBOutlet weak var tableView: UITableView!
-    var user: User!
-    var hayoList: NSFetchedResultsController!
-    private var _needReload = false
+    class func createWithoutNavigation() -> FriendViewController {
+        let sb = UIStoryboard(name: "Friend", bundle: nil)
+        let navVC = sb.instantiateInitialViewController().topViewController as FriendViewController
+        return navVC
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.navigationController.viewControllers[0] as UIViewController != self {
+            self.navigationItem.leftBarButtonItem = nil;
+        }
         
         hayoList = Hayo.fetchHayoList(user, delegate: self)
         
         self.tableView.backgroundView = nil
         
         self.configureBackgroundTheme()
+        profileImageView.configureAsMyCircle()
         
         tableView.registerNib(UINib(nibName: "MyHayoCell", bundle: nil), forCellReuseIdentifier: "MyHayoCell")
         tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil), forCellReuseIdentifier: "FriendHayoCell")
@@ -36,11 +46,14 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         
         println(user.username)
         self.title = user.username
+        profileImageView.sd_setImageWithURL((NSURL(string: user.imageURL)), completed: {image, error, type, url -> () in
+        })
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         Hayo.updateHayoList(user)
+        
     }
     
     @IBAction func closeDidTap(sender: UIBarButtonItem) {
@@ -63,7 +76,8 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
             return cell
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendHayoCell", forIndexPath: indexPath) as FriendHayoCell
-        cell.hayo = hayo
+        cell.setHayo(hayo, imageHidden: true) { user in
+        }
         return cell
     }
     

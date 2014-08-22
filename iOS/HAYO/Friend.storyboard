@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="oSo-Xz-BgE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="evM-zi-g55">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="n60-Gd-lw2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="120" width="600" height="416"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -26,15 +26,31 @@
                                     <outlet property="delegate" destination="pe4-ag-ceZ" id="zix-d0-IqU"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdD-aX-qMG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7tu-dY-OAH">
+                                        <rect key="frame" x="20" y="10" width="100" height="100"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="6ai-Hf-v7R"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bdD-aX-qMG" firstAttribute="top" secondItem="5ea-fe-X5J" secondAttribute="bottom" id="DLv-lr-GR8"/>
+                            <constraint firstItem="bdD-aX-qMG" firstAttribute="leading" secondItem="evM-zi-g55" secondAttribute="leading" id="FRb-0Z-oMP"/>
+                            <constraint firstAttribute="trailing" secondItem="bdD-aX-qMG" secondAttribute="trailing" id="Qda-Lp-6aH"/>
                             <constraint firstItem="oSo-Xz-BgE" firstAttribute="top" secondItem="n60-Gd-lw2" secondAttribute="bottom" id="Rxk-6d-Oz0"/>
                             <constraint firstItem="n60-Gd-lw2" firstAttribute="leading" secondItem="evM-zi-g55" secondAttribute="leading" id="YeB-Bf-A5V"/>
                             <constraint firstAttribute="trailing" secondItem="n60-Gd-lw2" secondAttribute="trailing" id="obI-sI-U9J"/>
-                            <constraint firstItem="n60-Gd-lw2" firstAttribute="top" secondItem="evM-zi-g55" secondAttribute="top" id="tes-rz-mej"/>
+                            <constraint firstItem="n60-Gd-lw2" firstAttribute="top" secondItem="bdD-aX-qMG" secondAttribute="bottom" id="yRi-AK-7LZ"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Title" id="bSt-jv-XM5">
                         <barButtonItem key="leftBarButtonItem" image="close" id="BG0-1u-ZOL">
                             <connections>
@@ -43,6 +59,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="profileImageView" destination="7tu-dY-OAH" id="QE6-Nf-WzT"/>
                         <outlet property="tableView" destination="n60-Gd-lw2" id="cR0-uW-rxN"/>
                     </connections>
                 </viewController>

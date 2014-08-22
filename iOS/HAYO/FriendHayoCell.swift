@@ -9,38 +9,48 @@
 import Foundation
 class FriendHayoCell: SWTableViewCell {
     
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var profileImageButtonWidthConstraint: NSLayoutConstraint!
+    private var _originalWidth: CGFloat = 0.0
+    private var profileButtonDidTapHandler: ((user: User) -> ())?
+    
+    func setHayo(hayo: Hayo, imageHidden: Bool, profileButtonDidTapHandler: ((user: User) -> ())?) {
+        _hayo = hayo
+        messageLabel.text = NSString(format: localize("HayoFriendMessageFormat"), _hayo.message)
+        self.profileButtonDidTapHandler = profileButtonDidTapHandler
+        
+        profileImageButtonWidthConstraint.constant = imageHidden ? 0 : _originalWidth
+        
+        if imageHidden {
+            return
+        }
+        
+        profileImageButton.sd_setImageWithURL((NSURL(string: _hayo.from.imageURL)), forState: .Normal, completed: {image, error, type, url -> () in
+        })
+    }
     
     var _hayo: Hayo! = nil
     var hayo: Hayo! {
-        set {
-            if nil == newValue {
-                return
-            }
-            _hayo = newValue
-            self.profileImageView.sd_setImageWithURL((NSURL(string: _hayo.from.imageURL)), completed: {image, error, type, url -> () in
-            })
-            messageLabel.text = NSString(format: localize("HayoFriendMessageFormat"), _hayo.message)
-        }
         get {
             return _hayo
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        profileImageView.configureAsCircle()
-        profileImageView.layer.borderWidth = 1
-        profileImageView.layer.borderColor = themeColor.CGColor
-        
+        profileImageButton.configureAsMyCircle()
         self.rightUtilityButtons = rightButtons()
+        profileImageButton.imageView.contentMode = .ScaleAspectFill;
     }
     
     func rightButtons() -> NSArray {
+        _originalWidth = profileImageButtonWidthConstraint.constant
         var buttons = NSMutableArray()
         buttons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: localize("Dame"))
         buttons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: localize("OK"))
         return buttons
+    }
+    @IBAction func profileButtonDidTap(sender: UIButton) {
+        profileButtonDidTapHandler?(user: _hayo.from)
     }
 }

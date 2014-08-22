@@ -55,4 +55,11 @@ class ParseClient {
             completed(hayoList: result as [PFObject], error: error)
         })
     }
+    
+    func hayoList(completed: (hayoList: [PFObject], error: NSError!) -> ()) {
+        let me = Account.instance()
+        PFCloud.callFunctionInBackground("hayoListAll", withParameters: ["userId": me.parseObjectId], block: { result, error in
+            completed(hayoList: result as [PFObject], error: error)
+        })
+    }
 }

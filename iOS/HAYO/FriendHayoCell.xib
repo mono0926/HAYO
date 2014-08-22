@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <objects>
@@ -12,31 +13,38 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IlS-wJ-V4q" id="7Eg-ti-Lka">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="giJ-Mr-v2G">
-                        <rect key="frame" x="10" y="10" width="50" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="50" id="byb-Mb-VHR"/>
-                            <constraint firstAttribute="height" constant="50" id="lOG-gU-vd1"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt; HAYO!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhS-Rd-Jlf">
                         <rect key="frame" x="70" y="24" width="71" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCw-oj-pUW">
+                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="GKQ-0o-6wi"/>
+                            <constraint firstAttribute="width" constant="50" id="xy6-DX-qqZ"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="profileButtonDidTap:" destination="IlS-wJ-V4q" eventType="touchUpInside" id="jaq-t8-WGl"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="XhS-Rd-Jlf" secondAttribute="centerY" id="4yc-lQ-r3v"/>
-                    <constraint firstItem="giJ-Mr-v2G" firstAttribute="leading" secondItem="7Eg-ti-Lka" secondAttribute="leading" constant="10" id="Ont-nj-Zxc"/>
-                    <constraint firstItem="XhS-Rd-Jlf" firstAttribute="leading" secondItem="giJ-Mr-v2G" secondAttribute="trailing" constant="10" id="YsB-L0-WHT"/>
-                    <constraint firstAttribute="centerY" secondItem="giJ-Mr-v2G" secondAttribute="centerY" id="iTG-Fb-2eg"/>
+                    <constraint firstItem="XhS-Rd-Jlf" firstAttribute="leading" secondItem="mCw-oj-pUW" secondAttribute="trailing" constant="10" id="eV2-q4-XiK"/>
+                    <constraint firstItem="mCw-oj-pUW" firstAttribute="leading" secondItem="7Eg-ti-Lka" secondAttribute="leading" constant="10" id="fM3-zQ-e8v"/>
+                    <constraint firstAttribute="centerY" secondItem="mCw-oj-pUW" secondAttribute="centerY" id="hAG-Qk-94x"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="messageLabel" destination="XhS-Rd-Jlf" id="dMB-Rh-PC6"/>
-                <outlet property="profileImageView" destination="giJ-Mr-v2G" id="wZ9-J0-AAC"/>
+                <outlet property="profileImageButton" destination="mCw-oj-pUW" id="8sQ-50-AbP"/>
+                <outlet property="profileImageButtonWidthConstraint" destination="xy6-DX-qqZ" id="P07-4A-BmG"/>
             </connections>
             <point key="canvasLocation" x="87" y="321"/>
         </tableViewCell>

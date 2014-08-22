@@ -28,10 +28,7 @@ class MyHayoCell: UITableViewCell {
         }
     }
     override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        profileImageView.configureAsCircle()
-        profileImageView.layer.borderWidth = 1
-        profileImageView.layer.borderColor = themeColor.CGColor
+        super.awakeFromNib()        
+        profileImageView.configureAsMyCircle()
     }
 }

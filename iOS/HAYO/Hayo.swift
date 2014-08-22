@@ -24,14 +24,34 @@ import Foundation
         return Hayo.MR_fetchAllSortedBy("at", ascending: false, withPredicate: nil, groupBy: nil, delegate: delegate)
     }
     
+    class func fetchHayoList(delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
+        let me = Account.instance()
+        let predicate = NSPredicate(format: "fromUser == %@ OR toUser == %@", me, me)
+        return Hayo.MR_fetchAllSortedBy("at", ascending: false, withPredicate: nil, groupBy: nil, delegate: delegate)
+    }
+    
     class func updateHayoList(fromUser: User) {
         ParseClient.sharedInstance.hayoList(fromUser) { hayoList, error in
-            
             dispatchAsync(.High) {
-                
                 let moc = NSManagedObjectContext.MR_contextForCurrentThread()
                 // TODO: 削除系
-                
+                for hayoObject in hayoList {
+                    var hayo = Hayo.findByParseObjectId(hayoObject.objectId) as Hayo?
+                    if hayo == nil {
+                        hayo = Hayo.MR_createEntity() as Hayo?
+                    }
+                    hayo?.updateWithPFObject(hayoObject)
+                }
+                moc.MR_saveToPersistentStoreAndWait()
+            }
+        }
+    }
+    
+    class func updateHayoList() {
+        ParseClient.sharedInstance.hayoList() { hayoList, error in
+            dispatchAsync(.High) {
+                let moc = NSManagedObjectContext.MR_contextForCurrentThread()
+                // TODO: 削除系
                 for hayoObject in hayoList {
                     var hayo = Hayo.findByParseObjectId(hayoObject.objectId) as Hayo?
                     if hayo == nil {
@@ -51,6 +71,7 @@ import Foundation
         let fromPFUser = object.objectForKey("from") as PFUser
         self.from = User.findByParseObjectId(fromPFUser.objectId)! as User
         let toPFUser = object.objectForKey("to") as PFUser
+        println(toPFUser.objectId)
         self.to = User.findByParseObjectId(toPFUser.objectId)! as User
     }
 }

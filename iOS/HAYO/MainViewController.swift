@@ -64,7 +64,6 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @IBAction func homeButtonDidTap(sender: UIBarButtonItem) {
-        self.notImplemented()
         let hayoVC = HayoListViewController.create()
         self.navigationController.presentViewController(hayoVC, animated: true, completion: {})
     }
@@ -107,6 +106,11 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
+        
+        if carousel.currentItemIndex != index {
+            return
+        }
+        
         let vc = FriendViewController.create()
         let user = users.fetchedObjects[index] as User
         let friendVC = vc.topViewController as FriendViewController
