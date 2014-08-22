@@ -15,6 +15,7 @@ func localize(key: String) -> String {
 
 let cancelString = localize("Cancel")
 let okString = localize("Ok")
+let confirmString = localize("ConfirmString")
 
 let themeColor = UIColor(red: 62/255.0, green: 182/255.0, blue: 208/255.0, alpha: 1)
 

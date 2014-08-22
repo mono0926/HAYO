@@ -1,6 +1,7 @@
 var _ = require('underscore');
 
 var Hayo = Parse.Object.extend("Hayo")
+var Friend = Parse.Object.extend("Friend")
 
 Parse.Cloud.define("hayo", function(request, response) {
 
@@ -14,30 +15,114 @@ Parse.Cloud.define("hayo", function(request, response) {
   var fromUser, toUser;
 
   console.log("userQuery start")
-  var fromQuery = new Parse.Query(Parse.User)
-  fromQuery.equalTo("objectId", fromId)
-
-  fromQuery.first().then(function(result) {
-    console.log("hoge")
-    return result.fetch()
-  }).then(function(result) {
+ 
+  findUserById(fromId)
+  .then(function(result) {
     fromUser = result
-    var toQuery = new Parse.Query(Parse.User)
-    toQuery.equalTo("objectId", toId)
-    return toQuery.first()
-  }).then(function(result) {
-    return result.fetch()
+    return findUserById(toId)
   }).then(function(result) {
     toUser = result
     console.log("fromUser: " + fromUser)
     console.log("toUser: " + toUser)
-    saveHayo(fromUser, toUser, message, function(hayo) {
-      console.log("hayo saved: " + hayo)
-      push(toId, fromUser.get("username") + " < " + message)
-      response.success("hayo function success")
-    })
+    return saveHayo(fromUser, toUser, message)
+  }).then(function(result) {
+    console.log("hayo saved: " + result)
+    push(toId, fromUser.get("username") + " < " + message)
+    response.success("hayo function success")
+  }, function(error) {
+    console.log("hayo save error: " + error.message)
+    response.error(error)
   })
 });
+
+
+// Parse.Cloud.define("makeFriends", function(request, response) {
+//   var fromId = request.params.fromId
+//   var toId = request.params.toId
+//   makeFriendIfNeeded(fromId, toId)
+//   .then(function(result) {
+//     return makeFriendIfNeeded(toId, fromId)
+//   }).then(function(result) {
+//     response.success(result)
+//   })
+// });
+
+
+Parse.Cloud.define("makeFriends", function(request, response) {
+  var fromId = request.params.fromId
+  var toIds = request.params.toIds
+  makeFriendsRecursively(fromId, toIds)
+  .then(function(result) {
+    console.log("result" + result)
+    response.success(result)
+  })
+});
+
+function makeFriendsRecursively(fromId, toIds) {
+  var toId = toIds.pop(0)
+  return makeFriendIfNeeded(fromId, toId)
+  .then(function(result) {
+    return makeFriendIfNeeded(toId, fromId)
+  }).then(function(result) {
+    if (toIds.length == 0) {
+      return "completed"
+    }
+    return makeFriendsRecursively(fromId, toIds)
+  })
+}
+
+
+Parse.Cloud.define("friendList", function(request, response) {
+  var userId = request.params.userId
+
+  var userQuery = new Parse.Query(Parse.User)
+  userQuery.equalTo("objectId", userId)
+  var friendQuery = new Parse.Query(Friend)
+  friendQuery.matchesQuery("from", userQuery)
+  friendQuery.select("to")
+  friendQuery.include("to")
+  return friendQuery.find()
+  .then(function(results) {
+    var users = _.map(results, function(friend) {
+      console.log(friend)
+      return friend.get("to")
+    })
+    response.success(users)
+  })
+});
+
+
+Parse.Cloud.define("searchFriends", function(request, response) {
+  var mails = request.params.mails
+  var screenNames = request.params.screenNames
+  var userQuery1 = new Parse.Query(Parse.User)
+  userQuery1.containedIn("email", mails)
+  var userQuery2 = new Parse.Query(Parse.User)
+  userQuery2.containedIn("screenName", screenNames)
+  var orQuery = Parse.Query.or(userQuery1, userQuery2).ascending("username")
+  orQuery.find()
+  .then(function(results) {
+    response.success(results)
+  })
+})
+
+function makeFriendIfNeeded(fromId, toId) {
+  return existsFriend(fromId, toId)
+  .then(function(result) {
+    if (result) {    
+      return
+    }
+    return linkFriend(fromId, toId)
+  })
+}
+
+function findUserById(id) {
+  var query = new Parse.Query(Parse.User)
+  query.equalTo("objectId", id)
+  return query.first().then(function(result) {
+    return result.fetch()
+  })
+}
 
 Parse.Cloud.define("hayoList", function(request, response) {
   console.log(request)
@@ -69,20 +154,51 @@ Parse.Cloud.define("hayoList", function(request, response) {
   })
 })
 
-function saveHayo(fromUser, toUser, message, callback) {
+function existsFriend(fromUserId, toUserId) {
+  var fromQuery = new Parse.Query(Parse.User)
+  fromQuery.equalTo("objectId", fromUserId)
+  var friendQuery = new Parse.Query(Friend)
+  friendQuery.matchesQuery("from", fromQuery)
+  var toQuery = new Parse.Query(Parse.User)
+  toQuery.equalTo("objectId", toUserId)
+  friendQuery.matchesQuery("to", toQuery)
+  console.log("existsFriend")
+  return friendQuery.find()
+  .then(function (results) {
+    return results.length > 0
+  })
+}
+
+function saveHayo(fromUser, toUser, message) {
   var hayo = new Hayo()
   hayo.set("from", fromUser)
   hayo.set("to", toUser)
   hayo.set("message", message)
-  hayo.save(null, {
-    success: function(hayo) {
-      callback(hayo)
-    },
-    error: function(hayo, error) {
-      alert("hayo save error: " + error.message)
-      callback(undefined)
-    }
+  return hayo.save()
+}
+
+function linkFriend(fromUserId, toUserId) {
+  var fromUser, toUser;
+
+  return findUserById(fromUserId)
+  .then(function(result) {
+    fromUser = result
+    console.log(fromUser.username)
+    return findUserById(toUserId)
+  }).then(function(result) {
+    toUser = result
+    console.log(toUser.username)
+    return saveFriend(fromUser, toUser)
+  }).then(function(result) {
+    return saveFriend(toUser, fromUser)
   })
+}
+
+function saveFriend(from, to) {
+  var friend = new Friend()
+  friend.set("from", from)
+  friend.set("to", to)
+  return friend.save()
 }
 
 function push(toId, message) {

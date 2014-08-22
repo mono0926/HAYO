@@ -34,16 +34,17 @@ protocol SNSUser {
     var username: String! { get }
     var imageURL: String! { get }
     var email: String? { get }
+    var screenName: String? { get }
 }
 
 class TypedTwitterUser: TypedUserBase, SNSUser {
     
-    var username: String! { get { return self.screen_name } }
+    var username: String! { get { return self.screenName } }
     var name: String! { get { return getStringValue("name") } }
     var imageURL: String! { get { return profileImageUrl }}
     var email: String? { get { return nil } }
     var verified: Bool? { get { return getBoolValue("verified") } }
-    var screen_name: String? { get { return getStringValue("screen_name") } }
+    var screenName: String? { get { return getStringValue("screen_name") } }
     // TODO: 末尾を400x400に
     var profileImageUrl: String? { get { return ObjcHelper.replace(getStringValue("profile_image_url"), from: "normal", to: "400x400") } }
     var id: String! { get { return getStringValue("id") } }
@@ -186,6 +187,7 @@ class TypedFacebookUser: TypedUserBase, SNSUser {
     var gender: String? { get { return getStringValue("gender") } }
     var id: String! { get { return getStringValue("id") } }
     var last_name: String? { get { return getStringValue("last_name") } }
+    var screenName: String? { get { return nil } }
 
     /*
     {

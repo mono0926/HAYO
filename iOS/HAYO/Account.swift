@@ -8,27 +8,21 @@
 
 import Foundation
 
-class Account: NSManagedObject {
-    class func MR_entityName() -> String {
+class Account: User {
+
+    override class func MR_entityName() -> String {
         return "Account"
     }
+
+    @NSManaged var imageData: NSData
     
-    @NSManaged
-    var username: String
-    @NSManaged
-    var imageData: NSData
-    
-    var image: UIImage {
-    get {
-        return UIImage(data: imageData)
-    }
-    }
+    override var image: UIImage? { get { return UIImage(data: imageData) } }
     
     var _barButtonImage: UIImage? = nil
     var barButtonImage: UIImage {
     get {
         if nil == _barButtonImage {
-            _barButtonImage = self.image.circularImage(36).borderedImage()
+            _barButtonImage = self.image!.circularImage(36).borderedImage()
         }
         return _barButtonImage!
     }
@@ -116,20 +110,34 @@ class Account: NSManagedObject {
     
     
     
-    class func searchFriendCandidates(completed: (friendCandidates: [SNSUser]) -> ()) {
-        if PFFacebookUtils.isLinkedWithUser(PFUser.currentUser()) {
-            searchFacebookFriends() { friendCandidates in
-                completed(friendCandidates: friendCandidates)
+    class func searchFriendCandidates(completed: (friendCandidates: [PFUser]) -> ()) {
+        var results: [SNSUser] = []
+        searchFacebookFriends() { fbCandidates in
+            results = fbCandidates
+            self.searchTwitterFriends() { twCandidates in
+                results += twCandidates
+                var mails: [String] = []
+                var screenNames: [String] = []
+                for r in results {
+                    if let mail = r.email {
+                        mails.append(mail)
+                    }
+                    if let screenName = r.screenName {
+                        screenNames.append(screenName)
+                    }
+                }
+                ParseClient.sharedInstance.searchFriends(mails, screenNames: screenNames) { users, error in
+                    completed(friendCandidates: users)
+                }
             }
-            return;
-        }
-        searchTwitterFriends() { friendCandidates in
-            completed(friendCandidates: friendCandidates)            
         }
     }
     
     class func searchFacebookFriends(completed: (friendCandidates: [SNSUser]) -> ()) {
-        
+        if !PFFacebookUtils.isLinkedWithUser(PFUser.currentUser()) {
+            completed(friendCandidates: [])
+            return
+        }
         FBRequestConnection.startForMyFriendsWithCompletionHandler({ connection, result, error in
             let dict = result as NSDictionary
             let data = dict["data"] as [NSDictionary]
@@ -144,6 +152,10 @@ class Account: NSManagedObject {
     }
     
     class func searchTwitterFriends(completed: (friendCandidates: [SNSUser]) -> ()) {
+        if !PFTwitterUtils.isLinkedWithUser(PFUser.currentUser()) {
+            completed(friendCandidates: [])
+            return
+        }
         let twitter = PFTwitterUtils.twitter()
         let url = NSURL(string: NSString(format: "https://api.twitter.com/1.1/friends/list.json?screen_name=%@", twitter.screenName))
         var request = NSMutableURLRequest(URL: url)
@@ -163,12 +175,13 @@ class Account: NSManagedObject {
         completed(friendCandidates: results)
     }
     
-    class func createAsync(username: String, imageURL: String, image: UIImage, email: String?, completed: (error: NSError?) -> ()) {
+    class func createAsync(username: String, imageURL: String, image: UIImage, email: String?, screenName: String?, completed: (error: NSError?) -> ()) {
         dispatchAsync(.High) {
             let user = PFUser.currentUser()
             user.username = username
             user.imageURL = imageURL
             user.email = email
+            user.screenName = screenName
             var error: NSError? = nil
             user.save(&error)
             println(error)
@@ -192,6 +205,8 @@ class Account: NSManagedObject {
         account.username = username
         let imageData = NSData(data: UIImageJPEGRepresentation(image, 1))
         account.imageData = imageData
+        account.parseObjectId = PFUser.currentUser().objectId
+        account.imageURL = PFUser.currentUser().getImageURL()
         account.saveSync()
     }
     
@@ -214,7 +229,7 @@ class Account: NSManagedObject {
 }
 
 extension PFUser {
-    private var imageURL: String! {
+    var imageURL: String! {
     set {
         self.setObject(newValue, forKey: "imageURL")
     }
@@ -224,6 +239,13 @@ extension PFUser {
     }
     func getImageURL() -> String! {
         return self.imageURL
+    }
+    var screenName: String? {
+        set {
+            if newValue == nil  { return }
+            self.setObject(newValue, forKey: "screenName")
+        }
+        get { return self.objectForKey("screenName") as String? }
     }
 }
 

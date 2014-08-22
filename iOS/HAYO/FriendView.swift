@@ -26,15 +26,19 @@ class FriendView: UIView {
         self.layer.cornerRadius = 4
     }
     
-    var _user: PFUser!
-    var user: PFUser! {
+    var _user: User!
+    var user: User! {
     get {
         return _user
     }
     set {
         _user = newValue
         nicknameLabel.text = _user.username
-        imageView.sd_setImageWithURL(NSURL(string: _user.getImageURL()), completed: {image, error, type, url -> () in
+        if let image = _user.image {
+            imageView.image = image
+            return
+        }
+        imageView.sd_setImageWithURL(NSURL(string: _user.imageURL), completed: {image, error, type, url -> () in
             })
     }
     }

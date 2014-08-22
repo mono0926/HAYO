@@ -61,8 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for v in window.subviews {
             v.removeFromSuperview()
         }
-        
-        let sbName = Account.instance()? != nil ? "Main" : "Login";
+        let account = Account.instance()
+        println(account)
+        let sbName = account != nil ? "Main" : "Login";
         let vc = UIStoryboard(name: sbName, bundle: nil).instantiateInitialViewController() as UIViewController
         window.rootViewController = vc
     }

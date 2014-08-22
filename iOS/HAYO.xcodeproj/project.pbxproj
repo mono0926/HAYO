@@ -23,6 +23,8 @@
 		FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE50AD0A1987D8700054B5F3 /* FriendCell.xib */; };
 		FE50AD0D1987D87C0054B5F3 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */; };
 		FE5E82861985899400898315 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5E82851985899400898315 /* LoginViewController.swift */; };
+		FE6F29AD19A70FDF00952F0D /* SelectedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F29AC19A70FDF00952F0D /* SelectedManager.swift */; };
+		FE6F29AF19A7280900952F0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F29AE19A7280900952F0D /* User.swift */; };
 		FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C17851980B64A0070FAD3 /* Crashlytics.framework */; };
 		FE93F12219883DDD00310F7D /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93F12119883DDD00310F7D /* RestClient.swift */; };
 		FEA7BCF5198E05830023AF7A /* HayoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7BCF4198E05830023AF7A /* HayoListViewController.swift */; };
@@ -85,6 +87,8 @@
 		FE50AD0C1987D87C0054B5F3 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		FE5E82831985898000898315 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		FE5E82851985899400898315 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FE6F29AC19A70FDF00952F0D /* SelectedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedManager.swift; sourceTree = "<group>"; };
+		FE6F29AE19A7280900952F0D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FE7C17851980B64A0070FAD3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FE7C17871980B6620070FAD3 /* HAYO-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAYO-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE7C178A1980B78C0070FAD3 /* Sheep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sheep.entitlements; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			children = (
 				FE12D6AD1987BA510019DF03 /* UIUtils.swift */,
 				FEABE80C19A1A6A30078CEFF /* Alert.swift */,
+				FE6F29AC19A70FDF00952F0D /* SelectedManager.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */,
 				FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */,
 				FEC4AB3F19819E0C00E84978 /* Account.swift */,
+				FE6F29AE19A7280900952F0D /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -581,6 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE6F29AD19A70FDF00952F0D /* SelectedManager.swift in Sources */,
 				FE05E5AE19943B40001C60F0 /* Hayo.swift in Sources */,
 				FE5E82861985899400898315 /* LoginViewController.swift in Sources */,
 				FEA7BCF5198E05830023AF7A /* HayoListViewController.swift in Sources */,
@@ -600,6 +607,7 @@
 				FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */,
 				FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */,
 				FE93F12219883DDD00310F7D /* RestClient.swift in Sources */,
+				FE6F29AF19A7280900952F0D /* User.swift in Sources */,
 				FE06C74319941EE600CE8FEA /* FriendHayoCell.swift in Sources */,
 				FE50AD0D1987D87C0054B5F3 /* FriendCell.swift in Sources */,
 				FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */,

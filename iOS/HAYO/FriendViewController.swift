@@ -17,7 +17,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBOutlet weak var tableView: UITableView!
-    var user: PFUser!
+    var user: User!
     var hayoList: [Hayo]?
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         println(user.username)
         self.title = user.username
         
-        PFCloud.callFunctionInBackground("hayoList", withParameters: ["fromId": PFUser.currentUser().objectId, "toId": user.objectId], block: { result, error in
+        PFCloud.callFunctionInBackground("hayoList", withParameters: ["fromId": PFUser.currentUser().objectId, "toId": user.parseObjectId], block: { result, error in
             println(result)
             let sources = result as [PFObject]
             self.hayoList = sources.map() { s in

@@ -7,7 +7,7 @@
 */
 "ErrorOccured" = "エラーが発生しました。";
 "Succeeded" = "成功しました";
-"FriendCandidatesCountFormat" = "%d人";
+"FriendCandidatesCountFormat" = "%d / %d 人";
 "HayoFormat" = "%@ < %@";
 "SentHayoFormat" = "%@さんに\nHAYOしました d(´･‿･｀）";
 "ConfirmUnregister" = "退会すると、プロフィール情報・友だち情報が失われます。よろしいですか？";
@@ -18,3 +18,7 @@
 "HayoMyMessageFormat" = "%@ > %@";
 "AccountSetting" = "アカウント設定";
 "ShareMyIDFormat" = "HAYOしましょう(　´･‿･｀)\n私のID: %@";
+"SelectAll" = "全選択";
+"UnselectAll" = "全て解除";
+"ConfirmString" = "確認";
+"RecommendShareMyID" = "HAYOを使っているお友達がまだいませんでした。あなたのIDをシェアしますか？";
