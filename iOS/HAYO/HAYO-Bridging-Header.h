@@ -21,6 +21,7 @@
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
 #import "Aspects.h"
+#import "SWTableViewCell.h"
 
 #if DEBUG
 #import "FLEXManager.h"

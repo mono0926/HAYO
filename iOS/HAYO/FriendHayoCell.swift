@@ -7,11 +7,10 @@
 //
 
 import Foundation
-class FriendHayoCell: UITableViewCell {
+class FriendHayoCell: SWTableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
-    
     
     var _hayo: Hayo! = nil
     var hayo: Hayo! {
@@ -38,5 +37,14 @@ class FriendHayoCell: UITableViewCell {
         profileImageView.configureAsCircle()
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.borderColor = themeColor.CGColor
+        
+        self.rightUtilityButtons = rightButtons()
+    }
+    
+    func rightButtons() -> NSArray {
+        var buttons = NSMutableArray()
+        buttons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: localize("Dame"))
+        buttons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: localize("OK"))
+        return buttons
     }
 }
