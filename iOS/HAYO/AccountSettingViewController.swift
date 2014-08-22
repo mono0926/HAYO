@@ -53,6 +53,7 @@ class AccountSettingViewController: UITableViewController {
             assert(false)
             break
         }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func tableView(tableView: UITableView!, viewForHeaderInSection section: Int) -> UIView! {

@@ -36,17 +36,32 @@ Parse.Cloud.define("hayo", function(request, response) {
 });
 
 
-// Parse.Cloud.define("makeFriends", function(request, response) {
-//   var fromId = request.params.fromId
-//   var toId = request.params.toId
-//   makeFriendIfNeeded(fromId, toId)
-//   .then(function(result) {
-//     return makeFriendIfNeeded(toId, fromId)
-//   }).then(function(result) {
-//     response.success(result)
-//   })
-// });
+Parse.Cloud.beforeDelete(Parse.User, function(request) {
+  var object = request.object
+  console.log("beforeDelete User")
+  deleteData("Hayo", "from", object)
+  .then(function(result) {
+    deleteData("Hayo", "to", object)    
+  })
+  .then(function(result) {
+    deleteData("Friend", "from", object)    
+  })
+  .then(function(result) {
+    deleteData("Friend", "to", object)    
+  })
+  .then(function(result) {
+    response.success()
+  }) 
+});
 
+function deleteData(tableName, propertyName, object) {
+  query = new Parse.Query(tableName);
+  query.equalTo(propertyName, object);
+  return query.find()
+  .then(function(results) {
+    return Parse.Object.destroyAll(results)
+  })
+}
 
 Parse.Cloud.define("makeFriends", function(request, response) {
   var fromId = request.params.fromId
