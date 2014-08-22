@@ -34,7 +34,7 @@ protocol SNSUser {
     var username: String! { get }
     var imageURL: String! { get }
     var email: String? { get }
-    var screenName: String? { get }
+    var id: String! { get }
 }
 
 class TypedTwitterUser: TypedUserBase, SNSUser {
@@ -47,7 +47,7 @@ class TypedTwitterUser: TypedUserBase, SNSUser {
     var screenName: String? { get { return getStringValue("screen_name") } }
     // TODO: 末尾を400x400に
     var profileImageUrl: String? { get { return ObjcHelper.replace(getStringValue("profile_image_url"), from: "normal", to: "400x400") } }
-    var id: String! { get { return getStringValue("id") } }
+    var id: String! { get { return getStringValue("id_str") } }
     /*
 [verified: 0
 profile_link_color: 3833D4

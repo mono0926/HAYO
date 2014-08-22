@@ -15,17 +15,17 @@ class ParseClient {
         return Static.instance
     }
     
-    func hayo(user: User, message: String, completed: (success: Bool, error: NSError!) -> ()) {
+    func hayo(user: User, message: String, category: String, completed: (success: Bool, error: NSError!) -> ()) {
         
         let me = PFUser.currentUser()
         
-        PFCloud.callFunctionInBackground("hayo", withParameters: ["fromId": me.objectId, "toId": user.parseObjectId, "message": message], block: { result, error in
+        PFCloud.callFunctionInBackground("hayo", withParameters: ["fromId": me.objectId, "toId": user.parseObjectId, "message": message, "category": category], block: { result, error in
             completed(success: true, error: error)
         })
     }
     
-    func searchFriends(mails: [String], screenNames: [String], completed: (users: [PFUser], error: NSError!) -> ()) {
-        PFCloud.callFunctionInBackground("searchFriends", withParameters: ["mails": mails, "screenNames": screenNames]) { result, error in
+    func searchFriends(facebookIds: [String], twitterIds: [String], completed: (users: [PFUser], error: NSError!) -> ()) {
+        PFCloud.callFunctionInBackground("searchFriends", withParameters: ["facebookIds": facebookIds, "twitterIds": twitterIds]) { result, error in
             let users = result as [PFUser]
             completed(users: users, error: error)
         }

@@ -51,7 +51,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }
     
     func processRegistration() {
-        Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, email: user.email, screenName: user.screenName, completed: { error in
+        Account.createAsync(nameTextField.text, imageURL: user.imageURL, image:profileImageView.image!, snsUser: user, completed: { error in
             if nil == error {
                 self.dismissProgress()
                 self.performSegueWithIdentifier("Friends", sender: self)

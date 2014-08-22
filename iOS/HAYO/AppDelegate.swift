@@ -90,7 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication!, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]!) {
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
         println(userInfo)
         let aps = userInfo["aps"] as NSDictionary
@@ -101,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = NSURL(fileURLWithPath: path)
         player = AVAudioPlayer(contentsOfURL: url, error: nil)
         player!.play()
+        completionHandler(.NewData)
     }
     
     func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
@@ -112,7 +114,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func registerRemoteNotification() {
         let app = UIApplication.sharedApplication()
         if app.respondsToSelector("registerUserNotificationSettings:") {
-            let settings = UIUserNotificationSettings(forTypes: .Badge | .Sound | .Alert, categories: nil)
+            
+            let dameAction = UIMutableUserNotificationAction()
+            dameAction.identifier = "A1"
+            dameAction.title = "ダメです"
+            dameAction.destructive = true
+            dameAction.activationMode = .Foreground
+            dameAction.authenticationRequired = false
+            
+            let okAction = UIMutableUserNotificationAction()
+            okAction.identifier = "A2"
+            okAction.title = "d(´･‿･｀)"
+            okAction.destructive = false
+            okAction.activationMode = .Foreground
+            okAction.authenticationRequired = false
+            
+            
+            let category = UIMutableUserNotificationCategory()
+            category.identifier = "HAYO"
+            
+            category .setActions([dameAction, okAction], forContext: .Default)
+            category .setActions([dameAction, okAction], forContext: .Minimal)
+            
+            let categories = NSSet(array: [category])
+            let types: UIUserNotificationType = .Badge | .Sound | .Alert
+            
+            let settings = UIUserNotificationSettings(forTypes: types, categories: categories)
             app.registerUserNotificationSettings(settings)
             return
         }

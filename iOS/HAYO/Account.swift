@@ -111,22 +111,11 @@ class Account: User {
     
     
     class func searchFriendCandidates(completed: (friendCandidates: [PFUser]) -> ()) {
-        var results: [SNSUser] = []
         searchFacebookFriends() { fbCandidates in
-            results = fbCandidates
+            let facebookIds = fbCandidates.map() { c in return c.id } as [String]
             self.searchTwitterFriends() { twCandidates in
-                results += twCandidates
-                var mails: [String] = []
-                var screenNames: [String] = []
-                for r in results {
-                    if let mail = r.email {
-                        mails.append(mail)
-                    }
-                    if let screenName = r.screenName {
-                        screenNames.append(screenName)
-                    }
-                }
-                ParseClient.sharedInstance.searchFriends(mails, screenNames: screenNames) { users, error in
+                let twitterIds = twCandidates.map() { c in return c.id } as [String]
+                ParseClient.sharedInstance.searchFriends(facebookIds, twitterIds: twitterIds) { users, error in
                     completed(friendCandidates: users)
                 }
             }
@@ -175,13 +164,18 @@ class Account: User {
         completed(friendCandidates: results)
     }
     
-    class func createAsync(username: String, imageURL: String, image: UIImage, email: String?, screenName: String?, completed: (error: NSError?) -> ()) {
+    class func createAsync(username: String, imageURL: String, image: UIImage, snsUser: SNSUser, completed: (error: NSError?) -> ()) {
         dispatchAsync(.High) {
             let user = PFUser.currentUser()
             user.username = username
             user.imageURL = imageURL
-            user.email = email
-            user.screenName = screenName
+            if let fUser = snsUser as? TypedFacebookUser {
+                user.email = fUser.email
+                user.facebookId = fUser.id
+            }
+            if let tUser = snsUser as? TypedTwitterUser {
+                user.twitterId = tUser.id
+            }
             var error: NSError? = nil
             user.save(&error)
             println(error)
@@ -201,7 +195,10 @@ class Account: User {
     
     private class func createAccountSync(username: String, image: UIImage) {
         associateInstallation()
-        let account = Account.MR_createEntity() as Account
+        var account = Account.instance()
+        if account == nil {
+            account = Account.MR_createEntity() as Account
+        }
         account.username = username
         let imageData = NSData(data: UIImageJPEGRepresentation(image, 1))
         account.imageData = imageData
@@ -240,12 +237,19 @@ extension PFUser {
     func getImageURL() -> String! {
         return self.imageURL
     }
-    var screenName: String? {
+    var twitterId: String? {
         set {
             if newValue == nil  { return }
-            self.setObject(newValue, forKey: "screenName")
+            self.setObject(newValue, forKey: "twitterId")
         }
-        get { return self.objectForKey("screenName") as String? }
+        get { return self.objectForKey("twitterId") as String? }
+    }
+    var facebookId: String? {
+        set {
+            if newValue == nil  { return }
+            self.setObject(newValue, forKey: "facebookId")
+        }
+        get { return self.objectForKey("facebookId") as String? }
     }
 }
 
