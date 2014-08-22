@@ -218,4 +218,14 @@ extension NSManagedObject {
     func saveSync() {
         self.managedObjectContext.MR_saveToPersistentStoreAndWait()
     }
+
+    
+    class func findByParseObjectId<T: NSManagedObject>(objectId: String) -> T? {
+        let predicate = NSPredicate(format: "parseObjectId == %@", objectId)
+        let count = self.MR_countOfEntitiesWithPredicate(predicate)
+        if count == 0 {
+            return nil
+        }
+        return self.MR_findFirstWithPredicate(predicate) as T?
+    }
 }

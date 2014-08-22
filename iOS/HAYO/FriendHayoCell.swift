@@ -19,13 +19,9 @@ class FriendHayoCell: SWTableViewCell {
                 return
             }
             _hayo = newValue
-            _hayo.getImageURL() { url in
-                self.profileImageView.sd_setImageWithURL((NSURL(string: url)), completed: {image, error, type, url -> () in
-                })
-            }
-            _hayo.getFriendMessage() { message in
-                self.messageLabel.text = message
-            }
+            self.profileImageView.sd_setImageWithURL((NSURL(string: _hayo.from.imageURL)), completed: {image, error, type, url -> () in
+            })
+            messageLabel.text = NSString(format: localize("HayoFriendMessageFormat"), _hayo.message)
         }
         get {
             return _hayo

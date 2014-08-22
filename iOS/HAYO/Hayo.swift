@@ -8,43 +8,49 @@
 
 import Foundation
 
-class Hayo {
-    var source: PFObject
-        
-    init(source: PFObject) {
-        self.source = source
+ class Hayo: NSManagedObject {
+    class func MR_entityName() -> String {
+        return "Hayo"
+    }
+    @NSManaged var message: String
+    @NSManaged var parseObjectId: String
+    @NSManaged var at: NSDate
+    @NSManaged var imageURL: String
+    @NSManaged var from: User
+    @NSManaged var to: User
+    
+    class func fetchHayoList(fromUser: User, delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
+        let predicate = NSPredicate(format: "fromUser == %@ AND toUser == %@", fromUser, Account.instance())
+        return Hayo.MR_fetchAllSortedBy("at", ascending: false, withPredicate: nil, groupBy: nil, delegate: delegate)
     }
     
-    var message: String {
-        get{
-        return source.objectForKey("message") as String
-    }
-    }
-    var fromUser: PFUser { get { return self.source.objectForKey("from") as PFUser }}
-    var toUser: PFUser { get { return self.source.objectForKey("to") as PFUser }}
-    
-    func getFriendMessage(completed: (message:String) -> ()) {
-        
-        self.getMessage(false, completed: completed)
-    }
-    
-    func getMyMessage(completed: (message: String) -> ()) {
-        self.getMessage(true, completed: completed)
-    }
-    
-    private func getMessage(mine: Bool, completed: (message:String) -> ()) {
-        let user = self.fromUser
-        user.fetchIfNeededInBackgroundWithBlock(){ a in
-            let result = mine ? NSString(format: localize("HayoMyMessageFormat"), self.message, user.username):
-                NSString(format: localize("HayoFriendMessageFormat"), user.username, self.message)
-            completed(message: result)
+    class func updateHayoList(fromUser: User) {
+        ParseClient.sharedInstance.hayoList(fromUser) { hayoList, error in
+            
+            dispatchAsync(.High) {
+                
+                let moc = NSManagedObjectContext.MR_contextForCurrentThread()
+                // TODO: 削除系
+                
+                for hayoObject in hayoList {
+                    var hayo = Hayo.findByParseObjectId(hayoObject.objectId) as Hayo?
+                    if hayo == nil {
+                        hayo = Hayo.MR_createEntity() as Hayo?
+                    }
+                    hayo?.updateWithPFObject(hayoObject)
+                }
+                moc.MR_saveToPersistentStoreAndWait()
+            }
         }
     }
     
-    func getImageURL(completed: (url: String) -> ()) {
-        let user = source.objectForKey("from") as PFUser
-        user.fetchIfNeededInBackgroundWithBlock(){ result, error in
-            completed(url: user.getImageURL())
-        }
+    func updateWithPFObject(object: PFObject) {
+        self.at = object.createdAt
+        self.message = object.objectForKey("message") as String
+        self.parseObjectId = object.objectId
+        let fromPFUser = object.objectForKey("from") as PFUser
+        self.from = User.findByParseObjectId(fromPFUser.objectId)! as User
+        let toPFUser = object.objectForKey("to") as PFUser
+        self.to = User.findByParseObjectId(toPFUser.objectId)! as User
     }
 }

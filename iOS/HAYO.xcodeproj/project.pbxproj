@@ -281,11 +281,11 @@
 		FEC4AB3B19819DD100E84978 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FE05E5AD19943B40001C60F0 /* Hayo.swift */,
 				FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */,
 				FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */,
 				FEC4AB3F19819E0C00E84978 /* Account.swift */,
 				FE6F29AE19A7280900952F0D /* User.swift */,
+				FE05E5AD19943B40001C60F0 /* Hayo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";

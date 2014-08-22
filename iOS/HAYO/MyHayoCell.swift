@@ -20,13 +20,8 @@ class MyHayoCell: UITableViewCell {
                 return
             }
             _hayo = newValue
-            _hayo.getImageURL() { url in
-                self.profileImageView.sd_setImageWithURL((NSURL(string: url)), completed: {image, error, type, url -> () in
-                })
-            }
-            _hayo.getMyMessage() { message in
-                self.messageLabel.text = message
-            }
+            profileImageView.image = (Account.instance() as User).image
+            messageLabel.text = NSString(format: localize("HayoMyMessageFormat"), _hayo.message);
         }
         get {
             return _hayo

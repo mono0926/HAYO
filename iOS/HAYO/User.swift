@@ -15,6 +15,8 @@ class User: NSManagedObject {
     @NSManaged var parseObjectId: String
     @NSManaged var username: String
     @NSManaged var imageURL: String
+    @NSManaged var sentHayos: NSSet
+    @NSManaged var receivedHayos: NSSet
     
     var image: UIImage? { get { return nil } }
     
@@ -46,7 +48,7 @@ class User: NSManagedObject {
                 }
                 
                 for friend in friendList {
-                    var user = self.findByParseObjectId(friend.objectId)
+                    var user = self.findByParseObjectId(friend.objectId) as User?
                     if user == nil {
                         user = User.MR_createEntity() as User?
                     }
@@ -61,14 +63,5 @@ class User: NSManagedObject {
         self.parseObjectId = user.objectId
         self.username = user.username
         self.imageURL = user.getImageURL()
-    }
-    
-    class func findByParseObjectId(objectId: String) -> User? {
-        let predicate = NSPredicate(format: "parseObjectId == %@", objectId)
-        let count = User.MR_countOfEntitiesWithPredicate(predicate)
-        if count == 0 {
-            return nil
-        }
-        return User.MR_findFirstWithPredicate(predicate) as User?
     }
 }

@@ -14,8 +14,8 @@
 "DoUnregister" = "退会する";
 "Ok" = "OK";
 "Cancel" = "キャンセル";
-"HayoFriendMessageFormat" = "%@ < %@";
-"HayoMyMessageFormat" = "%@ > %@";
+"HayoFriendMessageFormat" = "< %@";
+"HayoMyMessageFormat" = "%@ >";
 "AccountSetting" = "アカウント設定";
 "ShareMyIDFormat" = "HAYOしましょう(　´･‿･｀)\n私のID: %@";
 "SelectAll" = "全選択";

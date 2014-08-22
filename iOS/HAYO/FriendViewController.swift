@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class FriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
     
     class func create() -> UINavigationController {
@@ -18,10 +18,13 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     var user: User!
-    var hayoList: [Hayo]?
+    var hayoList: NSFetchedResultsController!
+    private var _needReload = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hayoList = Hayo.fetchHayoList(user, delegate: self)
         
         self.tableView.backgroundView = nil
         
@@ -33,22 +36,19 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         
         println(user.username)
         self.title = user.username
-        
-        PFCloud.callFunctionInBackground("hayoList", withParameters: ["fromId": PFUser.currentUser().objectId, "toId": user.parseObjectId], block: { result, error in
-            println(result)
-            let sources = result as [PFObject]
-            self.hayoList = sources.map() { s in
-                return Hayo(source: s)
-            }
-            self.tableView.reloadData()
-        })
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        Hayo.updateHayoList(user)
+    }
+    
     @IBAction func closeDidTap(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: {})
     }
     
     func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        return hayoList == nil ? 0 : hayoList!.count
+        return hayoList.fetchedObjects.count
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
@@ -56,8 +56,8 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let hayo = hayoList![indexPath.section]
-        if hayo.fromUser.objectId == PFUser.currentUser().objectId {
+        let hayo = hayoList.fetchedObjects[indexPath.section] as Hayo
+        if hayo.from.parseObjectId == Account.instance().parseObjectId {
             let cell = tableView.dequeueReusableCellWithIdentifier("MyHayoCell", forIndexPath: indexPath) as MyHayoCell
             cell.hayo = hayo
             return cell
@@ -75,5 +75,22 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
         return 22
+    }
+    
+    // MARK: FetchedResultsControllerDelegate
+    func controllerDidChangeContent(controller: NSFetchedResultsController!) {
+        if _needReload {
+            tableView.reloadData()
+        }
+    }
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController!)  {
+        _needReload = false
+    }
+    
+    func controller(controller: NSFetchedResultsController!, didChangeObject anObject: AnyObject!, atIndexPath indexPath: NSIndexPath!, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath!) {
+        if type != .Update {
+            _needReload = true
+        }
     }
 }

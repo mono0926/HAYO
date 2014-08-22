@@ -16,10 +16,9 @@ class ParseClient {
     }
     
     func hayo(user: User, message: String, category: String, completed: (success: Bool, error: NSError!) -> ()) {
+        let me = Account.instance()
         
-        let me = PFUser.currentUser()
-        
-        PFCloud.callFunctionInBackground("hayo", withParameters: ["fromId": me.objectId, "toId": user.parseObjectId, "message": message, "category": category], block: { result, error in
+        PFCloud.callFunctionInBackground("hayo", withParameters: ["fromId": me.parseObjectId, "toId": user.parseObjectId, "message": message, "category": category], block: { result, error in
             completed(success: true, error: error)
         })
     }
@@ -32,21 +31,28 @@ class ParseClient {
     }
     
     func makeFriends(users: [PFUser], completed: (success: Bool, error: NSError!) -> ()) {
-        let me = PFUser.currentUser()
+        let me = Account.instance()
         let toIds = users.map { u in
             return u.objectId
         } as [String]
-        PFCloud.callFunctionInBackground("makeFriends", withParameters: ["fromId": me.objectId, "toIds": toIds], block: { result, error in
+        PFCloud.callFunctionInBackground("makeFriends", withParameters: ["fromId": me.parseObjectId, "toIds": toIds], block: { result, error in
             completed(success: true, error: error)
         })
     }
     
     func friendList(completed: (friendList: [PFUser], error: NSError!) -> ()) {
-        let me = PFUser.currentUser()
-        println(me.objectId)
-        PFCloud.callFunctionInBackground("friendList", withParameters: ["userId": me.objectId], block: { result, error in
+        let me = Account.instance()
+        println(me.parseObjectId)
+        PFCloud.callFunctionInBackground("friendList", withParameters: ["userId": me.parseObjectId], block: { result, error in
             let friendList = result as [PFUser]
             completed(friendList: friendList, error: error)
+        })
+    }
+    
+    func hayoList(fromUser: User, completed: (hayoList: [PFObject], error: NSError!) -> ()) {
+        let me = Account.instance()
+        PFCloud.callFunctionInBackground("hayoList", withParameters: ["fromId": fromUser.parseObjectId, "toId": me.parseObjectId], block: { result, error in
+            completed(hayoList: result as [PFObject], error: error)
         })
     }
 }
