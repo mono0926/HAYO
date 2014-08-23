@@ -45,7 +45,9 @@ class AccountSettingViewController: UITableViewController {
             notImplemented()
         case (1, 0):
             self.showActionSheet(localize("ConfirmUnregister"), destructiveTitleAction: TitleAction(title: localize("DoUnregister"), action: {
+                self.showProgress()
                 Account.unregister() {
+                    self.dismissProgress()
                     self.appDelegate().navigate()
                 }
             }))

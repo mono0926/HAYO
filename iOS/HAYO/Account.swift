@@ -219,7 +219,16 @@ class Account: User {
 
     class func unregister(completed: () -> ()) {
         PFUser.currentUser().deleteInBackgroundWithBlock() {success, error in
-            self.deleteInstanceIfExists()
+            let url1 = NSPersistentStore.MR_urlForStoreName("HAYO.sqlite")
+            let url2 = NSPersistentStore.MR_urlForStoreName("HAYO.sqlite-shm")
+            let url3 = NSPersistentStore.MR_urlForStoreName("HAYO.sqlite-wal")
+            var error: NSError?
+            for url in [url1, url2, url3] {
+                NSFileManager.defaultManager().removeItemAtURL(url, error: &error)
+                println(error)
+            }
+            MagicalRecord.cleanUp()
+            MagicalRecord.setupCoreDataStack()
             completed()
         }
     }

@@ -129,12 +129,13 @@ class SearchFriendsViewController: UIViewController, UITableViewDelegate, UITabl
             self.navigate()
             return
         }
-        
+        self.showProgress()
         let users = selectedPaths.map() { p in
             return self.friendsCandidates![p.row]
         } as [PFUser]
         
         ParseClient.sharedInstance.makeFriends(users) { success, error in
+            self.dismissProgress()
             self.navigate()
         }
     }

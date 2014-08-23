@@ -20,14 +20,15 @@ import Foundation
     @NSManaged var to: User
     
     class func fetchHayoList(fromUser: User, delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
-        let predicate = NSPredicate(format: "fromUser == %@ AND toUser == %@", fromUser, Account.instance())
-        return Hayo.MR_fetchAllSortedBy("at", ascending: false, withPredicate: nil, groupBy: nil, delegate: delegate)
+        let me = Account.instance()
+        let predicate = NSPredicate(format: "(from == %@ AND to == %@) OR (from == %@ AND to == %@)", fromUser, me, me, fromUser)
+        return Hayo.MR_fetchAllSortedBy("at", ascending: false, withPredicate: predicate, groupBy: nil, delegate: delegate)
     }
     
     class func fetchHayoList(delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
         let me = Account.instance()
-        let predicate = NSPredicate(format: "fromUser == %@ OR toUser == %@", me, me)
-        return Hayo.MR_fetchAllSortedBy("at", ascending: false, withPredicate: nil, groupBy: nil, delegate: delegate)
+        let predicate = NSPredicate(format: "from == %@ OR to == %@", me, me)
+        return Hayo.MR_fetchAllSortedBy("at", ascending: false, withPredicate: predicate, groupBy: nil, delegate: delegate)
     }
     
     class func updateHayoList(fromUser: User) {

@@ -76,6 +76,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
             return cell
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendHayoCell", forIndexPath: indexPath) as FriendHayoCell
+        println(hayo.from.parseObjectId)
         cell.setHayo(hayo, imageHidden: true) { user in
         }
         return cell

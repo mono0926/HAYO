@@ -24,6 +24,7 @@ class FriendView: UIView {
         self.layer.borderColor = UIColor.whiteColor().CGColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 4
+        
     }
     
     var _user: User!

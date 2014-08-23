@@ -26,7 +26,11 @@ class ParseClient {
     func searchFriends(facebookIds: [String], twitterIds: [String], completed: (users: [PFUser], error: NSError!) -> ()) {
         PFCloud.callFunctionInBackground("searchFriends", withParameters: ["facebookIds": facebookIds, "twitterIds": twitterIds]) { result, error in
             let users = result as [PFUser]
-            completed(users: users, error: error)
+            let friendParseIds = (User.MR_findAll() as [User]).map() { u in return u.parseObjectId } as [String]
+            let filtered = users.filter() { u in
+                return !contains(friendParseIds, u.objectId)
+            } as [PFUser]
+            completed(users: filtered, error: error)
         }
     }
     
