@@ -11,6 +11,7 @@ class MyHayoCell: UITableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var atLabel: UILabel!
     
     
     var _hayo: Hayo! = nil
@@ -20,6 +21,7 @@ class MyHayoCell: UITableViewCell {
                 return
             }
             _hayo = newValue
+            atLabel.text = _hayo.at.monthDateHourMinFormatString()
             profileImageView.image = (Account.instance() as User).image
             messageLabel.text = NSString(format: localize("HayoMyMessageFormat"), _hayo.message);
         }

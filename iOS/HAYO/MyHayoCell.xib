@@ -26,16 +26,25 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09/26 13:15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYd-RG-m45">
+                        <rect key="frame" x="10" y="45" width="62" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="sYd-RG-m45" secondAttribute="bottom" id="Cea-px-ChF"/>
                     <constraint firstAttribute="centerY" secondItem="3On-gj-Hcf" secondAttribute="centerY" id="JNX-JU-yNZ"/>
                     <constraint firstItem="UxD-OD-kpP" firstAttribute="leading" secondItem="3On-gj-Hcf" secondAttribute="trailing" constant="10" id="RIY-s5-mIz"/>
                     <constraint firstItem="UxD-OD-kpP" firstAttribute="trailing" secondItem="Ozm-zy-bz8" secondAttribute="trailing" constant="-10" id="UiR-5c-BBT"/>
+                    <constraint firstItem="sYd-RG-m45" firstAttribute="leading" secondItem="Ozm-zy-bz8" secondAttribute="leading" constant="10" id="mPY-hk-Dzy"/>
                     <constraint firstAttribute="centerY" secondItem="UxD-OD-kpP" secondAttribute="centerY" id="qQb-w1-iWP"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="atLabel" destination="sYd-RG-m45" id="6Jn-ax-o1I"/>
                 <outlet property="messageLabel" destination="3On-gj-Hcf" id="2XV-80-FC1"/>
                 <outlet property="profileImageView" destination="UxD-OD-kpP" id="Qn3-3O-GQq"/>
             </connections>

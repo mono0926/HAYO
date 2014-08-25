@@ -12,12 +12,14 @@ class FriendHayoCell: SWTableViewCell, SWTableViewCellDelegate {
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var profileImageButtonWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var atLabel: UILabel!
     private var _originalWidth: CGFloat = 0.0
     private var profileButtonDidTapHandler: ((user: User) -> ())!
     private var rightButtonsDidTapHandler: ((index: Int, message: String) -> ())!
     
     func setHayo(hayo: Hayo, imageHidden: Bool, profileButtonDidTapHandler: ((user: User) -> ())?, rightButtonsDidTapHandler: (index: Int, message: String) -> ()) {
         _hayo = hayo
+        atLabel.text = _hayo.at.monthDateHourMinFormatString()
         messageLabel.text = NSString(format: localize("HayoFriendMessageFormat"), _hayo.message)
         self.profileButtonDidTapHandler = profileButtonDidTapHandler
         self.rightButtonsDidTapHandler = rightButtonsDidTapHandler

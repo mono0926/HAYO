@@ -141,8 +141,33 @@ extension NSDate {
         let components = NSCalendar.currentCalendar().components(.CalendarUnitMonth, fromDate: self)
         return components.month
     }
-}
 
+    func monthDateHourMinFormatString() -> String {
+        return NSDate.monthDateHourMinFormatter().stringFromDate(self)
+    }
+
+    class func is24Mode() -> Bool {
+
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale.currentLocale()
+        formatter.dateStyle = .NoStyle;
+        formatter.timeStyle = .ShortStyle;
+        let dateString = formatter.stringFromDate(NSDate.date())
+        let amRange = dateString.rangeOfString(formatter.AMSymbol)
+        let pmRange = dateString.rangeOfString(formatter.PMSymbol)
+        let is24Mode = amRange == nil && pmRange == nil
+        return is24Mode
+
+    }
+
+    class func monthDateHourMinFormatter() -> NSDateFormatter {
+        let formatter = NSDateFormatter()
+        formatter.calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+        let format = NSDate.is24Mode() ? "MMddHHmm" : "MMddhhmm"
+        formatter.dateFormat = NSDateFormatter.dateFormatFromTemplate(format, options: 0, locale: NSLocale.currentLocale())
+        return formatter
+    }
+}
 
 
 class FormatterUtil {

@@ -55,6 +55,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="atLabel" destination="KNY-3f-Klm" id="Ksp-wi-U9b"/>
                 <outlet property="messageLabel" destination="XhS-Rd-Jlf" id="dMB-Rh-PC6"/>
                 <outlet property="profileImageButton" destination="mCw-oj-pUW" id="8sQ-50-AbP"/>
                 <outlet property="profileImageButtonWidthConstraint" destination="xy6-DX-qqZ" id="P07-4A-BmG"/>
