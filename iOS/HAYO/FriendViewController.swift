@@ -94,12 +94,10 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendHayoCell", forIndexPath: indexPath) as FriendHayoCell
         println(hayo.from.parseObjectId)
         cell.setHayo(hayo, imageHidden: true, profileButtonDidTapHandler: { user in
-        }) { index, message in
-            ParseClient.sharedInstance.reply(hayo, message: message) { result in
-                Hayo.updateHayoList(self.user) {
+            }) { index, messageId in
+                hayo.reply(messageId) {
                     self.showSuccess(NSString(format: localize("HayoRepliedFormat"), hayo.from.username))
                 }
-            }
         }
         return cell
     }

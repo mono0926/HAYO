@@ -19,7 +19,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var _needReload = false
     var carousel: iCarousel!
     var users: NSFetchedResultsController!
-    let hayoMessages = ["HAYO!!", "進捗どうですか？","返信まだですか？","納品まだですか？","HAYO理由を追加"]
+    let hayoManager = HayoManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +47,8 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     @IBAction func hayoDidTap(sender: UIButton) {
         let user = users.fetchedObjects[carousel.currentItemIndex] as User
-        let message = hayoMessages[pickerView.selectedRowInComponent(0)]
-        ParseClient.sharedInstance.hayo(user, message: message, category: "HAYO") { result, error in
+        let message = hayoManager[0].messages[pickerView.selectedRowInComponent(0)]
+        ParseClient.sharedInstance.hayo(user, messageId: message.id, category: "HAYO") { result, error in
             if nil != error {
                 self.showError()
                 return
@@ -103,7 +103,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int {
-        return 5
+        return hayoManager[0].messages.count
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
@@ -121,23 +121,11 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func pickerView(pickerView: UIPickerView!, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString! {
         
-        var title = ""
-        switch row {
-        case 0:
-            title = "とにかくHAYO!!"
-        default:
-            title = hayoMessages[row]
-        }
-        
-        return NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        return NSAttributedString(string: hayoManager[0].messages[row].message, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
     }
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
-        if row == 4 {
-            showError("追加画面へ？(未実装)")
-            return
-        }
-        SVProgressHUD.dismiss()
+        self.dismissProgress()
     }
 
     // MARK: FetchedResultsControllerDelegate

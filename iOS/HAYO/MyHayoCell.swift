@@ -23,7 +23,7 @@ class MyHayoCell: UITableViewCell {
             _hayo = newValue
             atLabel.text = _hayo.at.monthDateHourMinFormatString()
             profileImageView.image = (Account.instance() as User).image
-            messageLabel.text = NSString(format: localize("HayoMyMessageFormat"), _hayo.message);
+            messageLabel.text = NSString(format: localize("HayoMyMessageFormat"), _hayo.message.message);
         }
         get {
             return _hayo

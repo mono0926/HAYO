@@ -113,38 +113,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func registerRemoteNotification() {
         let app = UIApplication.sharedApplication()
-        if app.respondsToSelector("registerUserNotificationSettings:") {
-            
-            let dameAction = UIMutableUserNotificationAction()
-            dameAction.identifier = "A1"
-            dameAction.title = "ダメです"
-            dameAction.destructive = true
-            dameAction.activationMode = .Foreground
-            dameAction.authenticationRequired = false
-            
-            let okAction = UIMutableUserNotificationAction()
-            okAction.identifier = "A2"
-            okAction.title = "d(´･‿･｀)"
-            okAction.destructive = false
-            okAction.activationMode = .Foreground
-            okAction.authenticationRequired = false
-            
-            
-            let category = UIMutableUserNotificationCategory()
-            category.identifier = "HAYO"
-            
-            category .setActions([dameAction, okAction], forContext: .Default)
-            category .setActions([dameAction, okAction], forContext: .Minimal)
-            
-            let categories = NSSet(array: [category])
-            let types: UIUserNotificationType = .Badge | .Sound | .Alert
-            
-            let settings = UIUserNotificationSettings(forTypes: types, categories: categories)
-            app.registerUserNotificationSettings(settings)
+        if !app.respondsToSelector("registerUserNotificationSettings:") {
+            let types : UIRemoteNotificationType = .Badge | .Sound | .Alert
+            app.registerForRemoteNotificationTypes(types)
             return
         }
-        let types : UIRemoteNotificationType = .Badge | .Sound | .Alert
-        app.registerForRemoteNotificationTypes(types)
+        
+        let dameAction = UIMutableUserNotificationAction()
+        dameAction.identifier = "A1"
+        dameAction.title = "ダメです"
+        dameAction.destructive = true
+        dameAction.activationMode = .Foreground
+        dameAction.authenticationRequired = false
+        
+        let okAction = UIMutableUserNotificationAction()
+        okAction.identifier = "A2"
+        okAction.title = "d(´･‿･｀)"
+        okAction.destructive = false
+        okAction.activationMode = .Foreground
+        okAction.authenticationRequired = false
+        
+        
+        let category = UIMutableUserNotificationCategory()
+        category.identifier = "HAYO"
+        
+        category .setActions([dameAction, okAction], forContext: .Default)
+        category .setActions([dameAction, okAction], forContext: .Minimal)
+        
+        let categories = NSSet(array: [category])
+        let types: UIUserNotificationType = .Badge | .Sound | .Alert
+        
+        let settings = UIUserNotificationSettings(forTypes: types, categories: categories)
+        app.registerUserNotificationSettings(settings)
     }
     
     

@@ -11,6 +11,7 @@ Parse.Cloud.define("hayo", function(request, response) {
   var fromId = request.params.fromId
   var toId = request.params.toId
   var message = request.params.message
+  var messageId = request.params.messageId
   var category = request.params.category
 
   var fromUser, toUser;
@@ -25,7 +26,7 @@ Parse.Cloud.define("hayo", function(request, response) {
     toUser = result
     console.log("fromUser: " + fromUser)
     console.log("toUser: " + toUser)
-    return saveHayo(fromUser, toUser, message)
+    return saveHayo(fromUser, toUser, message, messageId)
   }).then(function(result) {
     console.log("hayo saved: " + result)
     var sentence = fromUser.get("username") + " < " + message
@@ -41,6 +42,7 @@ Parse.Cloud.define("hayo", function(request, response) {
 Parse.Cloud.define("reply", function(request, response) {
   var hayoId = request.params.hayoId
   var message = request.params.message
+  var messageId = request.params.messageId
 
   var hayo
   var hayoReply
@@ -48,7 +50,7 @@ Parse.Cloud.define("reply", function(request, response) {
   findHayoById(hayoId)
   .then(function(result) {
     hayo = result
-    return saveHayoReply(hayo, message)
+    return saveHayoReply(hayo, message, messageId)
   }).then(function(result) {
     console.log("will push")
     hayoReply = result
@@ -57,7 +59,8 @@ Parse.Cloud.define("reply", function(request, response) {
     console.log("objectId: " + from.id)
     return push(from.id, sentence)
   }).then(function(result) {
-    response.success("reply function success")
+    console.log(hayo)
+    response.success(hayo)
   })
 })
 
@@ -196,6 +199,8 @@ Parse.Cloud.define("hayoList", function(request, response) {
   hayoQuery2.matchesQuery("from", toQuery)
   hayoQuery2.matchesQuery("to", fromQuery)
   var orQuery = Parse.Query.or(hayoQuery1, hayoQuery2).ascending("createdAt")
+  orQuery.include("to")
+  orQuery.include("from")
 
   orQuery.find().then(function(results) {
     for (var i = 0; i < results.length; i++) {
@@ -246,19 +251,21 @@ function existsFriend(fromUserId, toUserId) {
   })
 }
 
-function saveHayo(fromUser, toUser, message) {
+function saveHayo(fromUser, toUser, message, messageId) {
   var hayo = new Hayo()
   hayo.set("from", fromUser)
   hayo.set("to", toUser)
   hayo.set("message", message)
+  hayo.set("messageId", messageId)
   return hayo.save()
 }
 
-function saveHayoReply(hayo, message) {
+function saveHayoReply(hayo, message, messageId) {
   console.log("will saveHayoReply")
   var reply = new HayoReply()
   reply.set("hayo", hayo)
   reply.set("message", message)
+  reply.set("messageId", messageId)
   return reply.save().then(function(result) {
     var relation = hayo.relation("replies");
     console.log("result: " + result)

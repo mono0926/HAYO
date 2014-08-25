@@ -5,7 +5,7 @@
     </entity>
     <entity name="Hayo" representedClassName="HAYO.Hayo" syncable="YES">
         <attribute name="at" attributeType="Date" syncable="YES"/>
-        <attribute name="message" attributeType="String" syncable="YES"/>
+        <attribute name="messageId" attributeType="String" syncable="YES"/>
         <attribute name="parseObjectId" attributeType="String" syncable="YES"/>
         <relationship name="from" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sentHayos" inverseEntity="User" syncable="YES"/>
         <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HayoReply" inverseName="hayo" inverseEntity="HayoReply" syncable="YES"/>

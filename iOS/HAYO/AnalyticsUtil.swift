@@ -29,7 +29,7 @@ class AnalyticsUtil {
     func setup() {
         println("trackingId: \(trackingId), trackInterval: \(trackInterval)")
         GAI.sharedInstance().dispatchInterval = trackInterval
-        GAI.sharedInstance().trackUncaughtExceptions = true
+        GAI.sharedInstance().trackUncaughtExceptions = false
         GAI.sharedInstance().trackerWithTrackingId(trackingId)
     }
     

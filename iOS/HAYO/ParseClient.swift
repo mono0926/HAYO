@@ -15,21 +15,29 @@ class ParseClient {
         return Static.instance
     }
     
-    func hayo(user: User, message: String, category: String, completed: (success: Bool, error: NSError!) -> ()) {
+    func hayo(user: User, messageId: String, category: String, completed: (success: Bool, error: NSError!) -> ()) {
         let me = Account.instance()
-        
-        PFCloud.callFunctionInBackground("hayo", withParameters: ["fromId": me.parseObjectId, "toId": user.parseObjectId, "message": message, "category": category], block: { result, error in
+        let message = hayoString(messageId)
+        PFCloud.callFunctionInBackground("hayo", withParameters: ["fromId": me.parseObjectId, "toId": user.parseObjectId, "message": message, "messageId": messageId, "category": category], block: { result, error in
             completed(success: true, error: error)
         })
     }
 
-
+    func getHayo(hayo: Hayo, completed: (hayoObject: PFObject, error: NSError!) -> ()) {
+        let query = PFQuery(className: "Hayo")
+        query.whereKey("objectId", equalTo: hayo.parseObjectId)
+        query.getFirstObjectInBackgroundWithBlock { result, error in
+            completed(hayoObject: result as PFObject, error: error)
+        }
+    }
     
-    func reply(hayo: Hayo, message: String, completed: (success: Bool, error: NSError!) -> ()) {
+    func reply(hayo: Hayo, messageId: String, completed: (hayoObject: PFObject, error: NSError!) -> ()) {
         let me = Account.instance()
         
-        PFCloud.callFunctionInBackground("reply", withParameters:  ["hayoId": hayo.parseObjectId, "message": message], block: { result, error in
-            completed(success: true, error: error)
+        let message = hayoString(messageId)
+        PFCloud.callFunctionInBackground("reply", withParameters:  ["hayoId": hayo.parseObjectId, "message": message, "messageId": messageId], block: { result, error in
+            let hayoObject = result as PFObject
+            completed(hayoObject: hayoObject as PFObject, error: error)
         })
     }
     

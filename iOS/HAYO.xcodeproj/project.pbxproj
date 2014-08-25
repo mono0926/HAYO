@@ -53,9 +53,10 @@
 		FED0B07119AADF7F00ECCE07 /* HayoReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0B07019AADF7F00ECCE07 /* HayoReply.swift */; };
 		FED0B07619AAFED800ECCE07 /* MyReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED0B07519AAFED800ECCE07 /* MyReplyCell.xib */; };
 		FED0B07819AAFEE100ECCE07 /* MyReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0B07719AAFEE100ECCE07 /* MyReplyCell.swift */; };
-		FED0B07B19AB0CBF00ECCE07 /* Hayo1.strings in Resources */ = {isa = PBXBuildFile; fileRef = FED0B07A19AB0CBF00ECCE07 /* Hayo1.strings */; };
+		FED0B07B19AB0CBF00ECCE07 /* Hayo.strings in Resources */ = {isa = PBXBuildFile; fileRef = FED0B07A19AB0CBF00ECCE07 /* Hayo.strings */; };
 		FED0B08119AB1DB300ECCE07 /* FriendReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED0B08019AB1DB300ECCE07 /* FriendReplyCell.xib */; };
 		FED0B08319AB1DC100ECCE07 /* FriendReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0B08219AB1DC100ECCE07 /* FriendReplyCell.swift */; };
+		FED0B08519AB25F500ECCE07 /* HayoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED0B08419AB25F500ECCE07 /* HayoManager.swift */; };
 		FEE26B7E1997454B00D0A7CA /* AnalyticsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE26B7D1997454B00D0A7CA /* AnalyticsUtil.swift */; };
 		FEF1270019A36DEF0023BA23 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF126FF19A36DEF0023BA23 /* SettingViewController.swift */; };
 		FEF1270219A36DF90023BA23 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF1270119A36DF90023BA23 /* Setting.storyboard */; };
@@ -129,9 +130,10 @@
 		FED0B07019AADF7F00ECCE07 /* HayoReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HayoReply.swift; sourceTree = "<group>"; };
 		FED0B07519AAFED800ECCE07 /* MyReplyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReplyCell.xib; sourceTree = "<group>"; };
 		FED0B07719AAFEE100ECCE07 /* MyReplyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReplyCell.swift; sourceTree = "<group>"; };
-		FED0B07A19AB0CBF00ECCE07 /* Hayo1.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Hayo1.strings; sourceTree = "<group>"; };
+		FED0B07A19AB0CBF00ECCE07 /* Hayo.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Hayo.strings; sourceTree = "<group>"; };
 		FED0B08019AB1DB300ECCE07 /* FriendReplyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendReplyCell.xib; sourceTree = "<group>"; };
 		FED0B08219AB1DC100ECCE07 /* FriendReplyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendReplyCell.swift; sourceTree = "<group>"; };
+		FED0B08419AB25F500ECCE07 /* HayoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HayoManager.swift; sourceTree = "<group>"; };
 		FEE26B7D1997454B00D0A7CA /* AnalyticsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsUtil.swift; sourceTree = "<group>"; };
 		FEF126FF19A36DEF0023BA23 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		FEF1270119A36DF90023BA23 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				FE6F29AE19A7280900952F0D /* User.swift */,
 				FE05E5AD19943B40001C60F0 /* Hayo.swift */,
 				FED0B07019AADF7F00ECCE07 /* HayoReply.swift */,
+				FED0B08419AB25F500ECCE07 /* HayoManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -357,7 +360,7 @@
 		FECB66E71980B2DA00FFD05C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FED0B07919AB0C7800ECCE07 /* Hayo */,
+				FED0B07A19AB0CBF00ECCE07 /* Hayo.strings */,
 				FECB66E81980B2DA00FFD05C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -386,14 +389,6 @@
 				FEE26B7D1997454B00D0A7CA /* AnalyticsUtil.swift */,
 			);
 			name = GA;
-			sourceTree = "<group>";
-		};
-		FED0B07919AB0C7800ECCE07 /* Hayo */ = {
-			isa = PBXGroup;
-			children = (
-				FED0B07A19AB0CBF00ECCE07 /* Hayo1.strings */,
-			);
-			name = Hayo;
 			sourceTree = "<group>";
 		};
 		FEF126FE19A36DDD0023BA23 /* Setting */ = {
@@ -515,7 +510,7 @@
 				FEB977C31991D7F4000032E6 /* Friend.storyboard in Resources */,
 				FECB66EF1980B2DA00FFD05C /* Main.storyboard in Resources */,
 				FEF1270719A36F980023BA23 /* AccountSetting.storyboard in Resources */,
-				FED0B07B19AB0CBF00ECCE07 /* Hayo1.strings in Resources */,
+				FED0B07B19AB0CBF00ECCE07 /* Hayo.strings in Resources */,
 				FED0B08119AB1DB300ECCE07 /* FriendReplyCell.xib in Resources */,
 				FE06C74119941EDA00CE8FEA /* MyHayoCell.xib in Resources */,
 				FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */,
@@ -643,6 +638,7 @@
 				FEC4AB4319819F5300E84978 /* IOUtil.swift in Sources */,
 				FE93F12219883DDD00310F7D /* RestClient.swift in Sources */,
 				FE6F29AF19A7280900952F0D /* User.swift in Sources */,
+				FED0B08519AB25F500ECCE07 /* HayoManager.swift in Sources */,
 				FE06C74319941EE600CE8FEA /* FriendHayoCell.swift in Sources */,
 				FE50AD0D1987D87C0054B5F3 /* FriendCell.swift in Sources */,
 				FE06BE14198117A1007367EA /* ObjcHelper.m in Sources */,

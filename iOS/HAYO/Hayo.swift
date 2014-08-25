@@ -12,12 +12,12 @@ import Foundation
     class func MR_entityName() -> String {
         return "Hayo"
     }
-    @NSManaged var message: String
+    @NSManaged var messageId: String
     @NSManaged var parseObjectId: String
     @NSManaged var at: NSDate
     @NSManaged var imageURL: String
-    @NSManaged var from: User
-    @NSManaged var to: User
+    @NSManaged var from: User!
+    @NSManaged var to: User!
     @NSManaged var replies: NSSet
     
     var orderedReply: [HayoReply] {
@@ -26,6 +26,8 @@ import Foundation
             return replies.sortedArrayUsingDescriptors([sort]) as [HayoReply]
         }
     }
+    
+    var message: HayoMessage { get { return HayoMessage(id: messageId) } }
     
     class func fetchHayoList(fromUser: User, delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
         let me = Account.instance()
@@ -52,18 +54,21 @@ import Foundation
                         hayo = Hayo.MR_createEntity() as Hayo!
                     }
                     hayo.updateWithPFObject(hayoObject)
-                    let replies = hayoObject.objectForKey("replies") as PFRelation
-                    let replyObjects =  replies.query().findObjects() as [PFObject]
-                    for r in replyObjects {
-                        var reply = HayoReply.findByParseObjectId(r.objectId) as HayoReply!
-                        if reply == nil {
-                            reply = HayoReply.MR_createEntity() as HayoReply!
-                        }
-                        reply.hayo = hayo
-                        reply.updateWithPFObject(r)
-                    }
                 }
                 moc.MR_saveToPersistentStoreAndWait()
+                completed()
+            }
+        }
+    }
+    
+    func reply(replyId: String, completed: () -> ()) {
+        let myObjectId = self.objectID
+        ParseClient.sharedInstance.reply(self, messageId: replyId) { hayoObject, error in
+            dispatchAsync(.High) {
+                let moc = NSManagedObjectContext.MR_contextForCurrentThread()
+                let hayo = moc.objectWithID(myObjectId) as Hayo
+                hayo.updateWithPFObject(hayoObject)
+                hayo.saveSync()
                 completed()
             }
         }
@@ -88,12 +93,30 @@ import Foundation
     
     func updateWithPFObject(object: PFObject) {
         self.at = object.createdAt
-        self.message = object.objectForKey("message") as String
+        self.messageId = object.objectForKey("messageId") as String
         self.parseObjectId = object.objectId
-        let fromPFUser = object.objectForKey("from") as PFUser
-        self.from = User.findByParseObjectId(fromPFUser.objectId)! as User
-        let toPFUser = object.objectForKey("to") as PFUser
-        println(toPFUser.objectId)
-        self.to = User.findByParseObjectId(toPFUser.objectId)! as User
+        if self.from == nil {
+            let fromPFUser = object.objectForKey("from") as PFUser
+            self.from = User.findByParseObjectId(fromPFUser.objectId)! as User
+        }
+        if self.to == nil {
+            let toPFUser = object.objectForKey("to") as PFUser
+            self.to = User.findByParseObjectId(toPFUser.objectId)! as User
+        }
+        self.updateReplies(object)
+    }
+    
+    func updateReplies(hayoObject: PFObject) {
+        let replies = hayoObject.objectForKey("replies") as PFRelation
+        let replyObjects =  replies.query().findObjects() as [PFObject]
+        println(replyObjects.count)
+        for r in replyObjects {
+            var reply = HayoReply.findByParseObjectId(r.objectId) as HayoReply!
+            if reply == nil {
+                reply = HayoReply.MR_createEntity() as HayoReply!
+            }
+            reply.hayo = self
+            reply.updateWithPFObject(r)
+        }
     }
 }

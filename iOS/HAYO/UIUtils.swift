@@ -13,10 +13,6 @@ func localize(key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }
 
-func hayo(keyNumber: Int, number: Int) -> String {
-    return NSLocalizedString("HAYO\(keyNumber)", tableName: "Hayo\(number)", comment: "")
-}
-
 let cancelString = localize("Cancel")
 let okString = localize("Ok")
 let confirmString = localize("ConfirmString")

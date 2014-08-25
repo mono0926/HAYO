@@ -15,14 +15,15 @@ class FriendHayoCell: SWTableViewCell, SWTableViewCellDelegate {
     @IBOutlet weak var atLabel: UILabel!
     private var _originalWidth: CGFloat = 0.0
     private var profileButtonDidTapHandler: ((user: User) -> ())!
-    private var rightButtonsDidTapHandler: ((index: Int, message: String) -> ())!
+    private var rightButtonsDidTapHandler: ((index: Int, messageId: String) -> ())!
     
-    func setHayo(hayo: Hayo, imageHidden: Bool, profileButtonDidTapHandler: ((user: User) -> ())?, rightButtonsDidTapHandler: (index: Int, message: String) -> ()) {
+    func setHayo(hayo: Hayo, imageHidden: Bool, profileButtonDidTapHandler: ((user: User) -> ())?, rightButtonsDidTapHandler: (index: Int, messageId: String) -> ()) {
         _hayo = hayo
         atLabel.text = _hayo.at.monthDateHourMinFormatString()
-        messageLabel.text = NSString(format: localize("HayoFriendMessageFormat"), _hayo.message)
+        messageLabel.text = NSString(format: localize("HayoFriendMessageFormat"), _hayo.message.message)
         self.profileButtonDidTapHandler = profileButtonDidTapHandler
         self.rightButtonsDidTapHandler = rightButtonsDidTapHandler
+        setupRightButtons()
         
         profileImageButtonWidthConstraint.constant = imageHidden ? 0 : _originalWidth
         
@@ -43,24 +44,23 @@ class FriendHayoCell: SWTableViewCell, SWTableViewCellDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.delegate = self
+        _originalWidth = profileImageButtonWidthConstraint.constant
         profileImageButton.configureAsMyCircle()
-        rightUtilityButtons = rightButtons()
         profileImageButton.imageView.contentMode = .ScaleAspectFill;
     }
     
-    func rightButtons() -> NSArray {
-        _originalWidth = profileImageButtonWidthConstraint.constant
+    func setupRightButtons() {
         var buttons = NSMutableArray()
-        buttons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: localize("Dame"))
-        buttons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: localize("OK"))
-        return buttons
+        buttons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: _hayo.message.replies[0])
+        buttons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: _hayo.message.replies[1])
+        rightUtilityButtons = buttons
     }
     @IBAction func profileButtonDidTap(sender: UIButton) {
         profileButtonDidTapHandler?(user: _hayo.from)
     }
     
     func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
-        rightButtonsDidTapHandler(index: index, message: "OK")
+        rightButtonsDidTapHandler(index: index, messageId: _hayo.message.replyIds[index])
         self.hideUtilityButtonsAnimated(true)
     }
 }
