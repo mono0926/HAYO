@@ -48,14 +48,13 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func hayoDidTap(sender: UIButton) {
         let user = users.fetchedObjects[carousel.currentItemIndex] as User
         let message = hayoMessages[pickerView.selectedRowInComponent(0)]
-        ParseClient.sharedInstance.hayo(user, message: message, category: "HAYO").then { result -> Int in
-            println(result)
+        ParseClient.sharedInstance.hayo(user, message: message, category: "HAYO") { result, error in
+            if nil != error {
+                self.showError()
+                return
+            }
             let message = NSString(format: localize("SentHayoFormat"), user.username)
             self.showSuccess(message)
-            return 1
-        }
-        .catch() { (error: NSError) -> () in
-            self.showError()
         }
     }
     

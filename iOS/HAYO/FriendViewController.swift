@@ -88,12 +88,11 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         println(hayo.from.parseObjectId)
         cell.setHayo(hayo, imageHidden: true, profileButtonDidTapHandler: { user in
         }) { index, message in
-            ParseClient.sharedInstance.reply(hayo, message: message).then(body: { result -> () in
+            ParseClient.sharedInstance.reply(hayo, message: message) { result in
                 Hayo.updateHayoList(self.user) {
                     self.showSuccess(NSString(format: localize("HayoRepliedFormat"), hayo.from.username))
                 }
-            })
-            return ()
+            }
         }
         return cell
     }

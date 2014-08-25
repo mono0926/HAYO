@@ -35,8 +35,6 @@
 		FEA7BD08198E15950023AF7A /* FriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA7BD07198E15950023AF7A /* FriendView.xib */; };
 		FEABE80B19A197FB0078CEFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEABE80A19A197FB0078CEFF /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FEABE80D19A1A6A30078CEFF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEABE80C19A1A6A30078CEFF /* Alert.swift */; };
-		FEAF560419AAC16C00A0CCC9 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAF55FF19AAC11C00A0CCC9 /* PromiseKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		FEAF560619AAC3C100A0CCC9 /* PFCloud+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAF560519AAC3C100A0CCC9 /* PFCloud+Promise.swift */; };
 		FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */; };
 		FEB977C11991D7EA000032E6 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB977C01991D7EA000032E6 /* FriendViewController.swift */; };
 		FEB977C31991D7F4000032E6 /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB977C21991D7F4000032E6 /* Friend.storyboard */; };
@@ -64,27 +62,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FEAF55FE19AAC11C00A0CCC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FEAF55F819AAC11C00A0CCC9 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 637D0F1119437D4C0059AD78;
-			remoteInfo = PromiseKit;
-		};
-		FEAF560019AAC11C00A0CCC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FEAF55F819AAC11C00A0CCC9 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 637D0F1219437D4C0059AD78;
-			remoteInfo = PromiseKitTests;
-		};
-		FEAF560219AAC11C00A0CCC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FEAF55F819AAC11C00A0CCC9 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 637D0F1019437D4C0059AD78;
-			remoteInfo = PMKDemo;
-		};
 		FECB66F71980B2DA00FFD05C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FECB66DC1980B2DA00FFD05C /* Project object */;
@@ -128,8 +105,6 @@
 		FEA7BD07198E15950023AF7A /* FriendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendView.xib; sourceTree = "<group>"; };
 		FEABE80A19A197FB0078CEFF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FEABE80C19A1A6A30078CEFF /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		FEAF55F819AAC11C00A0CCC9 /* PromiseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PromiseKit.xcodeproj; path = PromiseKit/swift/PromiseKit.xcodeproj; sourceTree = SOURCE_ROOT; };
-		FEAF560519AAC3C100A0CCC9 /* PFCloud+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PFCloud+Promise.swift"; sourceTree = "<group>"; };
 		FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedSNSUser.swift; sourceTree = "<group>"; };
 		FEB977C01991D7EA000032E6 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		FEB977C21991D7F4000032E6 /* Friend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
@@ -165,7 +140,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEAF560419AAC16C00A0CCC9 /* PromiseKit.framework in Frameworks */,
 				FEABE80B19A197FB0078CEFF /* UIKit.framework in Frameworks */,
 				FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */,
 				3E25E533CB034ED487ABCDC6 /* libPods-HAYO.a in Frameworks */,
@@ -220,7 +194,6 @@
 		FE38E09419874F2700CEE29B /* API */ = {
 			isa = PBXGroup;
 			children = (
-				FEAF560519AAC3C100A0CCC9 /* PFCloud+Promise.swift */,
 				FE38E09219874F1B00CEE29B /* ParseClient.swift */,
 				FE93F12119883DDD00310F7D /* RestClient.swift */,
 			);
@@ -256,16 +229,6 @@
 				FEA7BD03198E0EB80023AF7A /* MenuViewController.swift */,
 			);
 			name = Menu;
-			sourceTree = "<group>";
-		};
-		FEAF55F919AAC11C00A0CCC9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FEAF55FF19AAC11C00A0CCC9 /* PromiseKit.framework */,
-				FEAF560119AAC11C00A0CCC9 /* PromiseKitTests.xctest */,
-				FEAF560319AAC11C00A0CCC9 /* PMKDemo.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		FEB7BC8D198662D500321AC3 /* Model */ = {
@@ -370,7 +333,6 @@
 		FECB66E61980B2DA00FFD05C /* HAYO */ = {
 			isa = PBXGroup;
 			children = (
-				FEAF55F819AAC11C00A0CCC9 /* PromiseKit.xcodeproj */,
 				FE7C17871980B6620070FAD3 /* HAYO-Bridging-Header.h */,
 				FECB66E91980B2DA00FFD05C /* AppDelegate.swift */,
 				FE06BE12198117A1007367EA /* ObjcHelper.h */,
@@ -527,12 +489,6 @@
 			mainGroup = FECB66DB1980B2DA00FFD05C;
 			productRefGroup = FECB66E51980B2DA00FFD05C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FEAF55F919AAC11C00A0CCC9 /* Products */;
-					ProjectRef = FEAF55F819AAC11C00A0CCC9 /* PromiseKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FECB66E31980B2DA00FFD05C /* HAYO */,
@@ -540,30 +496,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FEAF55FF19AAC11C00A0CCC9 /* PromiseKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PromiseKit.framework;
-			remoteRef = FEAF55FE19AAC11C00A0CCC9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FEAF560119AAC11C00A0CCC9 /* PromiseKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PromiseKitTests.xctest;
-			remoteRef = FEAF560019AAC11C00A0CCC9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FEAF560319AAC11C00A0CCC9 /* PMKDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = PMKDemo.app;
-			remoteRef = FEAF560219AAC11C00A0CCC9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FECB66E21980B2DA00FFD05C /* Resources */ = {
@@ -695,7 +627,6 @@
 				FE12D6AE1987BA510019DF03 /* UIUtils.swift in Sources */,
 				FEF1270019A36DEF0023BA23 /* SettingViewController.swift in Sources */,
 				FEF1270519A36F890023BA23 /* AccountSettingViewController.swift in Sources */,
-				FEAF560619AAC3C100A0CCC9 /* PFCloud+Promise.swift in Sources */,
 				FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */,
 				FE06C74519941EEE00CE8FEA /* MyHayoCell.swift in Sources */,
 				FEE26B7E1997454B00D0A7CA /* AnalyticsUtil.swift in Sources */,

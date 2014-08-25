@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import PromiseKit
 class ParseClient {
     class var sharedInstance : ParseClient {
     struct Static {
@@ -16,25 +15,33 @@ class ParseClient {
         return Static.instance
     }
     
-    func hayo(user: User, message: String, category: String) -> Promise<String> {
-        let me = Account.instance()        
-        return PFCloud.promise("hayo", parameters: ["fromId": me.parseObjectId, "toId": user.parseObjectId, "message": message, "category": category])
-    }
-    
-    func reply(hayo: Hayo, message: String) -> Promise<String> {
+    func hayo(user: User, message: String, category: String, completed: (success: Bool, error: NSError!) -> ()) {
         let me = Account.instance()
-        return PFCloud.promise("reply", parameters: ["hayoId": hayo.parseObjectId, "message": message])
+        
+        PFCloud.callFunctionInBackground("hayo", withParameters: ["fromId": me.parseObjectId, "toId": user.parseObjectId, "message": message, "category": category], block: { result, error in
+            completed(success: true, error: error)
+        })
+    }
+
+
+    
+    func reply(hayo: Hayo, message: String, completed: (success: Bool, error: NSError!) -> ()) {
+        let me = Account.instance()
+        
+        PFCloud.callFunctionInBackground("reply", withParameters:  ["hayoId": hayo.parseObjectId, "message": message], block: { result, error in
+            completed(success: true, error: error)
+        })
     }
     
-    func searchFriends(facebookIds: [String], twitterIds: [String]) -> Promise<[PFUser]> {
-        
-        return PFCloud.promise("searchFriends", parameters: ["facebookIds": facebookIds, "twitterIds": twitterIds])
-            .then { (users: [PFUser]) -> [PFUser] in
-                return users.filter() { u in
-                    let friendParseIds = (User.MR_findAll() as [User]).map() { u in return u.parseObjectId } as [String]
-                    return !contains(friendParseIds, u.objectId)
-                    } as [PFUser]
-            }
+    func searchFriends(facebookIds: [String], twitterIds: [String], completed: (users: [PFUser], error: NSError!) -> ()) {
+        PFCloud.callFunctionInBackground("searchFriends", withParameters: ["facebookIds": facebookIds, "twitterIds": twitterIds]) { result, error in
+            let users = result as [PFUser]
+            let friendParseIds = (User.MR_findAll() as [User]).map() { u in return u.parseObjectId } as [String]
+            let filtered = users.filter() { u in
+                return !contains(friendParseIds, u.objectId)
+            } as [PFUser]
+            completed(users: filtered, error: error)
+        }
     }
     
     func makeFriends(users: [PFUser], completed: (success: Bool, error: NSError!) -> ()) {
@@ -56,9 +63,11 @@ class ParseClient {
         })
     }
     
-    func hayoList(fromUser: User) -> Promise<[PFObject]> {
+    func hayoList(fromUser: User, completed: (hayoList: [PFObject], error: NSError!) -> ()) {
         let me = Account.instance()
-        return PFCloud.promise("hayoList", parameters:  ["fromId": fromUser.parseObjectId, "toId": me.parseObjectId])
+        PFCloud.callFunctionInBackground("hayoList", withParameters: ["fromId": fromUser.parseObjectId, "toId": me.parseObjectId], block: { result, error in
+            completed(hayoList: result as [PFObject], error: error)
+        })
     }
     
     func hayoList(completed: (hayoList: [PFObject], error: NSError!) -> ()) {

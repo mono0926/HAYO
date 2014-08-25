@@ -40,7 +40,7 @@ import Foundation
     }
     
     class func updateHayoList(fromUser: User, completed: () -> ()) {
-        ParseClient.sharedInstance.hayoList(fromUser).then { hayoList in
+        ParseClient.sharedInstance.hayoList(fromUser) { hayoList, error in
             dispatchAsync(.High) {
                 
                 
