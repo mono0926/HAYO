@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import PromiseKit
 
 let sideMenuWidth = CGFloat(200)
 

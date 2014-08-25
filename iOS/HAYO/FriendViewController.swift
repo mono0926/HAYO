@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import PromiseKit
 
 class FriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {    
     
