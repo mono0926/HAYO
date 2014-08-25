@@ -43,7 +43,8 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.registerNib(UINib(nibName: "MyHayoCell", bundle: nil), forCellReuseIdentifier: "MyHayoCell")
         tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil), forCellReuseIdentifier: "FriendHayoCell")
-        tableView.registerNib(UINib(nibName: "ReplyCell", bundle: nil), forCellReuseIdentifier: "ReplyCell")
+        tableView.registerNib(UINib(nibName: "MyReplyCell", bundle: nil), forCellReuseIdentifier: "MyReplyCell")
+        tableView.registerNib(UINib(nibName: "FriendReplyCell", bundle: nil), forCellReuseIdentifier: "FriendReplyCell")
         
         println(user.username)
         self.title = user.username
@@ -74,8 +75,14 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         
         let row = indexPath.row
         if row != 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("ReplyCell", forIndexPath: indexPath) as ReplyCell
-            cell.reply = hayo.orderedReply[row - 1]
+            let reply = hayo.orderedReply[row - 1]
+            if reply.hayo.to.parseObjectId == Account.instance().parseObjectId {
+                let cell = tableView.dequeueReusableCellWithIdentifier("MyReplyCell", forIndexPath: indexPath) as MyReplyCell
+                cell.reply = reply
+                return cell
+            }
+            let cell = tableView.dequeueReusableCellWithIdentifier("FriendReplyCell", forIndexPath: indexPath) as FriendReplyCell
+            cell.reply = reply
             return cell
         }
         

@@ -1,5 +1,5 @@
 //
-//  ReplyCell.swift
+//  MyReplyCell.swift
 //  HAYO
 //
 //  Created by mono on 8/25/14.
@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class ReplyCell: UITableViewCell {
+class MyReplyCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     var _reply: HayoReply! = nil
