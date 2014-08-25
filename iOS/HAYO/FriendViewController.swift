@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import PromiseKit
+
 class FriendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
     var user: User!
     var hayoList: NSFetchedResultsController!
-    private var _needReload = false
     
     class func create() -> UINavigationController {
         let sb = UIStoryboard(name: "Friend", bundle: nil)
@@ -42,7 +43,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.registerNib(UINib(nibName: "MyHayoCell", bundle: nil), forCellReuseIdentifier: "MyHayoCell")
         tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil), forCellReuseIdentifier: "FriendHayoCell")
-        self.tableView.rowHeight = 60
+        tableView.registerNib(UINib(nibName: "ReplyCell", bundle: nil), forCellReuseIdentifier: "ReplyCell")
         
         println(user.username)
         self.title = user.username
@@ -52,8 +53,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        Hayo.updateHayoList(user)
-        
+        Hayo.updateHayoList(user) {}        
     }
     
     @IBAction func closeDidTap(sender: UIBarButtonItem) {
@@ -65,11 +65,20 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let hayo = hayoList.fetchedObjects[section] as Hayo
+        return 1 + hayo.replies.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let hayo = hayoList.fetchedObjects[indexPath.section] as Hayo
+        
+        let row = indexPath.row
+        if row != 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ReplyCell", forIndexPath: indexPath) as ReplyCell
+            cell.reply = hayo.orderedReply[row - 1]
+            return cell
+        }
+        
         if hayo.from.parseObjectId == Account.instance().parseObjectId {
             let cell = tableView.dequeueReusableCellWithIdentifier("MyHayoCell", forIndexPath: indexPath) as MyHayoCell
             cell.hayo = hayo
@@ -77,7 +86,14 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendHayoCell", forIndexPath: indexPath) as FriendHayoCell
         println(hayo.from.parseObjectId)
-        cell.setHayo(hayo, imageHidden: true) { user in
+        cell.setHayo(hayo, imageHidden: true, profileButtonDidTapHandler: { user in
+        }) { index, message in
+            ParseClient.sharedInstance.reply(hayo, message: message).then(body: { result -> () in
+                Hayo.updateHayoList(self.user) {
+                    self.showSuccess(NSString(format: localize("HayoRepliedFormat"), hayo.from.username))
+                }
+            })
+            return ()
         }
         return cell
     }
@@ -92,20 +108,21 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         return 22
     }
     
+    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        if indexPath.row == 0 {
+            return 60
+        }
+        return 44
+    }
+    
     // MARK: FetchedResultsControllerDelegate
     func controllerDidChangeContent(controller: NSFetchedResultsController!) {
-        if _needReload {
-            tableView.reloadData()
-        }
+        tableView.reloadData()
     }
     
     func controllerWillChangeContent(controller: NSFetchedResultsController!)  {
-        _needReload = false
     }
     
     func controller(controller: NSFetchedResultsController!, didChangeObject anObject: AnyObject!, atIndexPath indexPath: NSIndexPath!, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath!) {
-        if type != .Update {
-            _needReload = true
-        }
     }
 }

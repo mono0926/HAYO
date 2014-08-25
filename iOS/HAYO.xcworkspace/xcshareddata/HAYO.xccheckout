@@ -22,7 +22,7 @@
 		<key>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</key>
 		<string>../..</string>
 		<key>F5B4EC300E7199406BA2B2AA6070092FA65DDD89</key>
-		<string>../../iOS/PromiseKit/</string>
+		<string>../../iOS/PromiseKit</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:SheepYo/HAYO.git</string>

@@ -21,6 +21,11 @@ class ParseClient {
         return PFCloud.promise("hayo", parameters: ["fromId": me.parseObjectId, "toId": user.parseObjectId, "message": message, "category": category])
     }
     
+    func reply(hayo: Hayo, message: String) -> Promise<String> {
+        let me = Account.instance()
+        return PFCloud.promise("reply", parameters: ["hayoId": hayo.parseObjectId, "message": message])
+    }
+    
     func searchFriends(facebookIds: [String], twitterIds: [String]) -> Promise<[PFUser]> {
         
         return PFCloud.promise("searchFriends", parameters: ["facebookIds": facebookIds, "twitterIds": twitterIds])
@@ -51,11 +56,9 @@ class ParseClient {
         })
     }
     
-    func hayoList(fromUser: User, completed: (hayoList: [PFObject], error: NSError!) -> ()) {
+    func hayoList(fromUser: User) -> Promise<[PFObject]> {
         let me = Account.instance()
-        PFCloud.callFunctionInBackground("hayoList", withParameters: ["fromId": fromUser.parseObjectId, "toId": me.parseObjectId], block: { result, error in
-            completed(hayoList: result as [PFObject], error: error)
-        })
+        return PFCloud.promise("hayoList", parameters:  ["fromId": fromUser.parseObjectId, "toId": me.parseObjectId])
     }
     
     func hayoList(completed: (hayoList: [PFObject], error: NSError!) -> ()) {

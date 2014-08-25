@@ -1,6 +1,7 @@
 var _ = require('underscore');
 
 var Hayo = Parse.Object.extend("Hayo")
+var HayoReply = Parse.Object.extend("HayoReply")
 var Friend = Parse.Object.extend("Friend")
 
 Parse.Cloud.define("hayo", function(request, response) {
@@ -27,7 +28,8 @@ Parse.Cloud.define("hayo", function(request, response) {
     return saveHayo(fromUser, toUser, message)
   }).then(function(result) {
     console.log("hayo saved: " + result)
-    push(toId, fromUser.get("username") + " < " + message, category)
+    var sentence = fromUser.get("username") + " < " + message
+    push(toId, sentence, category)
     response.success("hayo function success")
   }, function(error) {
     console.log("hayo save error: " + error.message)
@@ -35,6 +37,29 @@ Parse.Cloud.define("hayo", function(request, response) {
   })
 });
 
+
+Parse.Cloud.define("reply", function(request, response) {
+  var hayoId = request.params.hayoId
+  var message = request.params.message
+
+  var hayo
+  var hayoReply
+
+  findHayoById(hayoId)
+  .then(function(result) {
+    hayo = result
+    return saveHayoReply(hayo, message)
+  }).then(function(result) {
+    console.log("will push")
+    hayoReply = result
+    var sentence = hayo.get("to").get("username") + " < " + message + " (\"" + hayo.get("message") + "\"の返信)" 
+    var from = hayo.get("from")
+    console.log("objectId: " + from.id)
+    return push(from.id, sentence)
+  }).then(function(result) {
+    response.success("reply function success")
+  })
+})
 
 Parse.Cloud.beforeDelete(Parse.User, function(request, response) {
   var object = request.object
@@ -144,6 +169,14 @@ function findUserById(id) {
   })
 }
 
+function findHayoById(id) {
+  var query = new Parse.Query(Hayo)
+  query.equalTo("objectId", id)
+  query.include("from")
+  query.include("to")
+  return query.first()
+}
+
 Parse.Cloud.define("hayoList", function(request, response) {
   console.log(request)
 
@@ -221,6 +254,21 @@ function saveHayo(fromUser, toUser, message) {
   return hayo.save()
 }
 
+function saveHayoReply(hayo, message) {
+  console.log("will saveHayoReply")
+  var reply = new HayoReply()
+  reply.set("hayo", hayo)
+  reply.set("message", message)
+  return reply.save().then(function(result) {
+    var relation = hayo.relation("replies");
+    console.log("result: " + result)
+    relation.add(result);
+    console.log("relation: " + relation)
+    console.log("did saveHayoReply")
+    hayo.save()
+  })
+}
+
 function linkFriend(fromUserId, toUserId) {
   var fromUser, toUser;
 
@@ -247,7 +295,9 @@ function saveFriend(from, to) {
 
 function push(toId, message, category) {
 
-  console.log("toId: " + toId)
+  category = category || "UNKNOWN"
+
+  console.log("push toId: " + toId)
   var userQuery = new Parse.Query(Parse.User)
   userQuery.equalTo("objectId", toId)
 

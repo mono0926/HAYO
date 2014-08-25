@@ -22,3 +22,4 @@
 "UnselectAll" = "全て解除";
 "ConfirmString" = "確認";
 "RecommendShareMyID" = "HAYOを使っているお友達がまだいませんでした。あなたのIDをシェアしますか？";
+"HayoRepliedFormat" = "%@さんにHAYOの返信をしました d(´･‿･｀）";

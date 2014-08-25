@@ -7,18 +7,20 @@
 //
 
 import Foundation
-class FriendHayoCell: SWTableViewCell {
+class FriendHayoCell: SWTableViewCell, SWTableViewCellDelegate {
     
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var profileImageButtonWidthConstraint: NSLayoutConstraint!
     private var _originalWidth: CGFloat = 0.0
-    private var profileButtonDidTapHandler: ((user: User) -> ())?
+    private var profileButtonDidTapHandler: ((user: User) -> ())!
+    private var rightButtonsDidTapHandler: ((index: Int, message: String) -> ())!
     
-    func setHayo(hayo: Hayo, imageHidden: Bool, profileButtonDidTapHandler: ((user: User) -> ())?) {
+    func setHayo(hayo: Hayo, imageHidden: Bool, profileButtonDidTapHandler: ((user: User) -> ())?, rightButtonsDidTapHandler: (index: Int, message: String) -> ()) {
         _hayo = hayo
         messageLabel.text = NSString(format: localize("HayoFriendMessageFormat"), _hayo.message)
         self.profileButtonDidTapHandler = profileButtonDidTapHandler
+        self.rightButtonsDidTapHandler = rightButtonsDidTapHandler
         
         profileImageButtonWidthConstraint.constant = imageHidden ? 0 : _originalWidth
         
@@ -30,7 +32,7 @@ class FriendHayoCell: SWTableViewCell {
         })
     }
     
-    var _hayo: Hayo! = nil
+    private var _hayo: Hayo! = nil
     var hayo: Hayo! {
         get {
             return _hayo
@@ -38,8 +40,9 @@ class FriendHayoCell: SWTableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.delegate = self
         profileImageButton.configureAsMyCircle()
-        self.rightUtilityButtons = rightButtons()
+        rightUtilityButtons = rightButtons()
         profileImageButton.imageView.contentMode = .ScaleAspectFill;
     }
     
@@ -52,5 +55,10 @@ class FriendHayoCell: SWTableViewCell {
     }
     @IBAction func profileButtonDidTap(sender: UIButton) {
         profileButtonDidTapHandler?(user: _hayo.from)
+    }
+    
+    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
+        rightButtonsDidTapHandler(index: index, message: "OK")
+        self.hideUtilityButtonsAnimated(true)
     }
 }

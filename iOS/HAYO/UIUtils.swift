@@ -13,6 +13,10 @@ func localize(key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }
 
+func hayo(keyNumber: Int, number: Int) -> String {
+    return NSLocalizedString("HAYO\(keyNumber)", tableName: "Hayo\(number)", comment: "")
+}
+
 let cancelString = localize("Cancel")
 let okString = localize("Ok")
 let confirmString = localize("ConfirmString")
@@ -62,7 +66,8 @@ extension UIViewController {
         showSuccess(localize("Succeeded"))
     }
     func showSuccess(message: String) {
-        SVProgressHUD.showSuccessWithStatus(message)
+        executeOnMainThread { SVProgressHUD.showSuccessWithStatus(message) }
+        
     }
     func showProgress() {
         SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeGradient))
@@ -71,12 +76,15 @@ extension UIViewController {
         SVProgressHUD.showWithStatus(message, maskType: UInt(SVProgressHUDMaskTypeGradient))
     }
     func dismissProgress() {
+        executeOnMainThread { SVProgressHUD.dismiss() }
+    }
+    func executeOnMainThread(action: () -> ()) {
         if NSThread.isMainThread() {
-            SVProgressHUD.dismiss()
+            action()
             return
         }
         dispatchOnMainThread() {
-            SVProgressHUD.dismiss()
+            action()
         }
     }
     func notImplemented() {

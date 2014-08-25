@@ -8,7 +8,14 @@
         <attribute name="message" attributeType="String" syncable="YES"/>
         <attribute name="parseObjectId" attributeType="String" syncable="YES"/>
         <relationship name="from" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sentHayos" inverseEntity="User" syncable="YES"/>
+        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HayoReply" inverseName="hayo" inverseEntity="HayoReply" syncable="YES"/>
         <relationship name="to" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="receivedHayos" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="HayoReply" representedClassName="HAYO.HayoReply" syncable="YES">
+        <attribute name="at" attributeType="Date" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parseObjectId" attributeType="String" syncable="YES"/>
+        <relationship name="hayo" maxCount="1" deletionRule="Nullify" destinationEntity="Hayo" inverseName="replies" inverseEntity="Hayo" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="HAYO.User" syncable="YES">
         <attribute name="imageURL" attributeType="String" syncable="YES"/>
@@ -19,7 +26,8 @@
     </entity>
     <elements>
         <element name="Account" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="Hayo" positionX="-63" positionY="9" width="128" height="133"/>
         <element name="User" positionX="-63" positionY="0" width="128" height="118"/>
-        <element name="Hayo" positionX="-63" positionY="9" width="128" height="118"/>
+        <element name="HayoReply" positionX="-54" positionY="45" width="128" height="103"/>
     </elements>
 </model>

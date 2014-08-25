@@ -63,10 +63,12 @@ class HayoListViewController: UIViewController, NSFetchedResultsControllerDelega
             return cell
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendHayoCell", forIndexPath: indexPath) as FriendHayoCell
-        cell.setHayo(hayo, imageHidden: false) { user in
+        cell.setHayo(hayo, imageHidden: false, profileButtonDidTapHandler: { user in
             let vc = FriendViewController.createWithoutNavigation()
             vc.user = user
             self.navigationController.pushViewController(vc, animated: true)
+        }) { index, message in
+    
         }
         return cell
     }

@@ -18,6 +18,14 @@ import Foundation
     @NSManaged var imageURL: String
     @NSManaged var from: User
     @NSManaged var to: User
+    @NSManaged var replies: NSSet
+    
+    var orderedReply: [HayoReply] {
+        get {
+            let sort = NSSortDescriptor(key: "at", ascending: false)
+            return replies.sortedArrayUsingDescriptors([sort]) as [HayoReply]
+        }
+    }
     
     class func fetchHayoList(fromUser: User, delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
         let me = Account.instance()
@@ -31,19 +39,32 @@ import Foundation
         return Hayo.MR_fetchAllSortedBy("at", ascending: false, withPredicate: predicate, groupBy: nil, delegate: delegate)
     }
     
-    class func updateHayoList(fromUser: User) {
-        ParseClient.sharedInstance.hayoList(fromUser) { hayoList, error in
+    class func updateHayoList(fromUser: User, completed: () -> ()) {
+        ParseClient.sharedInstance.hayoList(fromUser).then { hayoList in
             dispatchAsync(.High) {
+                
+                
                 let moc = NSManagedObjectContext.MR_contextForCurrentThread()
                 // TODO: 削除系
                 for hayoObject in hayoList {
-                    var hayo = Hayo.findByParseObjectId(hayoObject.objectId) as Hayo?
+                    var hayo = Hayo.findByParseObjectId(hayoObject.objectId) as Hayo!
                     if hayo == nil {
-                        hayo = Hayo.MR_createEntity() as Hayo?
+                        hayo = Hayo.MR_createEntity() as Hayo!
                     }
-                    hayo?.updateWithPFObject(hayoObject)
+                    hayo.updateWithPFObject(hayoObject)
+                    let replies = hayoObject.objectForKey("replies") as PFRelation
+                    let replyObjects =  replies.query().findObjects() as [PFObject]
+                    for r in replyObjects {
+                        var reply = HayoReply.findByParseObjectId(r.objectId) as HayoReply!
+                        if reply == nil {
+                            reply = HayoReply.MR_createEntity() as HayoReply!
+                        }
+                        reply.hayo = hayo
+                        reply.updateWithPFObject(r)
+                    }
                 }
                 moc.MR_saveToPersistentStoreAndWait()
+                completed()
             }
         }
     }

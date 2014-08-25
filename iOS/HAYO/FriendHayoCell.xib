@@ -8,19 +8,19 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IlS-wJ-V4q" customClass="FriendHayoCell" customModule="HAYO" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IlS-wJ-V4q" id="7Eg-ti-Lka">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt; HAYO!!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhS-Rd-Jlf">
-                        <rect key="frame" x="70" y="24" width="71" height="21"/>
+                        <rect key="frame" x="70" y="19" width="71" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCw-oj-pUW">
-                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <rect key="frame" x="10" y="5" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="GKQ-0o-6wi"/>
                             <constraint firstAttribute="width" constant="50" id="xy6-DX-qqZ"/>
@@ -32,12 +32,25 @@
                             <action selector="profileButtonDidTap:" destination="IlS-wJ-V4q" eventType="touchUpInside" id="jaq-t8-WGl"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drawer_icon" translatesAutoresizingMaskIntoConstraints="NO" id="eQc-SW-c02">
+                        <rect key="frame" x="291" y="16" width="19" height="27"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09/26 13:15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNY-3f-Klm">
+                        <rect key="frame" x="248" y="45" width="62" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="XhS-Rd-Jlf" secondAttribute="centerY" id="4yc-lQ-r3v"/>
+                    <constraint firstAttribute="centerY" secondItem="eQc-SW-c02" secondAttribute="centerY" id="Tzc-t1-Gaj"/>
+                    <constraint firstItem="eQc-SW-c02" firstAttribute="trailing" secondItem="7Eg-ti-Lka" secondAttribute="trailing" constant="-10" id="ZZQ-mG-7eA"/>
+                    <constraint firstAttribute="bottom" secondItem="KNY-3f-Klm" secondAttribute="bottom" id="eEF-Of-PQF"/>
                     <constraint firstItem="XhS-Rd-Jlf" firstAttribute="leading" secondItem="mCw-oj-pUW" secondAttribute="trailing" constant="10" id="eV2-q4-XiK"/>
                     <constraint firstItem="mCw-oj-pUW" firstAttribute="leading" secondItem="7Eg-ti-Lka" secondAttribute="leading" constant="10" id="fM3-zQ-e8v"/>
                     <constraint firstAttribute="centerY" secondItem="mCw-oj-pUW" secondAttribute="centerY" id="hAG-Qk-94x"/>
+                    <constraint firstItem="KNY-3f-Klm" firstAttribute="trailing" secondItem="eQc-SW-c02" secondAttribute="trailing" id="yft-Yq-kdB"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -49,4 +62,7 @@
             <point key="canvasLocation" x="87" y="321"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="drawer_icon" width="19" height="27"/>
+    </resources>
 </document>

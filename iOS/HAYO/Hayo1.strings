@@ -1,0 +1,22 @@
+/* 
+  Hayo.strings
+  HAYO
+
+  Created by mono on 8/25/14.
+  Copyright (c) 2014 Sheep. All rights reserved.
+*/
+"HAYO1" = "HAYO!!";
+"HAYO2" = "進捗どうですか？";
+"HAYO3" = "まだですか？";
+"HAYO4" = "早くしてください";
+"HAYO5" = "待ってます";
+"HAYO1_R1" = "(´･‿･｀)";
+"HAYO1_R2" = "(´・д・｀)";
+"HAYO2_R1" = "ダメです";
+"HAYO2_R2" = "(´･‿･｀)";
+"HAYO3_R1" = "まだです";
+"HAYO3_R2" = "もうすぐ";
+"HAYO4_R1" = "急いでます";
+"HAYO4_R2" = "（´；ω；｀）";
+"HAYO5_R1" = "すみません";
+"HAYO5_R2" = "もうすぐ";
