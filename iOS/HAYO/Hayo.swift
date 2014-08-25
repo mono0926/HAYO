@@ -15,6 +15,7 @@ import Foundation
     @NSManaged var messageId: String
     @NSManaged var parseObjectId: String
     @NSManaged var at: NSDate
+    @NSManaged var updatedAt: NSDate
     @NSManaged var imageURL: String
     @NSManaged var from: User!
     @NSManaged var to: User!
@@ -37,7 +38,7 @@ import Foundation
     
     class func fetchHayoList(delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
         let me = Account.instance()
-        let predicate = NSPredicate(format: "from == %@ OR to == %@", me, me)
+        let predicate = NSPredicate(format: "to == %@ AND from != %@", me, me)
         return Hayo.MR_fetchAllSortedBy("at", ascending: false, withPredicate: predicate, groupBy: nil, delegate: delegate)
     }
     
@@ -53,7 +54,7 @@ import Foundation
                     if hayo == nil {
                         hayo = Hayo.MR_createEntity() as Hayo!
                     }
-                    hayo.updateWithPFObject(hayoObject)
+                    hayo.updateWithPFObjectIfNeeded(hayoObject)
                 }
                 moc.MR_saveToPersistentStoreAndWait()
                 completed()
@@ -67,7 +68,7 @@ import Foundation
             dispatchAsync(.High) {
                 let moc = NSManagedObjectContext.MR_contextForCurrentThread()
                 let hayo = moc.objectWithID(myObjectId) as Hayo
-                hayo.updateWithPFObject(hayoObject)
+                hayo.updateWithPFObjectIfNeeded(hayoObject)
                 hayo.saveSync()
                 completed()
             }
@@ -84,29 +85,38 @@ import Foundation
                     if hayo == nil {
                         hayo = Hayo.MR_createEntity() as Hayo?
                     }
-                    hayo?.updateWithPFObject(hayoObject)
+                    hayo?.updateWithPFObjectIfNeeded(hayoObject)
                 }
                 moc.MR_saveToPersistentStoreAndWait()
             }
         }
     }
     
-    func updateWithPFObject(object: PFObject) {
+    func updateWithPFObjectIfNeeded(object: PFObject) {
+        
+        if self.updatedAt == object.updatedAt {
+            return;
+        }
+        
         self.at = object.createdAt
+        self.updatedAt = object.updatedAt
         self.messageId = object.objectForKey("messageId") as String
         self.parseObjectId = object.objectId
         if self.from == nil {
             let fromPFUser = object.objectForKey("from") as PFUser
+            println(fromPFUser)
+            println(fromPFUser.objectId)
             self.from = User.findByParseObjectId(fromPFUser.objectId)! as User
         }
         if self.to == nil {
             let toPFUser = object.objectForKey("to") as PFUser
             self.to = User.findByParseObjectId(toPFUser.objectId)! as User
         }
-        self.updateReplies(object)
+        self.updateRepliesIfNeeded(object)
     }
     
-    func updateReplies(hayoObject: PFObject) {
+    func updateRepliesIfNeeded(hayoObject: PFObject) {
+        
         let replies = hayoObject.objectForKey("replies") as PFRelation
         let replyObjects =  replies.query().findObjects() as [PFObject]
         println(replyObjects.count)
