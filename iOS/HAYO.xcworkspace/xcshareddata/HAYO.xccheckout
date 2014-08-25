@@ -12,6 +12,8 @@
 	<dict>
 		<key>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</key>
 		<string>github.com:SheepYo/HAYO.git</string>
+		<key>F5B4EC300E7199406BA2B2AA6070092FA65DDD89</key>
+		<string>github.com:mxcl/PromiseKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>iOS/HAYO.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</key>
 		<string>../..</string>
+		<key>F5B4EC300E7199406BA2B2AA6070092FA65DDD89</key>
+		<string>../../iOS/PromiseKit/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:SheepYo/HAYO.git</string>
@@ -35,6 +39,14 @@
 			<string>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</string>
 			<key>IDESourceControlWCCName</key>
 			<string>HAYO</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F5B4EC300E7199406BA2B2AA6070092FA65DDD89</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PromiseKit</string>
 		</dict>
 	</array>
 </dict>

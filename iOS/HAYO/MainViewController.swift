@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import PromiseKit
 
 let sideMenuWidth = CGFloat(200)
 
@@ -47,14 +48,15 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func hayoDidTap(sender: UIButton) {
         let user = users.fetchedObjects[carousel.currentItemIndex] as User
         let message = hayoMessages[pickerView.selectedRowInComponent(0)]
-        ParseClient.sharedInstance.hayo(user, message: message, category: "HAYO") { success, error in
-            if nil != error {
-                self.showError()
-                return
-            }
+        ParseClient.sharedInstance.hayo(user, message: message, category: "HAYO").then { result -> Int in
+            println(result)
             let message = NSString(format: localize("SentHayoFormat"), user.username)
             self.showSuccess(message)
-            }
+            return 1
+        }
+        .catch() { (error: NSError) -> () in
+            self.showError()
+        }
     }
     
     func profileDidTap() {

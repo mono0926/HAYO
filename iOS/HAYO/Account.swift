@@ -115,7 +115,7 @@ class Account: User {
             let facebookIds = fbCandidates.map() { c in return c.id } as [String]
             self.searchTwitterFriends() { twCandidates in
                 let twitterIds = twCandidates.map() { c in return c.id } as [String]
-                ParseClient.sharedInstance.searchFriends(facebookIds, twitterIds: twitterIds) { users, error in
+                ParseClient.sharedInstance.searchFriends(facebookIds, twitterIds: twitterIds).then { users in
                     completed(friendCandidates: users)
                 }
             }

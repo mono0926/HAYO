@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 class ParseClient {
     class var sharedInstance : ParseClient {
     struct Static {
@@ -15,23 +16,20 @@ class ParseClient {
         return Static.instance
     }
     
-    func hayo(user: User, message: String, category: String, completed: (success: Bool, error: NSError!) -> ()) {
-        let me = Account.instance()
-        
-        PFCloud.callFunctionInBackground("hayo", withParameters: ["fromId": me.parseObjectId, "toId": user.parseObjectId, "message": message, "category": category], block: { result, error in
-            completed(success: true, error: error)
-        })
+    func hayo(user: User, message: String, category: String) -> Promise<String> {
+        let me = Account.instance()        
+        return PFCloud.promise("hayo", parameters: ["fromId": me.parseObjectId, "toId": user.parseObjectId, "message": message, "category": category])
     }
     
-    func searchFriends(facebookIds: [String], twitterIds: [String], completed: (users: [PFUser], error: NSError!) -> ()) {
-        PFCloud.callFunctionInBackground("searchFriends", withParameters: ["facebookIds": facebookIds, "twitterIds": twitterIds]) { result, error in
-            let users = result as [PFUser]
-            let friendParseIds = (User.MR_findAll() as [User]).map() { u in return u.parseObjectId } as [String]
-            let filtered = users.filter() { u in
-                return !contains(friendParseIds, u.objectId)
-            } as [PFUser]
-            completed(users: filtered, error: error)
-        }
+    func searchFriends(facebookIds: [String], twitterIds: [String]) -> Promise<[PFUser]> {
+        
+        return PFCloud.promise("searchFriends", parameters: ["facebookIds": facebookIds, "twitterIds": twitterIds])
+            .then { (users: [PFUser]) -> [PFUser] in
+                return users.filter() { u in
+                    let friendParseIds = (User.MR_findAll() as [User]).map() { u in return u.parseObjectId } as [String]
+                    return !contains(friendParseIds, u.objectId)
+                    } as [PFUser]
+            }
     }
     
     func makeFriends(users: [PFUser], completed: (success: Bool, error: NSError!) -> ()) {
