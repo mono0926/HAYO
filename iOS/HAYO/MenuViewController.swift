@@ -38,7 +38,7 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
         imageButton.configureAsMyCircle()
         
         let account = Account.instance()
-        imageButton.imageView.contentMode = .ScaleAspectFill
+        imageButton.imageView!.contentMode = .ScaleAspectFill
         imageButton .setImage((account as User).image!, forState: .Normal)
         nameButton.setTitle(account.username, forState: .Normal)
     }

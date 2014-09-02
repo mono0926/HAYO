@@ -24,7 +24,7 @@ class AccountSettingViewController: UITableViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareDidTap")
         
-        if self.navigationController.viewControllers[0] as UIViewController == self {
+        if self.navigationController!.viewControllers[0] as UIViewController == self {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismiss")
         }
     }
@@ -37,7 +37,7 @@ class AccountSettingViewController: UITableViewController {
         self.dismissViewControllerAnimated(true) {}
     }
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             notImplemented()
@@ -58,11 +58,11 @@ class AccountSettingViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    override func tableView(tableView: UITableView!, viewForHeaderInSection section: Int) -> UIView! {
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
         return UIView()
     }
     
-    override func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 22
     }
 }

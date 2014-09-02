@@ -29,7 +29,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.navigationController.viewControllers[0] as UIViewController != self {
+        if self.navigationController!.viewControllers[0] as UIViewController != self {
             self.navigationItem.leftBarButtonItem = nil;
         }
         
@@ -60,17 +60,17 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         self.dismissViewControllerAnimated(true, completion: {})
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        return hayoList.fetchedObjects.count
+    func numberOfSectionsIntableView(tableView: UITableView) -> Int {
+        return hayoList.fetchedObjects!.count
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        let hayo = hayoList.fetchedObjects[section] as Hayo
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let hayo = hayoList.fetchedObjects![section] as Hayo
         return 1 + hayo.replies.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let hayo = hayoList.fetchedObjects[indexPath.section] as Hayo
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let hayo = hayoList.fetchedObjects![indexPath.section] as Hayo
         
         let row = indexPath.row
         if row != 0 {
@@ -101,17 +101,17 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    func tableView(tableView: UITableView!, viewForHeaderInSection section: Int) -> UIView! {
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
         let v = UIView()
         v.backgroundColor = UIColor.clearColor()
         return v
     }
     
-    func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 22
     }
     
-    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 60
         }
@@ -119,13 +119,13 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     // MARK: FetchedResultsControllerDelegate
-    func controllerDidChangeContent(controller: NSFetchedResultsController!) {
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.reloadData()
     }
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController!)  {
+    func controllerWillChangeContent(controller: NSFetchedResultsController)  {
     }
     
-    func controller(controller: NSFetchedResultsController!, didChangeObject anObject: AnyObject!, atIndexPath indexPath: NSIndexPath!, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath!) {
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject!, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
     }
 }

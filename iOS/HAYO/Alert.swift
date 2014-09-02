@@ -114,6 +114,6 @@ class Alert: NSObject, UIAlertViewDelegate {
         sheet.bk_setCancelButtonWithTitle(cancelString) {
             cancelBlock()
         }
-        sheet.showInView(UIApplication.sharedApplication().delegate.window!)
+        sheet.showInView(UIApplication.sharedApplication().delegate!.window!)
     }
 }

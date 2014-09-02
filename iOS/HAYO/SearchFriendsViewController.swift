@@ -84,27 +84,26 @@ class SearchFriendsViewController: UIViewController, UITableViewDelegate, UITabl
         selectAllImpl()
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView!) -> Int
-    {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return friendsCandidates != nil ? 1 : 0
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as FriendCandidateCell
         cell.isSelected = true
         updateCount()
     }
     
-    func tableView(tableView: UITableView!, didDeselectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as FriendCandidateCell
         cell.isSelected = false
         updateCount()
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendsCandidates!.count
     }
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendCandidateCell", forIndexPath: indexPath) as FriendCandidateCell
         cell.selectionStyle = .None
         let user = friendsCandidates![indexPath.row]

@@ -45,7 +45,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
     }
     @IBAction func hayoDidTap(sender: UIButton) {
-        let user = users.fetchedObjects[carousel.currentItemIndex] as User
+        let user = users.fetchedObjects![carousel!.currentItemIndex] as User
         let message = hayoManager[0].messages[pickerView.selectedRowInComponent(0)]
         ParseClient.sharedInstance.hayo(user, messageId: message.id, category: "HAYO") { result, error in
             if nil != error {
@@ -59,13 +59,13 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func profileDidTap() {
         let vc = MenuViewController.create()
-        self.navigationController.modalPresentationStyle = .CurrentContext // iOS7用
+        self.navigationController!.modalPresentationStyle = .CurrentContext // iOS7用
         self.presentViewController(vc, animated: isIOS8OrLater(), completion: {})
     }
     
     @IBAction func homeButtonDidTap(sender: UIBarButtonItem) {
         let hayoVC = HayoListViewController.create()
-        self.navigationController.presentViewController(hayoVC, animated: true, completion: {})
+        self.navigationController!.presentViewController(hayoVC, animated: true, completion: {})
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -74,7 +74,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int {
-        let count = users.fetchedObjects.count
+        let count = users.fetchedObjects!.count
         self.hayoButton.enabled = count != 0
         return count
     }
@@ -88,21 +88,13 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         } else {
             println("view resused")
         }
-        let user = users.fetchedObjects[Int(index)] as User
+        let user = users.fetchedObjects![Int(index)] as User
         friendView.user = user
         return friendView
     }
     
     func carouselItemWidth(carousel: iCarousel!) -> CGFloat {
         return 140
-    }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int {
-        return hayoManager[0].messages.count
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
@@ -112,33 +104,40 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
         
         let vc = FriendViewController.create()
-        let user = users.fetchedObjects[index] as User
+        let user = users.fetchedObjects![index] as User
         let friendVC = vc.topViewController as FriendViewController
         friendVC.user = user
         self.presentViewController(vc, animated: true, completion: {})
     }
     
-    func pickerView(pickerView: UIPickerView!, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString! {
-        
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return hayoManager[0].messages.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: hayoManager[0].messages[row].message, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
     }
     
-    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.dismissProgress()
     }
 
     // MARK: FetchedResultsControllerDelegate
-    func controllerDidChangeContent(controller: NSFetchedResultsController!) {
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
         if _needReload {
             carousel.reloadData()
         }
     }
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController!)  {
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
         _needReload = false
     }
     
-    func controller(controller: NSFetchedResultsController!, didChangeObject anObject: AnyObject!, atIndexPath indexPath: NSIndexPath!, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath!) {
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         if type != .Update {
             _needReload = true
         }

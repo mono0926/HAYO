@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
         self.performSegueWithIdentifier("Registration", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Registration" {
             let vc = segue.destinationViewController.topViewController as RegistrationViewController
             vc.user = snsUser

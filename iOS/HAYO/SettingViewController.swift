@@ -21,15 +21,15 @@ class SettingViewController: UITableViewController {
         self.configureBackgroundTheme()
     }
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         switch indexPath.row  {
         case 0:
             let searchVC = SearchFriendsViewController.create()
-            self.navigationController.pushViewController(searchVC, animated: true)
+            self.navigationController!.pushViewController(searchVC, animated: true)
         case 3:
             let accountVc = AccountSettingViewController.create()
-            self.navigationController.pushViewController(accountVc, animated: true)
+            self.navigationController!.pushViewController(accountVc, animated: true)
         default:
             break
         }

@@ -46,7 +46,7 @@ class FriendHayoCell: SWTableViewCell, SWTableViewCellDelegate {
         self.delegate = self
         _originalWidth = profileImageButtonWidthConstraint.constant
         profileImageButton.configureAsMyCircle()
-        profileImageButton.imageView.contentMode = .ScaleAspectFill;
+        profileImageButton.imageView!.contentMode = .ScaleAspectFill;
     }
     
     func setupRightButtons() {
