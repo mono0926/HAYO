@@ -12,8 +12,10 @@
 	<dict>
 		<key>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</key>
 		<string>github.com:SheepYo/HAYO.git</string>
-		<key>F5B4EC300E7199406BA2B2AA6070092FA65DDD89</key>
-		<string>github.com:mxcl/PromiseKit.git</string>
+		<key>95438028B10BBB846574013D29F154A00556A9D1</key>
+		<string>https://github.com/quick-bdd/Nimble.git</string>
+		<key>D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64</key>
+		<string>github.com:Quick/Quick.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>iOS/HAYO.xcworkspace</string>
@@ -21,8 +23,10 @@
 	<dict>
 		<key>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</key>
 		<string>../..</string>
-		<key>F5B4EC300E7199406BA2B2AA6070092FA65DDD89</key>
-		<string>../../iOS/PromiseKit</string>
+		<key>95438028B10BBB846574013D29F154A00556A9D1</key>
+		<string>../../iOS/Vendor/Quick/Externals/Nimble/</string>
+		<key>D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64</key>
+		<string>../../iOS/Vendor/Quick/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:SheepYo/HAYO.git</string>
@@ -44,9 +48,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F5B4EC300E7199406BA2B2AA6070092FA65DDD89</string>
+			<string>95438028B10BBB846574013D29F154A00556A9D1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>PromiseKit</string>
+			<string>Nimble</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Quick</string>
 		</dict>
 	</array>
 </dict>

@@ -6,31 +6,21 @@
 //  Copyright (c) 2014 Sheep. All rights reserved.
 //
 
-import UIKit
-import XCTest
+import Quick
+import Nimble
 
-class SheepTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+class TableOfContentsSpec: QuickSpec {
+    override func spec() {
+        describe("the table of contents below") {
+            it("has everything you need to get started") {
+                expect("Quick: Examples and Example Groups").to(contain("Quick: Examples and Example Groups"))
+            }
+            
+            context("if it doesn't have what you're looking for") {
+                it("needs to be updated") {
+                    expect{true}.toEventually(beTruthy())
+                }
+            }
         }
     }
-    
 }

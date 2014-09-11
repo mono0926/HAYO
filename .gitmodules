@@ -1,0 +1,6 @@
+[submodule "iOS/Vendor/Quick"]
+	path = iOS/Vendor/Quick
+	url = git@github.com:Quick/Quick.git
+[submodule "iOS/Vendor/Nimble"]
+	path = iOS/Vendor/Nimble
+	url = git@github.com:Quick/Nimble.git

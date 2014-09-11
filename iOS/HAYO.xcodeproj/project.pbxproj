@@ -38,6 +38,8 @@
 		FEB7BC8F198662E500321AC3 /* TypedSNSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */; };
 		FEB977C11991D7EA000032E6 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB977C01991D7EA000032E6 /* FriendViewController.swift */; };
 		FEB977C31991D7F4000032E6 /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB977C21991D7F4000032E6 /* Friend.storyboard */; };
+		FEBD90B019C180BA0028F5C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBD90AD19C180890028F5C3 /* Quick.framework */; };
+		FEBD90B219C181040028F5C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBD90B119C181040028F5C3 /* Nimble.framework */; };
 		FEBED927198B0738003E93EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEBED926198B0738003E93EB /* Localizable.strings */; };
 		FEC4AB3E19819DE000E84978 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3C19819DE000E84978 /* Model.xcdatamodeld */; };
 		FEC4AB4019819E0C00E84978 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4AB3F19819E0C00E84978 /* Account.swift */; };
@@ -65,6 +67,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FEBD90A819C180890028F5C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEBD90A019C180880028F5C3 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DAEB6B8E1943873100289F44;
+			remoteInfo = Quick;
+		};
+		FEBD90AA19C180890028F5C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEBD90A019C180880028F5C3 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DAEB6B991943873100289F44;
+			remoteInfo = QuickTests;
+		};
+		FEBD90AC19C180890028F5C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEBD90A019C180880028F5C3 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A5D117C19473F2100F6D13D;
+			remoteInfo = "Quick-iOS";
+		};
+		FEBD90AE19C180890028F5C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEBD90A019C180880028F5C3 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A5D118619473F2100F6D13D;
+			remoteInfo = "Quick-iOSTests";
+		};
 		FECB66F71980B2DA00FFD05C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FECB66DC1980B2DA00FFD05C /* Project object */;
@@ -111,6 +141,8 @@
 		FEB7BC8E198662E500321AC3 /* TypedSNSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedSNSUser.swift; sourceTree = "<group>"; };
 		FEB977C01991D7EA000032E6 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		FEB977C21991D7F4000032E6 /* Friend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
+		FEBD90A019C180880028F5C3 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Vendor/Quick/Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
+		FEBD90B119C181040028F5C3 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Vendor/Quick/Externals/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		FEBED926198B0738003E93EB /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FEC4AB3D19819DE000E84978 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		FEC4AB3F19819E0C00E84978 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -156,6 +188,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEBD90B219C181040028F5C3 /* Nimble.framework in Frameworks */,
+				FEBD90B019C180BA0028F5C3 /* Quick.framework in Frameworks */,
 				9DE252B91FDA46EB9E7E1CA5 /* libPods-HAYOTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +200,7 @@
 		82555195273D4FD39C824368 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEBD90B119C181040028F5C3 /* Nimble.framework */,
 				FEABE80A19A197FB0078CEFF /* UIKit.framework */,
 				FE7C17851980B64A0070FAD3 /* Crashlytics.framework */,
 				A2A73363C7814AD39855A577 /* libPods-HAYO.a */,
@@ -259,6 +294,17 @@
 				FED0B08219AB1DC100ECCE07 /* FriendReplyCell.swift */,
 			);
 			name = Frined;
+			sourceTree = "<group>";
+		};
+		FEBD90A119C180880028F5C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEBD90A919C180890028F5C3 /* Quick.framework */,
+				FEBD90AB19C180890028F5C3 /* QuickTests.xctest */,
+				FEBD90AD19C180890028F5C3 /* Quick.framework */,
+				FEBD90AF19C180890028F5C3 /* Quick-iOSTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		FEC4AB3819819BF500E84978 /* UI */ = {
@@ -369,6 +415,7 @@
 		FECB66F91980B2DA00FFD05C /* HAYOTests */ = {
 			isa = PBXGroup;
 			children = (
+				FEBD90A019C180880028F5C3 /* Quick.xcodeproj */,
 				FECB66FC1980B2DA00FFD05C /* SheepTests.swift */,
 				FECB66FA1980B2DA00FFD05C /* Supporting Files */,
 			);
@@ -490,6 +537,12 @@
 			mainGroup = FECB66DB1980B2DA00FFD05C;
 			productRefGroup = FECB66E51980B2DA00FFD05C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FEBD90A119C180880028F5C3 /* Products */;
+					ProjectRef = FEBD90A019C180880028F5C3 /* Quick.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FECB66E31980B2DA00FFD05C /* HAYO */,
@@ -497,6 +550,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FEBD90A919C180890028F5C3 /* Quick.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Quick.framework;
+			remoteRef = FEBD90A819C180890028F5C3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FEBD90AB19C180890028F5C3 /* QuickTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = QuickTests.xctest;
+			remoteRef = FEBD90AA19C180890028F5C3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FEBD90AD19C180890028F5C3 /* Quick.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Quick.framework;
+			remoteRef = FEBD90AC19C180890028F5C3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FEBD90AF19C180890028F5C3 /* Quick-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Quick-iOSTests.xctest";
+			remoteRef = FEBD90AE19C180890028F5C3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FECB66E21980B2DA00FFD05C /* Resources */ = {
@@ -815,10 +899,7 @@
 			baseConfigurationReference = 3AFC4349CDA84B2188819E39 /* Pods-HAYOTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HAYO.app/HAYO";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -835,10 +916,7 @@
 			baseConfigurationReference = 3AFC4349CDA84B2188819E39 /* Pods-HAYOTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HAYO.app/HAYO";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = HAYOTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = HAYOTests;
