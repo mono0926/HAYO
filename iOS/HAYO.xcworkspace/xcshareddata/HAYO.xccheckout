@@ -24,9 +24,9 @@
 		<key>31BBF7AE2E00B68B697A4D3F7618FAD3572502AB</key>
 		<string>../..</string>
 		<key>95438028B10BBB846574013D29F154A00556A9D1</key>
-		<string>../../iOS/Vendor/Quick/Externals/Nimble/</string>
+		<string>../../iOS/Vendor/Quick/Externals/Nimble</string>
 		<key>D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64</key>
-		<string>../../iOS/Vendor/Quick/</string>
+		<string>../../iOS/Vendor/Quick</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:SheepYo/HAYO.git</string>
