@@ -60,7 +60,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         self.dismissViewControllerAnimated(true, completion: {})
     }
     
-    func numberOfSectionsIntableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return hayoList.fetchedObjects!.count
     }
     
