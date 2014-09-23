@@ -53,7 +53,7 @@ class Account: User {
             if user.isNew {
                 let twitter = PFTwitterUtils.twitter()
                 println(twitter.consumerKey)
-                let url = NSURL(string: NSString(format: "https://api.twitter.com/1.1/users/show.json?screen_name=%@", twitter.screenName))
+                let url = NSURL(string: NSString(format: "https://api.twitter.com/1.1/users/show.json?screen_name=%@", twitter.screenName))!
                 println(url)
                 var request = NSMutableURLRequest(URL: url)
                 twitter.signRequest(request)
@@ -146,7 +146,7 @@ class Account: User {
             return
         }
         let twitter = PFTwitterUtils.twitter()
-        let url = NSURL(string: NSString(format: "https://api.twitter.com/1.1/friends/list.json?screen_name=%@", twitter.screenName))
+        let url = NSURL(string: NSString(format: "https://api.twitter.com/1.1/friends/list.json?screen_name=%@", twitter.screenName))!
         var request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "GET"
         twitter.signRequest(request)

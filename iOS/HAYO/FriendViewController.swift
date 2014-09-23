@@ -40,10 +40,10 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         self.configureBackgroundTheme()
         profileImageView.configureAsMyCircle()
         
-        tableView.registerNib(UINib(nibName: "MyHayoCell", bundle: nil), forCellReuseIdentifier: "MyHayoCell")
-        tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil), forCellReuseIdentifier: "FriendHayoCell")
-        tableView.registerNib(UINib(nibName: "MyReplyCell", bundle: nil), forCellReuseIdentifier: "MyReplyCell")
-        tableView.registerNib(UINib(nibName: "FriendReplyCell", bundle: nil), forCellReuseIdentifier: "FriendReplyCell")
+        tableView.registerNib(UINib(nibName: "MyHayoCell", bundle: nil)!, forCellReuseIdentifier: "MyHayoCell")
+        tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil)!, forCellReuseIdentifier: "FriendHayoCell")
+        tableView.registerNib(UINib(nibName: "MyReplyCell", bundle: nil)!, forCellReuseIdentifier: "MyReplyCell")
+        tableView.registerNib(UINib(nibName: "FriendReplyCell", bundle: nil)!, forCellReuseIdentifier: "FriendReplyCell")
         
         println(user.username)
         self.title = user.username

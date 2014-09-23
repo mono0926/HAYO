@@ -20,7 +20,7 @@ func copyResource(resourceName: String, #targetName:String) -> String {
 }
 
 func createUUID() -> String {
-    return NSUUID.UUID().UUIDString
+    return NSUUID().UUIDString
 }
 
 func getDocumentPath() -> String {
@@ -28,11 +28,22 @@ func getDocumentPath() -> String {
 }
 
 enum DispatchPriority : Int {
-    case High = 0, Default, Low
+    case High = 0, Default, Background
 }
 
 func dispatchAsync(priority: DispatchPriority, block:() -> ()) {
-    dispatch_async(dispatch_get_global_queue(priority.toRaw(), 0)) {
+    
+    var p = -1
+    switch priority {
+    case .High:
+        p = DISPATCH_QUEUE_PRIORITY_HIGH
+    case .Default:
+        p = DISPATCH_QUEUE_PRIORITY_DEFAULT
+    case .Background:
+        p = DISPATCH_QUEUE_PRIORITY_BACKGROUND
+    }
+    
+    dispatch_async(dispatch_get_global_queue(p, 0)) {
         block()
     }
 }
@@ -111,7 +122,7 @@ extension UIImage {
 
 extension NSURL {
     func saveTemporary() {
-        let data = NSData(contentsOfURL: self)        
+        let data = NSData(contentsOfURL: self)!
         data.saveTemporary(self.lastPathComponent)
     }
 }
@@ -152,7 +163,7 @@ extension NSDate {
         formatter.locale = NSLocale.currentLocale()
         formatter.dateStyle = .NoStyle;
         formatter.timeStyle = .ShortStyle;
-        let dateString = formatter.stringFromDate(NSDate.date())
+        let dateString = formatter.stringFromDate(NSDate())
         let amRange = dateString.rangeOfString(formatter.AMSymbol)
         let pmRange = dateString.rangeOfString(formatter.PMSymbol)
         let is24Mode = amRange == nil && pmRange == nil

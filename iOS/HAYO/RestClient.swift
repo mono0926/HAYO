@@ -18,7 +18,7 @@ class RestClient {
     
     func get(path: String, completed: (image: UIImage?) -> ()) {
         
-        let request = NSMutableURLRequest(URL: NSURL(string: path))
+        let request = NSMutableURLRequest(URL: NSURL(string: path)!)
         request.HTTPMethod = "GET"
         let requestOp = AFHTTPRequestOperation(request: request)
         requestOp.setCompletionBlockWithSuccess({op, response in
