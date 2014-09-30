@@ -212,7 +212,7 @@ class Account: User {
         if account == nil {
             return
         }
-        let moc = account.managedObjectContext
+        let moc = account.managedObjectContext!
         moc.deleteObject(account)
         moc.MR_saveOnlySelfAndWait()
     }
