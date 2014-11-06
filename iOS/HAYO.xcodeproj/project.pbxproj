@@ -18,6 +18,7 @@
 		FE12D6AE1987BA510019DF03 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE12D6AD1987BA510019DF03 /* UIUtils.swift */; };
 		FE254BCB198B08C400BA9848 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE254BCA198B08C400BA9848 /* SearchFriendsViewController.swift */; };
 		FE266A4F198C46A7001A0F13 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE5E82831985898000898315 /* Login.storyboard */; };
+		FE34CE611A0B06C00000921F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE34CE601A0B06C00000921F /* Fabric.framework */; };
 		FE38E09119874EAA00CEE29B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */; };
 		FE38E09319874F1B00CEE29B /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38E09219874F1B00CEE29B /* ParseClient.swift */; };
 		FE50AD0B1987D8700054B5F3 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE50AD0A1987D8700054B5F3 /* FriendCell.xib */; };
@@ -87,6 +88,7 @@
 		FE06C74419941EEE00CE8FEA /* MyHayoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHayoCell.swift; sourceTree = "<group>"; };
 		FE12D6AD1987BA510019DF03 /* UIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
 		FE254BCA198B08C400BA9848 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
+		FE34CE601A0B06C00000921F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		FE38E09019874EAA00CEE29B /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FE38E09219874F1B00CEE29B /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		FE50AD0A1987D8700054B5F3 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				FEABE80B19A197FB0078CEFF /* UIKit.framework in Frameworks */,
 				FE7C17861980B64A0070FAD3 /* Crashlytics.framework in Frameworks */,
 				3E25E533CB034ED487ABCDC6 /* libPods-HAYO.a in Frameworks */,
+				FE34CE611A0B06C00000921F /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +170,7 @@
 			children = (
 				FEBD90B119C181040028F5C3 /* Nimble.framework */,
 				FEABE80A19A197FB0078CEFF /* UIKit.framework */,
+				FE34CE601A0B06C00000921F /* Fabric.framework */,
 				FE7C17851980B64A0070FAD3 /* Crashlytics.framework */,
 				A2A73363C7814AD39855A577 /* libPods-HAYO.a */,
 				7BE7ADF2C8F04E1489FE3809 /* libPods-HAYOTests.a */,
@@ -604,7 +608,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run d95b1c50531d0d17895fc1a2c84053145215f757 06a55988c3cabcf78001bf22eb05a53885e06aa86a368ea54d440601ccfc9239";
+			shellScript = "./Fabric.framework/run d95b1c50531d0d17895fc1a2c84053145215f757 06a55988c3cabcf78001bf22eb05a53885e06aa86a368ea54d440601ccfc9239";
 		};
 /* End PBXShellScriptBuildPhase section */
 
