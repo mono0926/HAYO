@@ -24,8 +24,8 @@ class HayoListViewController: UIViewController, NSFetchedResultsControllerDelega
         
         self.tableView.backgroundView = nil
         self.configureBackgroundTheme()
-        tableView.registerNib(UINib(nibName: "MyReplyCell", bundle: nil)!, forCellReuseIdentifier: "MyReplyCell")
-        tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil)!, forCellReuseIdentifier: "FriendHayoCell")
+        tableView.registerNib(UINib(nibName: "MyReplyCell", bundle: nil), forCellReuseIdentifier: "MyReplyCell")
+        tableView.registerNib(UINib(nibName: "FriendHayoCell", bundle: nil), forCellReuseIdentifier: "FriendHayoCell")
     }
     
     override func viewWillAppear(animated: Bool) {

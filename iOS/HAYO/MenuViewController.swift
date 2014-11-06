@@ -57,7 +57,7 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
     @IBAction func findFriendDidTap(sender: UIButton) {
         let searchVC = SearchFriendsViewController.create()
-        let navVC = UINavigationController(rootViewController: searchVC)!
+        let navVC = UINavigationController(rootViewController: searchVC)
         self.presentViewController(navVC, animated: true, completion: {})
     }
     @IBAction func shareMyIdDidTap(sender: UIButton) {
@@ -82,7 +82,7 @@ class MenuViewController: UIViewController, UIViewControllerTransitioningDelegat
     
     func showAccountSetting() {
         let vc = AccountSettingViewController.create()
-        let navVC = UINavigationController(rootViewController: vc)!
+        let navVC = UINavigationController(rootViewController: vc)
         self.presentViewController(navVC, animated: true) {}
     }
     

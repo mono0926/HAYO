@@ -21,7 +21,7 @@ class SearchFriendsViewController: UIViewController, UITableViewDelegate, UITabl
         self.view.configureBackgroundTheme()
         self.setEditing(true, animated: false)
         
-        tableView.registerNib(UINib(nibName: "FriendCandidateCell", bundle: nil)!, forCellReuseIdentifier: "FriendCandidateCell")
+        tableView.registerNib(UINib(nibName: "FriendCandidateCell", bundle: nil), forCellReuseIdentifier: "FriendCandidateCell")
         self.tableView.rowHeight = 70
         
         Account.searchFriendCandidates() { friendsCandidates in
