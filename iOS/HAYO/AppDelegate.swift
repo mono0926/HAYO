@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ObjcHelper.applyAutoScreenTracking()
         
         Crashlytics.startWithAPIKey("d95b1c50531d0d17895fc1a2c84053145215f757")
+        Fabric.with([Crashlytics()])
         return true;
     }
     
