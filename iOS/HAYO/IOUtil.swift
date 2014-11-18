@@ -123,7 +123,7 @@ extension UIImage {
 extension NSURL {
     func saveTemporary() {
         let data = NSData(contentsOfURL: self)!
-        data.saveTemporary(self.lastPathComponent)
+        data.saveTemporary(self.lastPathComponent!)
     }
 }
 
